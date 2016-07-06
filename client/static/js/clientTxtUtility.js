@@ -5,7 +5,6 @@ function checkClientTxtLocation() {
     try {
       storage.get('clientTxtLocation')
       .then((clientTxtLocation) => {
-        console.log(clientTxtLocation)
         fs.stat(clientTxtLocation, function(err, stat) {
           if(!err) {
             return storage.set('clientTxtLocationValid', true)

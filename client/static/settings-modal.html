@@ -19,12 +19,32 @@
             </button>
           </div>
           <div class="form-group">
+            <label>Path of Exile Account Username</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label>poe.trade API Key:</label>
+            <input type="text" class="form-control" id="api-key">
+          </div>
+          <div class="form-group">
+            <label>pathofexile.com Session ID:</label>
+            <input type="text" class="form-control" id="poe-sess-id">
+          </div>
+          <div class="form-group">
+            <label>Username Whitelist (comma separated values):</label>
+            <input type="text" class="form-control" id="username-whitelist">
+          </div>
+          <div class="form-group">
             <button id="clear-data-button" type="button" class="btn btn-default">
               Clear Data
             </button>
           </div>
         </div>
       </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button id="save-settings-btn" type="button" class="btn btn-primary">Save changes</button>
     </div>
   </div>
 </div>

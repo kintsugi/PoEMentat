@@ -6,7 +6,7 @@ try {
     console.log('Database Initialization Complete')
     var routes = require('./routes.js');
     routes.startServer();
-    routes.startAutoImport();
+    //routes.startAutoImport();
   }) 
   .catch(throwErr)
 } catch(err) {

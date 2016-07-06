@@ -81,11 +81,55 @@
       <!-- /.container -->
     </nav>
 
+    <label id="currency-btn-template" type="radio" class="btn btn-default currency-btn" style="display: none;">
+      <input type="radio" name="options" autocomplete="off">
+      <img src="imgs/Chaos_Orb.png" class="currency-img">
+      </input>
+    </label>
+
     <!-- Page Content -->
     <div class="container">
       <br>
       <div id="client-txt-not-found-alert" class="alert alert-warning alert-dismissible fade in" role="alert" style="display: none;">
         <strong>Client.txt not found</strong> Find your Client.txt using the settings menu above.
+      </div>
+      <ul id="tab-bar" class="nav nav-tabs">
+        <li role="presentation" class="active"><a id="home-tab" href="#home" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a id="notifications-tab" href="#notifications" data-toggle="tab">Notifications</a></li>
+        <li role="presentation"><a id="manage-orders-tab" href="#manage-orders" data-toggle="tab">Manage Orders</a></li>
+      </ul>
+      <!--Tab Content-->
+      <div id="tab-content" class="tab-content">
+        <!--Home Tab-->
+        <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+        </div>
+        <!--./Home Tab-->
+        <!--Notifications Tab-->
+        <div role="tabpanel" class="tab-pane fade" id="notifications" aria-labelledby="profile-tab">
+        </div>
+        <!--./Notifications Tab-->
+        <!--Manage Orders Tab-->
+        <div role="tabpanel" class="tab-pane fade" id="manage-orders" aria-labelledby="profile-tab">
+          <div class="row">
+            <div id="orders-tab-main-currency-container" class="currency-container col-xs-6 btn-group" data-toggle="buttons">
+              <h4>Main Currency</h4>
+            </div>
+            <div id="orders-tab-alternate-currency-container" class="currency-container col-xs-6 btn-group" data-toggle="buttons">
+              <h4>Alternate Currency</h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <br>
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-primary">
+                Go
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--./Manage Orders Tab-->
+
       </div>
     </div>
     <!-- /.container -->
