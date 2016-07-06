@@ -7,17 +7,16 @@ function checkClientTxtLocation() {
       .then((clientTxtLocation) => {
         console.log(clientTxtLocation)
         fs.stat(clientTxtLocation, function(err, stat) {
-          console.log(err)
           if(!err) {
             return storage.set('clientTxtLocationValid', true)
           } else {
             return storage.set('clientTxtLocationValid', false)
           }
         })
-      })
+      }, reject)
       .then(() => {
         fulfill(storage.get('clientTxtLocationValid'))
-      })
+      }, reject)
     } catch(err) {
       reject(err)
     }
