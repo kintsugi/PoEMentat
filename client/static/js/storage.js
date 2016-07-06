@@ -32,7 +32,21 @@ function set(key, value) {
   });
 }
 
+function clear() {
+
+  return new Promise(function(fulfill, reject) {
+    try {
+      storage.clear(() => {
+        fulfill();
+      });
+    } catch(err) {
+      reject(err)
+    }
+  });
+}
+
 module.exports = {
   get: get,
   set: set,
+  clear: clear 
 }
