@@ -1,0 +1,50 @@
+
+.currency-btn {
+  margin: 2px;
+}
+
+.currency-img {
+  width: 32px;
+  height: 32px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.fastLine {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px;
+}
+
+.slowLine {
+  fill: none;
+  stroke: green;
+  stroke-width: 2px;
+}
+
+.volumeBar {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.medianLine {
+  fill: none;
+  stroke: yellow;
+  stroke-width: 1px;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+}
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}

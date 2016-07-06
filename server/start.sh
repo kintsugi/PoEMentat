@@ -1,0 +1,2 @@
+source auth.sh
+gulp
