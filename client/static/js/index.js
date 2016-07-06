@@ -1,10 +1,16 @@
 const {dialog} = require('electron').remote;
+var fs = require('fs');
 var throwErr = require('./js/throwErr.js')
-var clientTxtWatcher = require('./js/clientTxtWatcher.js')
+var clientTxtWatcher = new require('./js/clientTxtWatcher.js');
 var Emitter = require('./js/Emitter.js')
+var modal = require('./js/modal.js')
+var storage = require('./js/storage.js')
+var clientTxtUtility = require('./js/clientTxtUtility.js')
+
+clientTxtUtility.correct();
 
 Emitter.on('clientTxtUpdate', (newLines) => {
-  console.log(newLines);
+
 })
 
 $(document).ready(function(){
@@ -21,8 +27,46 @@ $(document).ready(function(){
     }
   })
 
-  $('#open-client-txt-button').on('click', () => {
-    clientTxtWatcher.watch();
+  $('body').on('click', '#open-client-txt-button', () => {
+    clientTxtWatcher.open()
+    .then((clientTxtData) => {
+      console.log(clientTxtData)
+      $('#client-txt-location').val(clientTxtData.name)
+        if(!clientTxtData.result) {
+          $('#client-txt-not-found-alert').show();
+        } else {
+          $('#client-txt-not-found-alert').hide();
+        }
+      }, throwErr)
+  })
+
+  $('#settings-btn').on('click', () => {
+    modal.open($, 'settings-modal.html', '#settings-modal', '#settings-modal-btn')
+    .then(() => {
+      return storage.get('clientTxtLocation')
+    }, throwErr)
+    .then((clientTxtLocation) => {
+      if(typeof clientTxtLocation == 'string') {
+        $('#client-txt-location').val(clientTxtLocation)
+      }
+      clientTxtUtility.check()
+      .then((result) => {
+        if(!result) {
+          $('#client-txt-not-found-alert').show();
+        } else {
+          $('#client-txt-not-found-alert').hide();
+        }
+      })
+    }, throwErr)
+  })
+
+  storage.get('clientTxtLocationValid')
+  .then((result) => {
+    if(!result) {
+      $('#client-txt-not-found-alert').show();
+    } else {
+      $('#client-txt-not-found-alert').hide();
+    }
   })
 
   

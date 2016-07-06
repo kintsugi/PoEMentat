@@ -1,4 +1,4 @@
-# ExileMentat
+# PoEMentat
 
 Path of Exile currency market speculation and trading tool.
 
