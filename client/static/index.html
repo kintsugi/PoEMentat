@@ -48,6 +48,88 @@
     <button id="settings-modal-btn" type="button" class="btn" data-toggle="modal" data-target="#settings-modal" style="display: none;"></button>
     <div id="settings-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="settings" aria-hidden="true">
     </div>
+    <!--./Modals and Hidden Modal Buttons-->
+
+    <!--Element Templates-->
+    <label id="currency-btn-template" type="radio" class="btn btn-default currency-btn" style="display: none;">
+      <input type="radio" name="options" autocomplete="off">
+      <img src="imgs/Chaos_Orb.png" class="currency-img">
+      </input>
+    </label>
+labelZjj
+    <div id="currency-value-template" 
+      mode="currency"
+      currency_1_id=4
+      currency_2_id=4
+      alert-type="none"
+      alert-text=""
+      junction-mode="value-direction"
+      direction="right"
+      lhs_value=0
+      rhs_value=0
+      junction-alert-type="none"
+      junction-alert-text=""
+      class="currency-value"
+      style="display: none;"
+    >
+
+      <div class="alert-only text-center" style="display: none">
+      </div>
+      <div class="currency-1">
+        <img src="imgs/Chaos_Orb.png" class="currency-img">
+      </div>
+      <div class="junction text-center">
+      </div>
+      <div class="currency-2 ">
+        <img src="imgs/Chaos_Orb.png" class="currency-img">
+      </div>
+    </div>
+
+    <div id="offer-row-template" style="display:none" class="col-xs-12 offer-row divider-bottom">
+      <div class="col-xs-4">
+        IGN: <span class="ign"></span>
+        Username: <span class="username"></span>
+      </div>
+      <div class="col-xs-4 offer-container">
+      </div>
+      <div class="col-xs-4 offer-container-unit-price">
+      </div>
+    </div>
+
+    <div id="owned-offer-template" class="col-xs-12 owned-offer" style="padding: 5px; display: none;">
+      <div class="basic-border col-xs-12">
+        <span class="col-xs-12 text-center divider-bottom">Your Order</span>
+        <div class="col-xs-12 divider-bottom">
+          <div class="col-xs-4 col-xs-offset-2 currency-value-container">
+          </div>
+          <div class="col-xs-4 currency-value-unit-price-container">
+          </div>
+        </div>
+
+        <div class="col-xs-4" style="padding: 5px">
+          <div class="basic-border">
+            Settings
+            Settings
+          </div>
+        </div>
+
+        <div class="col-xs-4" style="padding: 5px">
+          <div class="alert alert-info">
+            Order Status Here
+            Settings
+          </div>
+        </div>
+
+        <div class="col-xs-4" style="padding: 5px; height: 100%">
+          <button type="button" class="btn btn-success" style="width: 100%; height: 100%;">
+            Activate Order 
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!--./Element Templates-->
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -81,11 +163,6 @@
       <!-- /.container -->
     </nav>
 
-    <label id="currency-btn-template" type="radio" class="btn btn-default currency-btn" style="display: none;">
-      <input type="radio" name="options" autocomplete="off">
-      <img src="imgs/Chaos_Orb.png" class="currency-img">
-      </input>
-    </label>
 
     <!-- Page Content -->
     <div class="container">
@@ -96,7 +173,8 @@
       <ul id="tab-bar" class="nav nav-tabs">
         <li role="presentation" class="active"><a id="home-tab" href="#home" data-toggle="tab">Home</a></li>
         <li role="presentation"><a id="notifications-tab" href="#notifications" data-toggle="tab">Notifications</a></li>
-        <li role="presentation"><a id="manage-orders-tab" href="#manage-orders" data-toggle="tab">Manage Orders</a></li>
+        <li role="presentation"><a id="my-orders-tab" href="#my-orders" data-toggle="tab">My Orders</a></li>
+        <li role="presentation"><a id="browse-market-tab" href="#browse-market" data-toggle="tab">Browse Market</a></li>
       </ul>
       <!--Tab Content-->
       <div id="tab-content" class="tab-content">
@@ -108,28 +186,57 @@
         <div role="tabpanel" class="tab-pane fade" id="notifications" aria-labelledby="profile-tab">
         </div>
         <!--./Notifications Tab-->
-        <!--Manage Orders Tab-->
-        <div role="tabpanel" class="tab-pane fade" id="manage-orders" aria-labelledby="profile-tab">
+        <!--Browse Market Tab-->
+        <div role="tabpanel" class="tab-pane fade" id="browse-market" aria-labelledby="profile-tab">
           <div class="row">
-            <div id="orders-tab-main-currency-container" class="currency-container col-xs-6 btn-group" data-toggle="buttons">
+            <div id="browse-market-tab-main-currency-container" class="currency-container col-xs-6 btn-group" data-toggle="buttons">
               <h4>Main Currency</h4>
             </div>
-            <div id="orders-tab-alternate-currency-container" class="currency-container col-xs-6 btn-group" data-toggle="buttons">
+            <div id="browse-market-tab-alternate-currency-container" class="currency-container col-xs-6 btn-group" data-toggle="buttons">
               <h4>Alternate Currency</h4>
             </div>
           </div>
 
+          <br>
+
           <div class="row">
-            <br>
             <div class="col-xs-12">
-              <button type="button" class="btn btn-primary">
+              <button id="load-market-btn" type="button" class="btn btn-primary">
                 Go
               </button>
             </div>
           </div>
-        </div>
-        <!--./Manage Orders Tab-->
 
+          <br>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="basic-border">
+                <div class="row no-side-margins">
+                  <div id="browse-market-profit-container" class="col-xs-12 divider-bottom no-side-padding">
+                    Profit
+                  </div>
+                  <div id="browse-market-buy-container" class="col-xs-6 divider-right">
+                    <div id="browse-market-buy-offer-list" class="row">
+                    </div>
+                  </div>
+                  <div id="browse-market-sell-container" class="col-xs-6">
+                    <div id="browse-market-sell-offer-list" class="row">
+                    </div>
+                  </div>
+                  <div id="browse-market-graphs-container" class="col-xs-12 divider-top">
+                    Graphs
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--./Browse Market Tab-->
+        <!--My Orders Tab-->
+        <div role="tabpanel" class="tab-pane fade" id="my-orders" aria-labelledby="profile-tab">
+        </div>
+        <!--./My Orders Tab-->
       </div>
     </div>
     <!-- /.container -->

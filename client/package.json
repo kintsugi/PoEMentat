@@ -17,9 +17,13 @@
   },
   "homepage": "https://github.com/terminull/ExileMentat#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.6"
+    "electron-prebuilt": "^1.2.6",
+    "electron-rebuild": "^1.1.5"
   },
   "dependencies": {
-    "electron-json-storage": "^2.0.0"
+    "electron-json-storage": "^2.0.0",
+    "sequelize": "^3.23.4",
+    "sqlite": "^2.0.2",
+    "sqlite3": "^3.1.4"
   }
 }

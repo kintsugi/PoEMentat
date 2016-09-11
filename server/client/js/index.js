@@ -223,12 +223,12 @@ $(document).ready(function(){
     }
   })
 
-  $('#main-currency-container').on('click', '.currency-btn', function() {
+  $(document).on('click', '.currency-btn', function() {
     selectedMainCurrencyId = $(this).attr('currency_id');
     getGraphs();
   })
 
-  $('#alternate-currency-container').on('click', '.currency-btn', function() {
+  $(document).on('click', '.currency-btn', function() {
     selectedAlternateCurrencyId = $(this).attr('currency_id');
     getGraphs();
   })

@@ -1,4 +1,4 @@
-var throwErr = require('./throwErr.js');
+var throwErr = require('../static/js/throwErr.js');
 var database = require('./database.js')
 
 try {

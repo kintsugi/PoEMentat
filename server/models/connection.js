@@ -7,7 +7,6 @@ var connection = new sequelize('PoEMentat', 'root', process.env.PoEMentatAuth, {
     min: 0,
     idle: 10000,
   },
-  logging: false,
 });
 
 module.exports = connection;
