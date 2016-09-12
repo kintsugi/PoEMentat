@@ -7,10 +7,10 @@ function getOffersPage(options) {
   var url = 'http://currency.poe.trade/search?league=' + options.league + '&online=' + options.online;
   var wantUrl = '&want=';
   var haveUrl = '&have=';
-  for(var i in options.want) {
+  for(let i in options.want) {
     wantUrl += options.want[i] + '-';
   }
-  for(var i in options.have) {
+  for(let i in options.have) {
     haveUrl += options.have[i] + '-';
   }
   url += wantUrl + haveUrl;
@@ -18,11 +18,12 @@ function getOffersPage(options) {
   return new Promise((fulfill, reject) => {
     request(url, function(err, res, body) {
       if(!err && res.statusCode == 200) {
-        fulfill({league: options.league, body: body})
-      } else
+        fulfill({league: options.league, body: body});
+      } else {
         reject(err);
-    })
-  })
+      }
+    });
+  });
 }
 
 function sortOffers(offers) {
@@ -66,7 +67,7 @@ function parseOffersPage(offersPage) {
   return new Promise((fulfill, reject) => {
     async.each(htmlOffers, iterFunction, function(err) {
       if(err)
-        reject(err)
+        reject(err);
       else
         fulfill(sortOffers(offers));
     });
@@ -77,14 +78,14 @@ function parseOffersPage(offersPage) {
 
 module.exports = function(options) {
   options = options || {};
-  options.league = options.league || 'Hardcore Prophecy';
+  options.league = options.league || 'Hardcore Essence';
   options.online = options.online ? 'x' : '';
   options.want = options.want || [];
   options.have = options.have || [];
   return new Promise((fulfill, reject) => {
     getOffersPage(options)
     .then(parseOffersPage, reject)
-    .then(fulfill, reject)
+    .then(fulfill, reject);
   });
-}
+};
 

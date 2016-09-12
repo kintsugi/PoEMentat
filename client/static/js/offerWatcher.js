@@ -69,7 +69,7 @@ function watch() {
         refreshWatch(start);
 
       }, (err) => {
-        throw err
+        console.log(err);
       })
     } else {
       refreshWatch(start);

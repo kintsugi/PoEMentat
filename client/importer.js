@@ -1,5 +1,4 @@
 var importCurrencyTypes = require('./importCurrencyTypes.js');
-jar importOffers = require('./importOffers.js');
 var Models = require('./database.js').models;
 
 function getCurrencyTypesMap() {
@@ -97,38 +96,11 @@ function init() {
 
 }
 
-function saveImportOffers(offers) {
-  return new Promise(function(fulfill, reject) {
-    try {
-      if(offers.length > 0) {
-        console.log('Saving ' + offers.length + ' offers...');
-        Models.Imports.create({}).then(function(importEntry) {
-          for(var offer in offers)
-            offers[offer].import_id = importEntry.dataValues.id;
-
-          Models.Offers.bulkCreate(offers)
-          .then(function() {
-            fulfill(importEntry);
-          }, reject);
-        }, reject);
-      }
-    }catch(err) {
-      reject(err);
-    }
-  });
-}
-
 var Importer = {
-
-  run: function(options) {
+  run: function() {
     return new Promise(function(fulfill, reject) {
       try {
-        init().then(function() {
-          console.log('Downloading from currency.poe.trade...');
-          return importOffers(options);
-        }, reject)
-        .then(saveImportOffers, reject)
-        .then(fulfill, reject);
+        init().then(fulfill, reject);
       } catch(err) {
         reject(err);
       }

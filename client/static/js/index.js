@@ -12,19 +12,18 @@ var database = require('../database.js');
 var Models = database.models;
 var offerWatcher = require('./js/offerWatcher.js');
 var currencyValue = require('./js/currency-value.js');
+var importer = require('../importer.js');
+var autotrade = new (require('./js/autotrade.js'))();
 
 clientTxtUtility.correct();
 
 function getCurrencies() {
   return new Promise(function(fulfill, reject) {
-    var url = config.hostUrl + '/currencies';
-    $.get(url, function(data) {
-      try {
-        fulfill(JSON.parse(data));
-      } catch(err) {
-        reject(err);
-      }
-    });
+    importer.run()
+    .then((result) =>
+    {
+      fulfill(result);
+    }, reject);
   });
 }
 
@@ -98,7 +97,7 @@ $(document).ready(() => {
 
   $('body').on('click', '#open-client-txt-button', () => {
     clientTxtWatcher.open()
-    .then((clientTxtData) => {
+   .then((clientTxtData) => {
       $('#client-txt-location').val(clientTxtData.fileName);
         if(!clientTxtData.result) {
           $('#client-txt-not-found-alert').show();
@@ -207,7 +206,6 @@ $(document).ready(() => {
   });
   $('#load-market-btn').on('click', () => {
     if(browseMarketWatchId) {
-      offerWatcher.remove(browseMarketWatchId);
       Emitter.removeListener('offerUpdate ' + browseMarketWatchId, onBrowseMarketOfferUpdate);
     }
     $('#browse-market-buy-container').find('.row').empty();
@@ -215,6 +213,38 @@ $(document).ready(() => {
     browseMarketWatchId = offerWatcher.add(selectedMainCurrencyId, selectedAlternateCurrencyId);
     Emitter.on('offerUpdate ' + browseMarketWatchId, onBrowseMarketOfferUpdate);
 
+    setAutoTradeButton();
+  });
+
+  function setAutoTradeButton() {
+    $('#auto-trade-btn').show();
+    if(autotrade.isTrading(selectedMainCurrencyId, selectedAlternateCurrencyId)) {
+      $('#auto-trade-btn').removeClass('btn-success');
+      $('#auto-trade-btn').addClass('btn-danger');
+      $('#auto-trade-btn').text('Turn Off Autotrade');
+    } else {
+      $('#auto-trade-btn').addClass('btn-success');
+      $('#auto-trade-btn').removeClass('btn-danger');
+      $('#auto-trade-btn').text('Turn On Autotrade');
+    }
+  }
+
+  $('#auto-trade-btn').on('click', () =>
+  {
+    if(autotrade.isTrading(selectedMainCurrencyId, selectedAlternateCurrencyId)) {
+      autotrade.removeTrade(selectedMainCurrencyId, selectedAlternateCurrencyId);
+    } else {
+      autotrade.addTrade(selectedMainCurrencyId, selectedAlternateCurrencyId);
+    }
+    setAutoTradeButton();
+  });
+
+  $('#clear-shop-btn').on('click', () =>
+  {
+    autotrade.trades = [];
+    autotrade.orders = [];
+    autotrade.postTrades();
+    setAutoTradeButton();
   });
 
   function onBrowseMarketOfferUpdate(offers) {
@@ -229,7 +259,56 @@ $(document).ready(() => {
       updateOffers('sell', $('#browse-market-sell-offer-list'), offers.sellOffers);
     } else if($('#browse-market-sell-offer-list').children().length < 1) {      
         $('#browse-market-sell-offer-list').append('<div style="padding: 5px"><div class="alert alert-info" role="alert">No posted listings.</div></div>');
+    }
+    if(offers.sellOffers && offers.buyOffers) {
+      updateProfit(offers);
+    }
+  }
 
+  function updateProfit(offers) {
+    var minSell = offers.sellOffers[0], maxBuy = offers.buyOffers[0];
+    var sellMPA = minSell.buy_value / minSell.sell_value;
+    var buyMPA = maxBuy.sell_value / maxBuy.buy_value;
+
+    var sellAPM = minSell.sell_value / minSell.buy_value;
+    var buyAPM = maxBuy.buy_value / maxBuy.sell_value;
+
+    var profitMPA = sellMPA - buyMPA;
+    var profitAPM = buyAPM - sellAPM;
+
+    var buyValue = $('#browse-market-buy-profit-container').find('.currency-value');
+    var sellValue = $('#browse-market-sell-profit-container').find('.currency-value');
+
+    var buyOptions = {
+      mode: 'currency',
+      currency_1_id: maxBuy.buy_currency_id,
+      currency_2_id: maxBuy.sell_currency_id,
+      junctionMode: 'value-direction',
+      direction: 'right',
+      lhs_value: 1,
+      rhs_value: profitMPA.toFixed(4),
+    };
+
+    var sellOptions = {
+      mode: 'currency',
+      currency_1_id: minSell.buy_currency_id,
+      currency_2_id: minSell.sell_currency_id,
+      junctionMode: 'value-direction',
+      direction: 'right',
+      lhs_value: 1,
+      rhs_value: profitAPM.toFixed(4),
+    };
+
+    if(!$('#browse-market-buy-profit-container').find('.currency-value').length) {
+      currencyValue.newElement($, buyOptions, $('#browse-market-buy-profit-container'));
+    } else {
+      currencyValue.update($, buyValue[0], buyOptions);
+    }
+
+    if(!$('#browse-market-sell-profit-container').find('.currency-value').length) {
+      currencyValue.newElement($, sellOptions, $('#browse-market-sell-profit-container'));
+    } else {
+      currencyValue.update($, sellValue[0], sellOptions);
     }
   }
 
@@ -260,7 +339,7 @@ $(document).ready(() => {
     for(var i in offers) {
       var offerRow = offerRows[i];
       var offer = offers[i];
-      if(offer.username == settings.username) {
+      if(offer.username == userSettings.username) {
         userOffer = offer;
         userOfferIndex = i;
       }
