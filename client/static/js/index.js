@@ -8,8 +8,6 @@ var modal = require('./js/modal.js');
 var storage = require('./js/storage.js');
 var clientTxtUtility = require('./js/clientTxtUtility.js');
 var config = require('./js/config');
-var database = require('../database.js');
-var Models = database.models;
 var offerWatcher = require('./js/offerWatcher.js');
 var currencyValue = require('./js/currency-value.js');
 var importer = require('../importer.js');
@@ -177,7 +175,7 @@ $(document).ready(() => {
   $('body').on('click', '#clear-data-button', () => {
     storage.clear()
     .then(() => {
-      return database.clear();
+      return;
     }, throwErr)
     .then(() => {
       var window = remote.getCurrentWindow();

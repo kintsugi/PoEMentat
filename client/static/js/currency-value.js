@@ -1,4 +1,4 @@
-var Models = require('../../database.js').models;
+var importer = require('../../importer.js')
 
 var currencyValue = {
   init: init,
@@ -8,13 +8,13 @@ var currencyValue = {
 }
 
 function init($) {
-  Models.CurrencyTypes.findAll({})
+  importer.run()
   .then((currencyTypes) => {
     for(var i in currencyTypes) {
       var currency = currencyTypes[i];
       currencyValue.currencyNames[currency.id] = currency.name;
     }
-  })
+  });
 }
 
 var alertString = '<div class="alert" role="alert"></div>'
