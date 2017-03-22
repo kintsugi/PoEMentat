@@ -1,17 +1,16 @@
 // @flow
 import React, { Component } from 'react';
 import type { Children } from 'react';
+import NavigationPage from './NavigationPage'
 
 export default class App extends Component {
-  props: {
-    children: Children
-  };
+  constructor() {
+    super()
+  }
 
   render() {
     return (
-      <div>
-        {this.props.children}
-      </div>
+      <NavigationPage history={this.props.history}/>
     );
   }
 }
