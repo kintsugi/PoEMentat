@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Navigation from '../components/Navigation';
-import HomePage from './Homepage';
-import SettingsPage from './SettingsPage';
+import React, { Component } from 'react'
+import Navigation from '../components/Navigation'
+import HomePage from './Homepage'
+import SettingsPage from './SettingsPage'
 import Header from '../components/Header'
 import {
   Nav,
@@ -37,6 +37,6 @@ export default class NavigationPage extends Component {
         history={this.props.history}
         routes={routes}
       />
-    );
+    )
   }
 }

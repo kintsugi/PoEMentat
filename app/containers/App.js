@@ -1,6 +1,4 @@
-// @flow
-import React, { Component } from 'react';
-import type { Children } from 'react';
+import React, {  Component } from 'react'
 import NavigationPage from './NavigationPage'
 
 export default class App extends Component {
@@ -11,6 +9,6 @@ export default class App extends Component {
   render() {
     return (
       <NavigationPage history={this.props.history}/>
-    );
+    )
   }
 }

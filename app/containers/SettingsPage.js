@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class SettingsPage extends Component {
   render() {
@@ -6,6 +6,6 @@ export default class SettingsPage extends Component {
       <div>
         SettingsPage!
       </div>
-    );
+    )
   }
 }

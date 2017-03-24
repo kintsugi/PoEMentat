@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Router, Route } from 'react-router';
+import React, { Component } from 'react'
+import { Router, Route } from 'react-router'
 import Header from './Header'
 import {
   Nav,
@@ -9,7 +9,6 @@ import {
 export default class Navigation extends Component {
   constructor() {
     super()
-    console.log('test')
   }
 
   render() {
