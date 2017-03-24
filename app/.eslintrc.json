@@ -31,7 +31,6 @@
         "no-undef": "error",
         "strict": 0,
         "quotes": 0,
-        "no-unused-vars": 0,
         "camelcase": 0,
         "no-underscore-dangle": 0,
         "react/jsx-no-bind": "off"

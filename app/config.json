@@ -1,3 +1,14 @@
 {
-  "persistStore": true
+  "persistStore": true,
+  "defaultState": {
+    "settings": {
+      "clientTxtPath": "",
+      "poeUsername": "",
+      "poeTradeAPIKey": "",
+      "poeSessionId": "",
+      "updateFrequency": 5,
+      "usernameWhiteList": []
+    },
+    "inventory": []
+  }
 }

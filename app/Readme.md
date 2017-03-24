@@ -14,3 +14,5 @@ App is structured into several different tab views:
 4. Settings: Similar to the settings modal from the legacy app, but revamped 
 
 ## State
+
+[See state-model.json](./state-model.json)

@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "clientTxtPath": "",
+    "poeUsername": "",
+    "leagueName": "",
+    "poeTradeAPIKey": "",
+    "poeSessionId": "",
+    "updateFrequency": 5,
+    "usernameWhiteList": []
+  },
+  "inventory": [{
+
+  }]
+}
