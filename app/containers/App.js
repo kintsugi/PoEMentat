@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import NavigationPage from './NavigationPage'
 import InventoryParser from '../utils/InventoryParser'
-import CurrencyTypesParser from '../utils/CurrencyTypesParser'
+import CurrencyTypesParser, { currencyTypesList } from '../utils/CurrencyTypesParser'
 import * as SettingsActions from '../actions/settings'
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     this.currencyTypesParser = new CurrencyTypesParser()
     this.currencyTypesParser.getTypes()
       .then((data) => {
-        console.log(data)
+        console.log(currencyTypesList)
         return
       })
       .catch((err) => {

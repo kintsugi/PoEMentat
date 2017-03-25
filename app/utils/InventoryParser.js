@@ -115,7 +115,7 @@ export default class InventoryParser {
         this.getStashTab(tabIndex)
           .then((stashTab) => {
             if(stashTab.error) {
-              console.log('Error field in stash tab response:', stashTab.error)
+              console.log('InventoryParser: Error field in stash tab response:', stashTab.error)
             }
             receivedTabs.push(stashTab)
             return next()
@@ -153,7 +153,7 @@ export default class InventoryParser {
     return Array.from(Array(limit).keys()).slice(1, limit).reduce((acc, tabIndex) => {
       return acc.then((stashTab) => {
         if(stashTab.error) {
-          console.log('Error field in stash tab response:', stashTab.error)
+          console.log('InventoryParser: Error field in stash tab response:', stashTab.error)
         }
         receivedTabs.push(stashTab)
         return this.getStashTab(tabIndex)
