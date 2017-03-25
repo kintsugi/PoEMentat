@@ -1,9 +1,36 @@
 import React, {  Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import NavigationPage from './NavigationPage'
+import InventoryParser from '../utils/InventoryParser'
+import CurrencyTypesParser from '../utils/CurrencyTypesParser'
+import * as SettingsActions from '../actions/settings'
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super()
+  }
+
+  componentWillMount() {
+    this.inventoryParser = new InventoryParser(this.props.settings)
+    this.inventoryParser.init()
+      .then(() => {
+        console.log('InventoryParser Initialized')
+        return
+      })
+      .catch((err) => {
+        throw err
+      })
+    this.currencyTypesParser = new CurrencyTypesParser()
+    this.currencyTypesParser.getTypes()
+      .then((data) => {
+        console.log(data)
+        return
+      })
+      .catch((err) => {
+        throw err
+      })
+
   }
 
   render() {
@@ -12,3 +39,15 @@ export default class App extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    settings: state.settings,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(SettingsActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

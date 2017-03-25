@@ -1,13 +1,14 @@
 {
-  "persistStore": true,
+  "persistStore": false,
   "defaultState": {
     "settings": {
       "clientTxtPath": "",
-      "poeUsername": "",
-      "poeTradeAPIKey": "",
-      "poeSessionId": "",
+      "poeUsername": "PotatoOfTime",
+      "leagueName": "Hardcore Legacy",
+      "poeTradeAPIKey": "roohaaroyaukoo",
+      "poeSessionId": "bd9410aa6a0500dbd42ce5695e08f92e",
       "updateFrequency": 5,
-      "usernameWhiteList": []
+      "usernameWhiteList": ["Shoo_Layce"]
     },
     "inventory": []
   }

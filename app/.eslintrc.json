@@ -22,8 +22,8 @@
           "exports": "ignore",
           "functions": "ignore"
         }],
+        "semi": ["error", "never"],
         "import/no-unresolved": "error",
-        "no-use-before-define": "error",
         "no-duplicate-imports": "error",
         "promise/param-names": "error",
         "promise/always-return": "error",
@@ -34,6 +34,7 @@
         "camelcase": 0,
         "no-underscore-dangle": 0,
         "react/jsx-no-bind": "off"
-    }
+    },
+    "globals": {"Promise": true}
 }
 

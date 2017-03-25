@@ -31,13 +31,13 @@ function getStashTabs(username, poeSessId, cb) {
 				if(stashTabJson.items) {
 					stashTabs.push(stashTabJson.items);
           console.log('Grabbed Tab ' + tabIndex);
-					asyncCallback();
+					asyncCallback()
 				} else {
-					asyncCallback('No item entry from stash tab ' + tabIndex + ', could be throttled');
+					asyncCallback('No item entry from stash tab ' + tabIndex + ', could be throttled')
 				}
 			}
-		});
-	};
+		})
+	}
 	//Request first tab to get the numTabs variable as well as make sure our
 	//sessionId is valid. If not, abort, if everything is good, request all tabs
 	request(options, function(err, res, body) {
