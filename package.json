@@ -175,8 +175,10 @@
     "webpack-merge": "^2.4.0"
   },
   "dependencies": {
+    "ajv": "^5.0.1-beta.3",
     "async": "^2.1.5",
     "cheerio": "^0.22.0",
+    "directory-tree": "^1.2.1",
     "electron-debug": "^1.1.0",
     "electron-log": "^2.0.0",
     "extract-text-webpack-plugin": "^2.0.0",

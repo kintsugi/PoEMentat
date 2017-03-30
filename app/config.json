@@ -7,9 +7,14 @@
       "leagueName": "Hardcore Legacy",
       "poeTradeAPIKey": "roohaaroyaukoo",
       "poeSessionId": "bd9410aa6a0500dbd42ce5695e08f92e",
-      "updateFrequency": 5,
-      "usernameWhiteList": ["Shoo_Layce"]
+      "usernameWhiteList": ["Shoo_Layce"],
+      "updateIntervals": {
+        "stash": 30000,
+        "currencyPoeTrade": 10000
+      },
+      "stashUpdateMode": "parallel"
     },
+    "currencyTypes": {},
     "inventory": []
   }
 }

@@ -1,6 +1,6 @@
 let rp = require('request-promise')
 let async = require('async')
-let constants = require('../constants')
+const constants = require('../constants')
 
 export default class InventoryParser {
   constructor(settings) {
@@ -61,6 +61,9 @@ export default class InventoryParser {
     return rp(tabRequestOptions)
       .then((data) => {
         let stashTab = JSON.parse(data)
+        if(stashTab.error) {
+          throw new Error(stashTab.error.message)
+        }
         return this.setStashTab(tabIndex, stashTab)
       })
       .catch((err) => {
@@ -114,9 +117,6 @@ export default class InventoryParser {
       async.each(Array.from(Array(limit).keys()), (tabIndex, next) => {
         this.getStashTab(tabIndex)
           .then((stashTab) => {
-            if(stashTab.error) {
-              console.log('InventoryParser: Error field in stash tab response:', stashTab.error)
-            }
             receivedTabs.push(stashTab)
             return next()
           })
@@ -152,9 +152,6 @@ export default class InventoryParser {
     //on error will throw
     return Array.from(Array(limit).keys()).slice(1, limit).reduce((acc, tabIndex) => {
       return acc.then((stashTab) => {
-        if(stashTab.error) {
-          console.log('InventoryParser: Error field in stash tab response:', stashTab.error)
-        }
         receivedTabs.push(stashTab)
         return this.getStashTab(tabIndex)
       })

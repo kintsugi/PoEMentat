@@ -1,8 +1,8 @@
 import {
   CHANGE_SETTINGS,
 } from '../actions/settings'
-let config = require('../config')
-let defaultState = config.defaultState.settings
+const config = require('../config')
+const defaultState = config.defaultState.settings
 
 export default function settings(state = defaultState, action) {
   switch(action.type) {
