@@ -67,6 +67,7 @@ export default class CurrencyTypesParser {
         id: $(elem).attr('data-id'),
         name: $(elem).attr('title'),
         imgUrl: $(imgHtml).attr('src'),
+        imgFilename: $(imgHtml).attr('src').substr(1)
       }
       if(!currency.id) {
         console.log(currency)

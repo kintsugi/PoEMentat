@@ -3,996 +3,1194 @@
     {
       "id": "1",
       "name": "Orb of Alteration",
-      "imgUrl": "/static/currency/Orb_of_Alteration.png"
+      "imgUrl": "/static/currency/Orb_of_Alteration.png",
+      "imgFilename": "static/currency/Orb_of_Alteration.png"
     },
     {
       "id": "2",
       "name": "Orb of Fusing",
-      "imgUrl": "/static/currency/Orb_of_Fusing.png"
+      "imgUrl": "/static/currency/Orb_of_Fusing.png",
+      "imgFilename": "static/currency/Orb_of_Fusing.png"
     },
     {
       "id": "3",
       "name": "Orb of Alchemy",
-      "imgUrl": "/static/currency/Orb_of_Alchemy.png"
+      "imgUrl": "/static/currency/Orb_of_Alchemy.png",
+      "imgFilename": "static/currency/Orb_of_Alchemy.png"
     },
     {
       "id": "4",
       "name": "Chaos Orb",
-      "imgUrl": "/static/currency/Chaos_Orb.png"
+      "imgUrl": "/static/currency/Chaos_Orb.png",
+      "imgFilename": "static/currency/Chaos_Orb.png"
     },
     {
       "id": "5",
       "name": "Gemcutter's Prism",
-      "imgUrl": "/static/currency/Gemcutter's_Prism.png"
+      "imgUrl": "/static/currency/Gemcutter's_Prism.png",
+      "imgFilename": "static/currency/Gemcutter's_Prism.png"
     },
     {
       "id": "6",
       "name": "Exalted Orb",
-      "imgUrl": "/static/currency/Exalted_Orb.png"
+      "imgUrl": "/static/currency/Exalted_Orb.png",
+      "imgFilename": "static/currency/Exalted_Orb.png"
     },
     {
       "id": "7",
       "name": "Chromatic Orb",
-      "imgUrl": "/static/currency/Chromatic_Orb.png"
+      "imgUrl": "/static/currency/Chromatic_Orb.png",
+      "imgFilename": "static/currency/Chromatic_Orb.png"
     },
     {
       "id": "8",
       "name": "Jeweller's Orb",
-      "imgUrl": "/static/currency/Jeweller's_Orb.png"
+      "imgUrl": "/static/currency/Jeweller's_Orb.png",
+      "imgFilename": "static/currency/Jeweller's_Orb.png"
     },
     {
       "id": "9",
       "name": "Orb of Chance",
-      "imgUrl": "/static/currency/Orb_of_Chance.png"
+      "imgUrl": "/static/currency/Orb_of_Chance.png",
+      "imgFilename": "static/currency/Orb_of_Chance.png"
     },
     {
       "id": "10",
       "name": "Cartographer's Chisel",
-      "imgUrl": "/static/currency/Cartographer's_Chisel.png"
+      "imgUrl": "/static/currency/Cartographer's_Chisel.png",
+      "imgFilename": "static/currency/Cartographer's_Chisel.png"
     },
     {
       "id": "11",
       "name": "Orb of Scouring",
-      "imgUrl": "/static/currency/Orb_of_Scouring.png"
+      "imgUrl": "/static/currency/Orb_of_Scouring.png",
+      "imgFilename": "static/currency/Orb_of_Scouring.png"
     },
     {
       "id": "12",
       "name": "Blessed Orb",
-      "imgUrl": "/static/currency/Blessed_Orb.png"
+      "imgUrl": "/static/currency/Blessed_Orb.png",
+      "imgFilename": "static/currency/Blessed_Orb.png"
     },
     {
       "id": "13",
       "name": "Orb of Regret",
-      "imgUrl": "/static/currency/Orb_of_Regret.png"
+      "imgUrl": "/static/currency/Orb_of_Regret.png",
+      "imgFilename": "static/currency/Orb_of_Regret.png"
     },
     {
       "id": "14",
       "name": "Regal Orb",
-      "imgUrl": "/static/currency/Regal_Orb.png"
+      "imgUrl": "/static/currency/Regal_Orb.png",
+      "imgFilename": "static/currency/Regal_Orb.png"
     },
     {
       "id": "15",
       "name": "Divine Orb",
-      "imgUrl": "/static/currency/Divine_Orb.png"
+      "imgUrl": "/static/currency/Divine_Orb.png",
+      "imgFilename": "static/currency/Divine_Orb.png"
     },
     {
       "id": "16",
       "name": "Vaal Orb",
-      "imgUrl": "/static/currency/Vaal_Orb.png"
+      "imgUrl": "/static/currency/Vaal_Orb.png",
+      "imgFilename": "static/currency/Vaal_Orb.png"
     },
     {
       "id": "17",
       "name": "Scroll of Wisdom",
-      "imgUrl": "/static/currency/Scroll_of_Wisdom.png"
+      "imgUrl": "/static/currency/Scroll_of_Wisdom.png",
+      "imgFilename": "static/currency/Scroll_of_Wisdom.png"
     },
     {
       "id": "18",
       "name": "Portal Scroll",
-      "imgUrl": "/static/currency/Portal_Scroll.png"
+      "imgUrl": "/static/currency/Portal_Scroll.png",
+      "imgFilename": "static/currency/Portal_Scroll.png"
     },
     {
       "id": "19",
       "name": "Armourer's Scrap",
-      "imgUrl": "/static/currency/Armourer's_Scrap.png"
+      "imgUrl": "/static/currency/Armourer's_Scrap.png",
+      "imgFilename": "static/currency/Armourer's_Scrap.png"
     },
     {
       "id": "20",
       "name": "Blacksmith's Whetstone",
-      "imgUrl": "/static/currency/Blacksmith's_Whetstone.png"
+      "imgUrl": "/static/currency/Blacksmith's_Whetstone.png",
+      "imgFilename": "static/currency/Blacksmith's_Whetstone.png"
     },
     {
       "id": "21",
       "name": "Glassblower's Bauble",
-      "imgUrl": "/static/currency/Glassblower's_Bauble.png"
+      "imgUrl": "/static/currency/Glassblower's_Bauble.png",
+      "imgFilename": "static/currency/Glassblower's_Bauble.png"
     },
     {
       "id": "22",
       "name": "Orb of Transmutation",
-      "imgUrl": "/static/currency/Orb_of_Transmutation.png"
+      "imgUrl": "/static/currency/Orb_of_Transmutation.png",
+      "imgFilename": "static/currency/Orb_of_Transmutation.png"
     },
     {
       "id": "23",
       "name": "Orb of Augmentation",
-      "imgUrl": "/static/currency/Orb_of_Augmentation.png"
+      "imgUrl": "/static/currency/Orb_of_Augmentation.png",
+      "imgFilename": "static/currency/Orb_of_Augmentation.png"
     },
     {
       "id": "24",
       "name": "Mirror of Kalandra",
-      "imgUrl": "/static/currency/Mirror_of_Kalandra.png"
+      "imgUrl": "/static/currency/Mirror_of_Kalandra.png",
+      "imgFilename": "static/currency/Mirror_of_Kalandra.png"
     },
     {
       "id": "25",
       "name": "Eternal Orb",
-      "imgUrl": "/static/currency/Eternal_Orb.png"
+      "imgUrl": "/static/currency/Eternal_Orb.png",
+      "imgFilename": "static/currency/Eternal_Orb.png"
     },
     {
       "id": "26",
       "name": "Perandus Coin",
-      "imgUrl": "/static/currency/Perandus_Coin.png"
+      "imgUrl": "/static/currency/Perandus_Coin.png",
+      "imgFilename": "static/currency/Perandus_Coin.png"
     },
     {
       "id": "35",
       "name": "Silver Coin",
-      "imgUrl": "/static/currency/Silver_Coin.png"
+      "imgUrl": "/static/currency/Silver_Coin.png",
+      "imgFilename": "static/currency/Silver_Coin.png"
     },
     {
       "id": "27",
       "name": "Sacrifice at Dusk",
-      "imgUrl": "/static/currency/Sacrifice_at_Dusk.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Dusk.png",
+      "imgFilename": "static/currency/Sacrifice_at_Dusk.png"
     },
     {
       "id": "28",
       "name": "Sacrifice at Midnight",
-      "imgUrl": "/static/currency/Sacrifice_at_Midnight.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Midnight.png",
+      "imgFilename": "static/currency/Sacrifice_at_Midnight.png"
     },
     {
       "id": "29",
       "name": "Sacrifice at Dawn",
-      "imgUrl": "/static/currency/Sacrifice_at_Dawn.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Dawn.png",
+      "imgFilename": "static/currency/Sacrifice_at_Dawn.png"
     },
     {
       "id": "30",
       "name": "Sacrifice at Noon",
-      "imgUrl": "/static/currency/Sacrifice_at_Noon.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Noon.png",
+      "imgFilename": "static/currency/Sacrifice_at_Noon.png"
     },
     {
       "id": "31",
       "name": "Mortal Grief",
-      "imgUrl": "/static/currency/Mortal_Grief.png"
+      "imgUrl": "/static/currency/Mortal_Grief.png",
+      "imgFilename": "static/currency/Mortal_Grief.png"
     },
     {
       "id": "32",
       "name": "Mortal Rage",
-      "imgUrl": "/static/currency/Mortal_Rage.png"
+      "imgUrl": "/static/currency/Mortal_Rage.png",
+      "imgFilename": "static/currency/Mortal_Rage.png"
     },
     {
       "id": "33",
       "name": "Mortal Hope",
-      "imgUrl": "/static/currency/Mortal_Hope.png"
+      "imgUrl": "/static/currency/Mortal_Hope.png",
+      "imgFilename": "static/currency/Mortal_Hope.png"
     },
     {
       "id": "34",
       "name": "Mortal Ignorance",
-      "imgUrl": "/static/currency/Mortal_Ignorance.png"
+      "imgUrl": "/static/currency/Mortal_Ignorance.png",
+      "imgFilename": "static/currency/Mortal_Ignorance.png"
     },
     {
       "id": "36",
       "name": "Eber's Key",
-      "imgUrl": "/static/currency/Ebers_Key.png"
+      "imgUrl": "/static/currency/Ebers_Key.png",
+      "imgFilename": "static/currency/Ebers_Key.png"
     },
     {
       "id": "37",
       "name": "Yriel's Key",
-      "imgUrl": "/static/currency/Yriels_Key.png"
+      "imgUrl": "/static/currency/Yriels_Key.png",
+      "imgFilename": "static/currency/Yriels_Key.png"
     },
     {
       "id": "38",
       "name": "Inya's Key",
-      "imgUrl": "/static/currency/Inyas_Key.png"
+      "imgUrl": "/static/currency/Inyas_Key.png",
+      "imgFilename": "static/currency/Inyas_Key.png"
     },
     {
       "id": "39",
       "name": "Volkuur's Key",
-      "imgUrl": "/static/currency/Volkuurs_Key.png"
+      "imgUrl": "/static/currency/Volkuurs_Key.png",
+      "imgFilename": "static/currency/Volkuurs_Key.png"
     },
     {
       "id": "40",
       "name": "Offering to the Goddess",
-      "imgUrl": "/static/currency/Offering_to_the_Goddess.png"
+      "imgUrl": "/static/currency/Offering_to_the_Goddess.png",
+      "imgFilename": "static/currency/Offering_to_the_Goddess.png"
     },
     {
       "id": "41",
       "name": "Fragment of the Hydra",
-      "imgUrl": "/static/currency/Fragment_of_the_Hydra.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Hydra.png",
+      "imgFilename": "static/currency/Fragment_of_the_Hydra.png"
     },
     {
       "id": "42",
       "name": "Fragment of the Phoenix",
-      "imgUrl": "/static/currency/Fragment_of_the_Phoenix.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Phoenix.png",
+      "imgFilename": "static/currency/Fragment_of_the_Phoenix.png"
     },
     {
       "id": "43",
       "name": "Fragment of the Minotaur",
-      "imgUrl": "/static/currency/Fragment_of_the_Minotaur.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Minotaur.png",
+      "imgFilename": "static/currency/Fragment_of_the_Minotaur.png"
     },
     {
       "id": "44",
       "name": "Fragment of the Chimera",
-      "imgUrl": "/static/currency/Fragment_of_the_Chimera.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Chimera.png",
+      "imgFilename": "static/currency/Fragment_of_the_Chimera.png"
     },
     {
       "id": "45",
       "name": "Apprentice Cartographer's Sextant",
-      "imgUrl": "/static/currency/Apprentice_Sextant.png"
+      "imgUrl": "/static/currency/Apprentice_Sextant.png",
+      "imgFilename": "static/currency/Apprentice_Sextant.png"
     },
     {
       "id": "46",
       "name": "Journeyman Cartographer's Sextant",
-      "imgUrl": "/static/currency/Journeyman_Sextant.png"
+      "imgUrl": "/static/currency/Journeyman_Sextant.png",
+      "imgFilename": "static/currency/Journeyman_Sextant.png"
     },
     {
       "id": "47",
       "name": "Master Cartographer's Sextant",
-      "imgUrl": "/static/currency/Master_Sextant.png"
+      "imgUrl": "/static/currency/Master_Sextant.png",
+      "imgFilename": "static/currency/Master_Sextant.png"
     },
     {
       "id": "48",
       "name": "Sacrifice set",
-      "imgUrl": "/static/currency/Sacrifice_Set.png"
+      "imgUrl": "/static/currency/Sacrifice_Set.png",
+      "imgFilename": "static/currency/Sacrifice_Set.png"
     },
     {
       "id": "49",
       "name": "Mortal set",
-      "imgUrl": "/static/currency/Mortal_Set.png"
+      "imgUrl": "/static/currency/Mortal_Set.png",
+      "imgFilename": "static/currency/Mortal_Set.png"
     },
     {
       "id": "50",
       "name": "Pale Court set",
-      "imgUrl": "/static/currency/Key_Set.png"
+      "imgUrl": "/static/currency/Key_Set.png",
+      "imgFilename": "static/currency/Key_Set.png"
     },
     {
       "id": "51",
       "name": "Shaper set",
-      "imgUrl": "/static/currency/Fragment_Set.png"
+      "imgUrl": "/static/currency/Fragment_Set.png",
+      "imgFilename": "static/currency/Fragment_Set.png"
     },
     {
       "id": "52",
       "name": "Splinter of Xoph",
-      "imgUrl": "/static/currency/Splinter_of_Xoph.png"
+      "imgUrl": "/static/currency/Splinter_of_Xoph.png",
+      "imgFilename": "static/currency/Splinter_of_Xoph.png"
     },
     {
       "id": "53",
       "name": "Splinter of Tul",
-      "imgUrl": "/static/currency/Splinter_of_Tul.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Tul.png?1",
+      "imgFilename": "static/currency/Splinter_of_Tul.png?1"
     },
     {
       "id": "54",
       "name": "Splinter of Esh",
-      "imgUrl": "/static/currency/Splinter_of_Esh.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Esh.png?1",
+      "imgFilename": "static/currency/Splinter_of_Esh.png?1"
     },
     {
       "id": "55",
       "name": "Splinter of Uul-Netol",
-      "imgUrl": "/static/currency/Splinter_of_Uul-Netol.png"
+      "imgUrl": "/static/currency/Splinter_of_Uul-Netol.png",
+      "imgFilename": "static/currency/Splinter_of_Uul-Netol.png"
     },
     {
       "id": "56",
       "name": "Splinter of Chayula",
-      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1",
+      "imgFilename": "static/currency/Splinter_of_Chayula.png?1"
     },
     {
       "id": "57",
       "name": "Blessing of Xoph",
-      "imgUrl": "/static/currency/Blessing_of_Xoph.png"
+      "imgUrl": "/static/currency/Blessing_of_Xoph.png",
+      "imgFilename": "static/currency/Blessing_of_Xoph.png"
     },
     {
       "id": "58",
       "name": "Blessing of Tul",
-      "imgUrl": "/static/currency/Blessing_of_Tul.png"
+      "imgUrl": "/static/currency/Blessing_of_Tul.png",
+      "imgFilename": "static/currency/Blessing_of_Tul.png"
     },
     {
       "id": "59",
       "name": "Blessing of Esh",
-      "imgUrl": "/static/currency/Blessing_of_Esh.png"
+      "imgUrl": "/static/currency/Blessing_of_Esh.png",
+      "imgFilename": "static/currency/Blessing_of_Esh.png"
     },
     {
       "id": "60",
       "name": "Blessing of Uul-Netol",
-      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1"
+      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1",
+      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png?1"
     },
     {
       "id": "61",
       "name": "Blessing of Chayula",
-      "imgUrl": "/static/currency/Blessing_of_Chayula.png"
+      "imgUrl": "/static/currency/Blessing_of_Chayula.png",
+      "imgFilename": "static/currency/Blessing_of_Chayula.png"
     },
     {
       "id": "62",
       "name": "Xoph's Breachstone",
-      "imgUrl": "/static/currency/Xophs_Breachstone.png"
+      "imgUrl": "/static/currency/Xophs_Breachstone.png",
+      "imgFilename": "static/currency/Xophs_Breachstone.png"
     },
     {
       "id": "63",
       "name": "Tul's Breachstone",
-      "imgUrl": "/static/currency/Tuls_Breachstone.png?1"
+      "imgUrl": "/static/currency/Tuls_Breachstone.png?1",
+      "imgFilename": "static/currency/Tuls_Breachstone.png?1"
     },
     {
       "id": "64",
       "name": "Esh's Breachstone",
-      "imgUrl": "/static/currency/Eshs_Breachstone.png"
+      "imgUrl": "/static/currency/Eshs_Breachstone.png",
+      "imgFilename": "static/currency/Eshs_Breachstone.png"
     },
     {
       "id": "65",
       "name": "Uul-Netol's Breachstone",
-      "imgUrl": "/static/currency/Uul-Netols_Breachstone.png"
+      "imgUrl": "/static/currency/Uul-Netols_Breachstone.png",
+      "imgFilename": "static/currency/Uul-Netols_Breachstone.png"
     },
     {
       "id": "66",
       "name": "Chayula's Breachstone",
-      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1"
+      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1",
+      "imgFilename": "static/currency/Chayulas_Breachstone.png?1"
     }
   ],
   "idDict": {
     "1": {
       "id": "1",
       "name": "Orb of Alteration",
-      "imgUrl": "/static/currency/Orb_of_Alteration.png"
+      "imgUrl": "/static/currency/Orb_of_Alteration.png",
+      "imgFilename": "static/currency/Orb_of_Alteration.png"
     },
     "2": {
       "id": "2",
       "name": "Orb of Fusing",
-      "imgUrl": "/static/currency/Orb_of_Fusing.png"
+      "imgUrl": "/static/currency/Orb_of_Fusing.png",
+      "imgFilename": "static/currency/Orb_of_Fusing.png"
     },
     "3": {
       "id": "3",
       "name": "Orb of Alchemy",
-      "imgUrl": "/static/currency/Orb_of_Alchemy.png"
+      "imgUrl": "/static/currency/Orb_of_Alchemy.png",
+      "imgFilename": "static/currency/Orb_of_Alchemy.png"
     },
     "4": {
       "id": "4",
       "name": "Chaos Orb",
-      "imgUrl": "/static/currency/Chaos_Orb.png"
+      "imgUrl": "/static/currency/Chaos_Orb.png",
+      "imgFilename": "static/currency/Chaos_Orb.png"
     },
     "5": {
       "id": "5",
       "name": "Gemcutter's Prism",
-      "imgUrl": "/static/currency/Gemcutter's_Prism.png"
+      "imgUrl": "/static/currency/Gemcutter's_Prism.png",
+      "imgFilename": "static/currency/Gemcutter's_Prism.png"
     },
     "6": {
       "id": "6",
       "name": "Exalted Orb",
-      "imgUrl": "/static/currency/Exalted_Orb.png"
+      "imgUrl": "/static/currency/Exalted_Orb.png",
+      "imgFilename": "static/currency/Exalted_Orb.png"
     },
     "7": {
       "id": "7",
       "name": "Chromatic Orb",
-      "imgUrl": "/static/currency/Chromatic_Orb.png"
+      "imgUrl": "/static/currency/Chromatic_Orb.png",
+      "imgFilename": "static/currency/Chromatic_Orb.png"
     },
     "8": {
       "id": "8",
       "name": "Jeweller's Orb",
-      "imgUrl": "/static/currency/Jeweller's_Orb.png"
+      "imgUrl": "/static/currency/Jeweller's_Orb.png",
+      "imgFilename": "static/currency/Jeweller's_Orb.png"
     },
     "9": {
       "id": "9",
       "name": "Orb of Chance",
-      "imgUrl": "/static/currency/Orb_of_Chance.png"
+      "imgUrl": "/static/currency/Orb_of_Chance.png",
+      "imgFilename": "static/currency/Orb_of_Chance.png"
     },
     "10": {
       "id": "10",
       "name": "Cartographer's Chisel",
-      "imgUrl": "/static/currency/Cartographer's_Chisel.png"
+      "imgUrl": "/static/currency/Cartographer's_Chisel.png",
+      "imgFilename": "static/currency/Cartographer's_Chisel.png"
     },
     "11": {
       "id": "11",
       "name": "Orb of Scouring",
-      "imgUrl": "/static/currency/Orb_of_Scouring.png"
+      "imgUrl": "/static/currency/Orb_of_Scouring.png",
+      "imgFilename": "static/currency/Orb_of_Scouring.png"
     },
     "12": {
       "id": "12",
       "name": "Blessed Orb",
-      "imgUrl": "/static/currency/Blessed_Orb.png"
+      "imgUrl": "/static/currency/Blessed_Orb.png",
+      "imgFilename": "static/currency/Blessed_Orb.png"
     },
     "13": {
       "id": "13",
       "name": "Orb of Regret",
-      "imgUrl": "/static/currency/Orb_of_Regret.png"
+      "imgUrl": "/static/currency/Orb_of_Regret.png",
+      "imgFilename": "static/currency/Orb_of_Regret.png"
     },
     "14": {
       "id": "14",
       "name": "Regal Orb",
-      "imgUrl": "/static/currency/Regal_Orb.png"
+      "imgUrl": "/static/currency/Regal_Orb.png",
+      "imgFilename": "static/currency/Regal_Orb.png"
     },
     "15": {
       "id": "15",
       "name": "Divine Orb",
-      "imgUrl": "/static/currency/Divine_Orb.png"
+      "imgUrl": "/static/currency/Divine_Orb.png",
+      "imgFilename": "static/currency/Divine_Orb.png"
     },
     "16": {
       "id": "16",
       "name": "Vaal Orb",
-      "imgUrl": "/static/currency/Vaal_Orb.png"
+      "imgUrl": "/static/currency/Vaal_Orb.png",
+      "imgFilename": "static/currency/Vaal_Orb.png"
     },
     "17": {
       "id": "17",
       "name": "Scroll of Wisdom",
-      "imgUrl": "/static/currency/Scroll_of_Wisdom.png"
+      "imgUrl": "/static/currency/Scroll_of_Wisdom.png",
+      "imgFilename": "static/currency/Scroll_of_Wisdom.png"
     },
     "18": {
       "id": "18",
       "name": "Portal Scroll",
-      "imgUrl": "/static/currency/Portal_Scroll.png"
+      "imgUrl": "/static/currency/Portal_Scroll.png",
+      "imgFilename": "static/currency/Portal_Scroll.png"
     },
     "19": {
       "id": "19",
       "name": "Armourer's Scrap",
-      "imgUrl": "/static/currency/Armourer's_Scrap.png"
+      "imgUrl": "/static/currency/Armourer's_Scrap.png",
+      "imgFilename": "static/currency/Armourer's_Scrap.png"
     },
     "20": {
       "id": "20",
       "name": "Blacksmith's Whetstone",
-      "imgUrl": "/static/currency/Blacksmith's_Whetstone.png"
+      "imgUrl": "/static/currency/Blacksmith's_Whetstone.png",
+      "imgFilename": "static/currency/Blacksmith's_Whetstone.png"
     },
     "21": {
       "id": "21",
       "name": "Glassblower's Bauble",
-      "imgUrl": "/static/currency/Glassblower's_Bauble.png"
+      "imgUrl": "/static/currency/Glassblower's_Bauble.png",
+      "imgFilename": "static/currency/Glassblower's_Bauble.png"
     },
     "22": {
       "id": "22",
       "name": "Orb of Transmutation",
-      "imgUrl": "/static/currency/Orb_of_Transmutation.png"
+      "imgUrl": "/static/currency/Orb_of_Transmutation.png",
+      "imgFilename": "static/currency/Orb_of_Transmutation.png"
     },
     "23": {
       "id": "23",
       "name": "Orb of Augmentation",
-      "imgUrl": "/static/currency/Orb_of_Augmentation.png"
+      "imgUrl": "/static/currency/Orb_of_Augmentation.png",
+      "imgFilename": "static/currency/Orb_of_Augmentation.png"
     },
     "24": {
       "id": "24",
       "name": "Mirror of Kalandra",
-      "imgUrl": "/static/currency/Mirror_of_Kalandra.png"
+      "imgUrl": "/static/currency/Mirror_of_Kalandra.png",
+      "imgFilename": "static/currency/Mirror_of_Kalandra.png"
     },
     "25": {
       "id": "25",
       "name": "Eternal Orb",
-      "imgUrl": "/static/currency/Eternal_Orb.png"
+      "imgUrl": "/static/currency/Eternal_Orb.png",
+      "imgFilename": "static/currency/Eternal_Orb.png"
     },
     "26": {
       "id": "26",
       "name": "Perandus Coin",
-      "imgUrl": "/static/currency/Perandus_Coin.png"
+      "imgUrl": "/static/currency/Perandus_Coin.png",
+      "imgFilename": "static/currency/Perandus_Coin.png"
     },
     "27": {
       "id": "27",
       "name": "Sacrifice at Dusk",
-      "imgUrl": "/static/currency/Sacrifice_at_Dusk.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Dusk.png",
+      "imgFilename": "static/currency/Sacrifice_at_Dusk.png"
     },
     "28": {
       "id": "28",
       "name": "Sacrifice at Midnight",
-      "imgUrl": "/static/currency/Sacrifice_at_Midnight.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Midnight.png",
+      "imgFilename": "static/currency/Sacrifice_at_Midnight.png"
     },
     "29": {
       "id": "29",
       "name": "Sacrifice at Dawn",
-      "imgUrl": "/static/currency/Sacrifice_at_Dawn.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Dawn.png",
+      "imgFilename": "static/currency/Sacrifice_at_Dawn.png"
     },
     "30": {
       "id": "30",
       "name": "Sacrifice at Noon",
-      "imgUrl": "/static/currency/Sacrifice_at_Noon.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Noon.png",
+      "imgFilename": "static/currency/Sacrifice_at_Noon.png"
     },
     "31": {
       "id": "31",
       "name": "Mortal Grief",
-      "imgUrl": "/static/currency/Mortal_Grief.png"
+      "imgUrl": "/static/currency/Mortal_Grief.png",
+      "imgFilename": "static/currency/Mortal_Grief.png"
     },
     "32": {
       "id": "32",
       "name": "Mortal Rage",
-      "imgUrl": "/static/currency/Mortal_Rage.png"
+      "imgUrl": "/static/currency/Mortal_Rage.png",
+      "imgFilename": "static/currency/Mortal_Rage.png"
     },
     "33": {
       "id": "33",
       "name": "Mortal Hope",
-      "imgUrl": "/static/currency/Mortal_Hope.png"
+      "imgUrl": "/static/currency/Mortal_Hope.png",
+      "imgFilename": "static/currency/Mortal_Hope.png"
     },
     "34": {
       "id": "34",
       "name": "Mortal Ignorance",
-      "imgUrl": "/static/currency/Mortal_Ignorance.png"
+      "imgUrl": "/static/currency/Mortal_Ignorance.png",
+      "imgFilename": "static/currency/Mortal_Ignorance.png"
     },
     "35": {
       "id": "35",
       "name": "Silver Coin",
-      "imgUrl": "/static/currency/Silver_Coin.png"
+      "imgUrl": "/static/currency/Silver_Coin.png",
+      "imgFilename": "static/currency/Silver_Coin.png"
     },
     "36": {
       "id": "36",
       "name": "Eber's Key",
-      "imgUrl": "/static/currency/Ebers_Key.png"
+      "imgUrl": "/static/currency/Ebers_Key.png",
+      "imgFilename": "static/currency/Ebers_Key.png"
     },
     "37": {
       "id": "37",
       "name": "Yriel's Key",
-      "imgUrl": "/static/currency/Yriels_Key.png"
+      "imgUrl": "/static/currency/Yriels_Key.png",
+      "imgFilename": "static/currency/Yriels_Key.png"
     },
     "38": {
       "id": "38",
       "name": "Inya's Key",
-      "imgUrl": "/static/currency/Inyas_Key.png"
+      "imgUrl": "/static/currency/Inyas_Key.png",
+      "imgFilename": "static/currency/Inyas_Key.png"
     },
     "39": {
       "id": "39",
       "name": "Volkuur's Key",
-      "imgUrl": "/static/currency/Volkuurs_Key.png"
+      "imgUrl": "/static/currency/Volkuurs_Key.png",
+      "imgFilename": "static/currency/Volkuurs_Key.png"
     },
     "40": {
       "id": "40",
       "name": "Offering to the Goddess",
-      "imgUrl": "/static/currency/Offering_to_the_Goddess.png"
+      "imgUrl": "/static/currency/Offering_to_the_Goddess.png",
+      "imgFilename": "static/currency/Offering_to_the_Goddess.png"
     },
     "41": {
       "id": "41",
       "name": "Fragment of the Hydra",
-      "imgUrl": "/static/currency/Fragment_of_the_Hydra.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Hydra.png",
+      "imgFilename": "static/currency/Fragment_of_the_Hydra.png"
     },
     "42": {
       "id": "42",
       "name": "Fragment of the Phoenix",
-      "imgUrl": "/static/currency/Fragment_of_the_Phoenix.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Phoenix.png",
+      "imgFilename": "static/currency/Fragment_of_the_Phoenix.png"
     },
     "43": {
       "id": "43",
       "name": "Fragment of the Minotaur",
-      "imgUrl": "/static/currency/Fragment_of_the_Minotaur.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Minotaur.png",
+      "imgFilename": "static/currency/Fragment_of_the_Minotaur.png"
     },
     "44": {
       "id": "44",
       "name": "Fragment of the Chimera",
-      "imgUrl": "/static/currency/Fragment_of_the_Chimera.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Chimera.png",
+      "imgFilename": "static/currency/Fragment_of_the_Chimera.png"
     },
     "45": {
       "id": "45",
       "name": "Apprentice Cartographer's Sextant",
-      "imgUrl": "/static/currency/Apprentice_Sextant.png"
+      "imgUrl": "/static/currency/Apprentice_Sextant.png",
+      "imgFilename": "static/currency/Apprentice_Sextant.png"
     },
     "46": {
       "id": "46",
       "name": "Journeyman Cartographer's Sextant",
-      "imgUrl": "/static/currency/Journeyman_Sextant.png"
+      "imgUrl": "/static/currency/Journeyman_Sextant.png",
+      "imgFilename": "static/currency/Journeyman_Sextant.png"
     },
     "47": {
       "id": "47",
       "name": "Master Cartographer's Sextant",
-      "imgUrl": "/static/currency/Master_Sextant.png"
+      "imgUrl": "/static/currency/Master_Sextant.png",
+      "imgFilename": "static/currency/Master_Sextant.png"
     },
     "48": {
       "id": "48",
       "name": "Sacrifice set",
-      "imgUrl": "/static/currency/Sacrifice_Set.png"
+      "imgUrl": "/static/currency/Sacrifice_Set.png",
+      "imgFilename": "static/currency/Sacrifice_Set.png"
     },
     "49": {
       "id": "49",
       "name": "Mortal set",
-      "imgUrl": "/static/currency/Mortal_Set.png"
+      "imgUrl": "/static/currency/Mortal_Set.png",
+      "imgFilename": "static/currency/Mortal_Set.png"
     },
     "50": {
       "id": "50",
       "name": "Pale Court set",
-      "imgUrl": "/static/currency/Key_Set.png"
+      "imgUrl": "/static/currency/Key_Set.png",
+      "imgFilename": "static/currency/Key_Set.png"
     },
     "51": {
       "id": "51",
       "name": "Shaper set",
-      "imgUrl": "/static/currency/Fragment_Set.png"
+      "imgUrl": "/static/currency/Fragment_Set.png",
+      "imgFilename": "static/currency/Fragment_Set.png"
     },
     "52": {
       "id": "52",
       "name": "Splinter of Xoph",
-      "imgUrl": "/static/currency/Splinter_of_Xoph.png"
+      "imgUrl": "/static/currency/Splinter_of_Xoph.png",
+      "imgFilename": "static/currency/Splinter_of_Xoph.png"
     },
     "53": {
       "id": "53",
       "name": "Splinter of Tul",
-      "imgUrl": "/static/currency/Splinter_of_Tul.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Tul.png?1",
+      "imgFilename": "static/currency/Splinter_of_Tul.png?1"
     },
     "54": {
       "id": "54",
       "name": "Splinter of Esh",
-      "imgUrl": "/static/currency/Splinter_of_Esh.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Esh.png?1",
+      "imgFilename": "static/currency/Splinter_of_Esh.png?1"
     },
     "55": {
       "id": "55",
       "name": "Splinter of Uul-Netol",
-      "imgUrl": "/static/currency/Splinter_of_Uul-Netol.png"
+      "imgUrl": "/static/currency/Splinter_of_Uul-Netol.png",
+      "imgFilename": "static/currency/Splinter_of_Uul-Netol.png"
     },
     "56": {
       "id": "56",
       "name": "Splinter of Chayula",
-      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1",
+      "imgFilename": "static/currency/Splinter_of_Chayula.png?1"
     },
     "57": {
       "id": "57",
       "name": "Blessing of Xoph",
-      "imgUrl": "/static/currency/Blessing_of_Xoph.png"
+      "imgUrl": "/static/currency/Blessing_of_Xoph.png",
+      "imgFilename": "static/currency/Blessing_of_Xoph.png"
     },
     "58": {
       "id": "58",
       "name": "Blessing of Tul",
-      "imgUrl": "/static/currency/Blessing_of_Tul.png"
+      "imgUrl": "/static/currency/Blessing_of_Tul.png",
+      "imgFilename": "static/currency/Blessing_of_Tul.png"
     },
     "59": {
       "id": "59",
       "name": "Blessing of Esh",
-      "imgUrl": "/static/currency/Blessing_of_Esh.png"
+      "imgUrl": "/static/currency/Blessing_of_Esh.png",
+      "imgFilename": "static/currency/Blessing_of_Esh.png"
     },
     "60": {
       "id": "60",
       "name": "Blessing of Uul-Netol",
-      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1"
+      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1",
+      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png?1"
     },
     "61": {
       "id": "61",
       "name": "Blessing of Chayula",
-      "imgUrl": "/static/currency/Blessing_of_Chayula.png"
+      "imgUrl": "/static/currency/Blessing_of_Chayula.png",
+      "imgFilename": "static/currency/Blessing_of_Chayula.png"
     },
     "62": {
       "id": "62",
       "name": "Xoph's Breachstone",
-      "imgUrl": "/static/currency/Xophs_Breachstone.png"
+      "imgUrl": "/static/currency/Xophs_Breachstone.png",
+      "imgFilename": "static/currency/Xophs_Breachstone.png"
     },
     "63": {
       "id": "63",
       "name": "Tul's Breachstone",
-      "imgUrl": "/static/currency/Tuls_Breachstone.png?1"
+      "imgUrl": "/static/currency/Tuls_Breachstone.png?1",
+      "imgFilename": "static/currency/Tuls_Breachstone.png?1"
     },
     "64": {
       "id": "64",
       "name": "Esh's Breachstone",
-      "imgUrl": "/static/currency/Eshs_Breachstone.png"
+      "imgUrl": "/static/currency/Eshs_Breachstone.png",
+      "imgFilename": "static/currency/Eshs_Breachstone.png"
     },
     "65": {
       "id": "65",
       "name": "Uul-Netol's Breachstone",
-      "imgUrl": "/static/currency/Uul-Netols_Breachstone.png"
+      "imgUrl": "/static/currency/Uul-Netols_Breachstone.png",
+      "imgFilename": "static/currency/Uul-Netols_Breachstone.png"
     },
     "66": {
       "id": "66",
       "name": "Chayula's Breachstone",
-      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1"
+      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1",
+      "imgFilename": "static/currency/Chayulas_Breachstone.png?1"
     }
   },
   "nameDict": {
     "Orb of Alteration": {
       "id": "1",
       "name": "Orb of Alteration",
-      "imgUrl": "/static/currency/Orb_of_Alteration.png"
+      "imgUrl": "/static/currency/Orb_of_Alteration.png",
+      "imgFilename": "static/currency/Orb_of_Alteration.png"
     },
     "Orb of Fusing": {
       "id": "2",
       "name": "Orb of Fusing",
-      "imgUrl": "/static/currency/Orb_of_Fusing.png"
+      "imgUrl": "/static/currency/Orb_of_Fusing.png",
+      "imgFilename": "static/currency/Orb_of_Fusing.png"
     },
     "Orb of Alchemy": {
       "id": "3",
       "name": "Orb of Alchemy",
-      "imgUrl": "/static/currency/Orb_of_Alchemy.png"
+      "imgUrl": "/static/currency/Orb_of_Alchemy.png",
+      "imgFilename": "static/currency/Orb_of_Alchemy.png"
     },
     "Chaos Orb": {
       "id": "4",
       "name": "Chaos Orb",
-      "imgUrl": "/static/currency/Chaos_Orb.png"
+      "imgUrl": "/static/currency/Chaos_Orb.png",
+      "imgFilename": "static/currency/Chaos_Orb.png"
     },
     "Gemcutter's Prism": {
       "id": "5",
       "name": "Gemcutter's Prism",
-      "imgUrl": "/static/currency/Gemcutter's_Prism.png"
+      "imgUrl": "/static/currency/Gemcutter's_Prism.png",
+      "imgFilename": "static/currency/Gemcutter's_Prism.png"
     },
     "Exalted Orb": {
       "id": "6",
       "name": "Exalted Orb",
-      "imgUrl": "/static/currency/Exalted_Orb.png"
+      "imgUrl": "/static/currency/Exalted_Orb.png",
+      "imgFilename": "static/currency/Exalted_Orb.png"
     },
     "Chromatic Orb": {
       "id": "7",
       "name": "Chromatic Orb",
-      "imgUrl": "/static/currency/Chromatic_Orb.png"
+      "imgUrl": "/static/currency/Chromatic_Orb.png",
+      "imgFilename": "static/currency/Chromatic_Orb.png"
     },
     "Jeweller's Orb": {
       "id": "8",
       "name": "Jeweller's Orb",
-      "imgUrl": "/static/currency/Jeweller's_Orb.png"
+      "imgUrl": "/static/currency/Jeweller's_Orb.png",
+      "imgFilename": "static/currency/Jeweller's_Orb.png"
     },
     "Orb of Chance": {
       "id": "9",
       "name": "Orb of Chance",
-      "imgUrl": "/static/currency/Orb_of_Chance.png"
+      "imgUrl": "/static/currency/Orb_of_Chance.png",
+      "imgFilename": "static/currency/Orb_of_Chance.png"
     },
     "Cartographer's Chisel": {
       "id": "10",
       "name": "Cartographer's Chisel",
-      "imgUrl": "/static/currency/Cartographer's_Chisel.png"
+      "imgUrl": "/static/currency/Cartographer's_Chisel.png",
+      "imgFilename": "static/currency/Cartographer's_Chisel.png"
     },
     "Orb of Scouring": {
       "id": "11",
       "name": "Orb of Scouring",
-      "imgUrl": "/static/currency/Orb_of_Scouring.png"
+      "imgUrl": "/static/currency/Orb_of_Scouring.png",
+      "imgFilename": "static/currency/Orb_of_Scouring.png"
     },
     "Blessed Orb": {
       "id": "12",
       "name": "Blessed Orb",
-      "imgUrl": "/static/currency/Blessed_Orb.png"
+      "imgUrl": "/static/currency/Blessed_Orb.png",
+      "imgFilename": "static/currency/Blessed_Orb.png"
     },
     "Orb of Regret": {
       "id": "13",
       "name": "Orb of Regret",
-      "imgUrl": "/static/currency/Orb_of_Regret.png"
+      "imgUrl": "/static/currency/Orb_of_Regret.png",
+      "imgFilename": "static/currency/Orb_of_Regret.png"
     },
     "Regal Orb": {
       "id": "14",
       "name": "Regal Orb",
-      "imgUrl": "/static/currency/Regal_Orb.png"
+      "imgUrl": "/static/currency/Regal_Orb.png",
+      "imgFilename": "static/currency/Regal_Orb.png"
     },
     "Divine Orb": {
       "id": "15",
       "name": "Divine Orb",
-      "imgUrl": "/static/currency/Divine_Orb.png"
+      "imgUrl": "/static/currency/Divine_Orb.png",
+      "imgFilename": "static/currency/Divine_Orb.png"
     },
     "Vaal Orb": {
       "id": "16",
       "name": "Vaal Orb",
-      "imgUrl": "/static/currency/Vaal_Orb.png"
+      "imgUrl": "/static/currency/Vaal_Orb.png",
+      "imgFilename": "static/currency/Vaal_Orb.png"
     },
     "Scroll of Wisdom": {
       "id": "17",
       "name": "Scroll of Wisdom",
-      "imgUrl": "/static/currency/Scroll_of_Wisdom.png"
+      "imgUrl": "/static/currency/Scroll_of_Wisdom.png",
+      "imgFilename": "static/currency/Scroll_of_Wisdom.png"
     },
     "Portal Scroll": {
       "id": "18",
       "name": "Portal Scroll",
-      "imgUrl": "/static/currency/Portal_Scroll.png"
+      "imgUrl": "/static/currency/Portal_Scroll.png",
+      "imgFilename": "static/currency/Portal_Scroll.png"
     },
     "Armourer's Scrap": {
       "id": "19",
       "name": "Armourer's Scrap",
-      "imgUrl": "/static/currency/Armourer's_Scrap.png"
+      "imgUrl": "/static/currency/Armourer's_Scrap.png",
+      "imgFilename": "static/currency/Armourer's_Scrap.png"
     },
     "Blacksmith's Whetstone": {
       "id": "20",
       "name": "Blacksmith's Whetstone",
-      "imgUrl": "/static/currency/Blacksmith's_Whetstone.png"
+      "imgUrl": "/static/currency/Blacksmith's_Whetstone.png",
+      "imgFilename": "static/currency/Blacksmith's_Whetstone.png"
     },
     "Glassblower's Bauble": {
       "id": "21",
       "name": "Glassblower's Bauble",
-      "imgUrl": "/static/currency/Glassblower's_Bauble.png"
+      "imgUrl": "/static/currency/Glassblower's_Bauble.png",
+      "imgFilename": "static/currency/Glassblower's_Bauble.png"
     },
     "Orb of Transmutation": {
       "id": "22",
       "name": "Orb of Transmutation",
-      "imgUrl": "/static/currency/Orb_of_Transmutation.png"
+      "imgUrl": "/static/currency/Orb_of_Transmutation.png",
+      "imgFilename": "static/currency/Orb_of_Transmutation.png"
     },
     "Orb of Augmentation": {
       "id": "23",
       "name": "Orb of Augmentation",
-      "imgUrl": "/static/currency/Orb_of_Augmentation.png"
+      "imgUrl": "/static/currency/Orb_of_Augmentation.png",
+      "imgFilename": "static/currency/Orb_of_Augmentation.png"
     },
     "Mirror of Kalandra": {
       "id": "24",
       "name": "Mirror of Kalandra",
-      "imgUrl": "/static/currency/Mirror_of_Kalandra.png"
+      "imgUrl": "/static/currency/Mirror_of_Kalandra.png",
+      "imgFilename": "static/currency/Mirror_of_Kalandra.png"
     },
     "Eternal Orb": {
       "id": "25",
       "name": "Eternal Orb",
-      "imgUrl": "/static/currency/Eternal_Orb.png"
+      "imgUrl": "/static/currency/Eternal_Orb.png",
+      "imgFilename": "static/currency/Eternal_Orb.png"
     },
     "Perandus Coin": {
       "id": "26",
       "name": "Perandus Coin",
-      "imgUrl": "/static/currency/Perandus_Coin.png"
+      "imgUrl": "/static/currency/Perandus_Coin.png",
+      "imgFilename": "static/currency/Perandus_Coin.png"
     },
     "Silver Coin": {
       "id": "35",
       "name": "Silver Coin",
-      "imgUrl": "/static/currency/Silver_Coin.png"
+      "imgUrl": "/static/currency/Silver_Coin.png",
+      "imgFilename": "static/currency/Silver_Coin.png"
     },
     "Sacrifice at Dusk": {
       "id": "27",
       "name": "Sacrifice at Dusk",
-      "imgUrl": "/static/currency/Sacrifice_at_Dusk.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Dusk.png",
+      "imgFilename": "static/currency/Sacrifice_at_Dusk.png"
     },
     "Sacrifice at Midnight": {
       "id": "28",
       "name": "Sacrifice at Midnight",
-      "imgUrl": "/static/currency/Sacrifice_at_Midnight.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Midnight.png",
+      "imgFilename": "static/currency/Sacrifice_at_Midnight.png"
     },
     "Sacrifice at Dawn": {
       "id": "29",
       "name": "Sacrifice at Dawn",
-      "imgUrl": "/static/currency/Sacrifice_at_Dawn.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Dawn.png",
+      "imgFilename": "static/currency/Sacrifice_at_Dawn.png"
     },
     "Sacrifice at Noon": {
       "id": "30",
       "name": "Sacrifice at Noon",
-      "imgUrl": "/static/currency/Sacrifice_at_Noon.png"
+      "imgUrl": "/static/currency/Sacrifice_at_Noon.png",
+      "imgFilename": "static/currency/Sacrifice_at_Noon.png"
     },
     "Mortal Grief": {
       "id": "31",
       "name": "Mortal Grief",
-      "imgUrl": "/static/currency/Mortal_Grief.png"
+      "imgUrl": "/static/currency/Mortal_Grief.png",
+      "imgFilename": "static/currency/Mortal_Grief.png"
     },
     "Mortal Rage": {
       "id": "32",
       "name": "Mortal Rage",
-      "imgUrl": "/static/currency/Mortal_Rage.png"
+      "imgUrl": "/static/currency/Mortal_Rage.png",
+      "imgFilename": "static/currency/Mortal_Rage.png"
     },
     "Mortal Hope": {
       "id": "33",
       "name": "Mortal Hope",
-      "imgUrl": "/static/currency/Mortal_Hope.png"
+      "imgUrl": "/static/currency/Mortal_Hope.png",
+      "imgFilename": "static/currency/Mortal_Hope.png"
     },
     "Mortal Ignorance": {
       "id": "34",
       "name": "Mortal Ignorance",
-      "imgUrl": "/static/currency/Mortal_Ignorance.png"
+      "imgUrl": "/static/currency/Mortal_Ignorance.png",
+      "imgFilename": "static/currency/Mortal_Ignorance.png"
     },
     "Eber's Key": {
       "id": "36",
       "name": "Eber's Key",
-      "imgUrl": "/static/currency/Ebers_Key.png"
+      "imgUrl": "/static/currency/Ebers_Key.png",
+      "imgFilename": "static/currency/Ebers_Key.png"
     },
     "Yriel's Key": {
       "id": "37",
       "name": "Yriel's Key",
-      "imgUrl": "/static/currency/Yriels_Key.png"
+      "imgUrl": "/static/currency/Yriels_Key.png",
+      "imgFilename": "static/currency/Yriels_Key.png"
     },
     "Inya's Key": {
       "id": "38",
       "name": "Inya's Key",
-      "imgUrl": "/static/currency/Inyas_Key.png"
+      "imgUrl": "/static/currency/Inyas_Key.png",
+      "imgFilename": "static/currency/Inyas_Key.png"
     },
     "Volkuur's Key": {
       "id": "39",
       "name": "Volkuur's Key",
-      "imgUrl": "/static/currency/Volkuurs_Key.png"
+      "imgUrl": "/static/currency/Volkuurs_Key.png",
+      "imgFilename": "static/currency/Volkuurs_Key.png"
     },
     "Offering to the Goddess": {
       "id": "40",
       "name": "Offering to the Goddess",
-      "imgUrl": "/static/currency/Offering_to_the_Goddess.png"
+      "imgUrl": "/static/currency/Offering_to_the_Goddess.png",
+      "imgFilename": "static/currency/Offering_to_the_Goddess.png"
     },
     "Fragment of the Hydra": {
       "id": "41",
       "name": "Fragment of the Hydra",
-      "imgUrl": "/static/currency/Fragment_of_the_Hydra.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Hydra.png",
+      "imgFilename": "static/currency/Fragment_of_the_Hydra.png"
     },
     "Fragment of the Phoenix": {
       "id": "42",
       "name": "Fragment of the Phoenix",
-      "imgUrl": "/static/currency/Fragment_of_the_Phoenix.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Phoenix.png",
+      "imgFilename": "static/currency/Fragment_of_the_Phoenix.png"
     },
     "Fragment of the Minotaur": {
       "id": "43",
       "name": "Fragment of the Minotaur",
-      "imgUrl": "/static/currency/Fragment_of_the_Minotaur.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Minotaur.png",
+      "imgFilename": "static/currency/Fragment_of_the_Minotaur.png"
     },
     "Fragment of the Chimera": {
       "id": "44",
       "name": "Fragment of the Chimera",
-      "imgUrl": "/static/currency/Fragment_of_the_Chimera.png"
+      "imgUrl": "/static/currency/Fragment_of_the_Chimera.png",
+      "imgFilename": "static/currency/Fragment_of_the_Chimera.png"
     },
     "Apprentice Cartographer's Sextant": {
       "id": "45",
       "name": "Apprentice Cartographer's Sextant",
-      "imgUrl": "/static/currency/Apprentice_Sextant.png"
+      "imgUrl": "/static/currency/Apprentice_Sextant.png",
+      "imgFilename": "static/currency/Apprentice_Sextant.png"
     },
     "Journeyman Cartographer's Sextant": {
       "id": "46",
       "name": "Journeyman Cartographer's Sextant",
-      "imgUrl": "/static/currency/Journeyman_Sextant.png"
+      "imgUrl": "/static/currency/Journeyman_Sextant.png",
+      "imgFilename": "static/currency/Journeyman_Sextant.png"
     },
     "Master Cartographer's Sextant": {
       "id": "47",
       "name": "Master Cartographer's Sextant",
-      "imgUrl": "/static/currency/Master_Sextant.png"
+      "imgUrl": "/static/currency/Master_Sextant.png",
+      "imgFilename": "static/currency/Master_Sextant.png"
     },
     "Sacrifice set": {
       "id": "48",
       "name": "Sacrifice set",
-      "imgUrl": "/static/currency/Sacrifice_Set.png"
+      "imgUrl": "/static/currency/Sacrifice_Set.png",
+      "imgFilename": "static/currency/Sacrifice_Set.png"
     },
     "Mortal set": {
       "id": "49",
       "name": "Mortal set",
-      "imgUrl": "/static/currency/Mortal_Set.png"
+      "imgUrl": "/static/currency/Mortal_Set.png",
+      "imgFilename": "static/currency/Mortal_Set.png"
     },
     "Pale Court set": {
       "id": "50",
       "name": "Pale Court set",
-      "imgUrl": "/static/currency/Key_Set.png"
+      "imgUrl": "/static/currency/Key_Set.png",
+      "imgFilename": "static/currency/Key_Set.png"
     },
     "Shaper set": {
       "id": "51",
       "name": "Shaper set",
-      "imgUrl": "/static/currency/Fragment_Set.png"
+      "imgUrl": "/static/currency/Fragment_Set.png",
+      "imgFilename": "static/currency/Fragment_Set.png"
     },
     "Splinter of Xoph": {
       "id": "52",
       "name": "Splinter of Xoph",
-      "imgUrl": "/static/currency/Splinter_of_Xoph.png"
+      "imgUrl": "/static/currency/Splinter_of_Xoph.png",
+      "imgFilename": "static/currency/Splinter_of_Xoph.png"
     },
     "Splinter of Tul": {
       "id": "53",
       "name": "Splinter of Tul",
-      "imgUrl": "/static/currency/Splinter_of_Tul.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Tul.png?1",
+      "imgFilename": "static/currency/Splinter_of_Tul.png?1"
     },
     "Splinter of Esh": {
       "id": "54",
       "name": "Splinter of Esh",
-      "imgUrl": "/static/currency/Splinter_of_Esh.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Esh.png?1",
+      "imgFilename": "static/currency/Splinter_of_Esh.png?1"
     },
     "Splinter of Uul-Netol": {
       "id": "55",
       "name": "Splinter of Uul-Netol",
-      "imgUrl": "/static/currency/Splinter_of_Uul-Netol.png"
+      "imgUrl": "/static/currency/Splinter_of_Uul-Netol.png",
+      "imgFilename": "static/currency/Splinter_of_Uul-Netol.png"
     },
     "Splinter of Chayula": {
       "id": "56",
       "name": "Splinter of Chayula",
-      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1",
+      "imgFilename": "static/currency/Splinter_of_Chayula.png?1"
     },
     "Blessing of Xoph": {
       "id": "57",
       "name": "Blessing of Xoph",
-      "imgUrl": "/static/currency/Blessing_of_Xoph.png"
+      "imgUrl": "/static/currency/Blessing_of_Xoph.png",
+      "imgFilename": "static/currency/Blessing_of_Xoph.png"
     },
     "Blessing of Tul": {
       "id": "58",
       "name": "Blessing of Tul",
-      "imgUrl": "/static/currency/Blessing_of_Tul.png"
+      "imgUrl": "/static/currency/Blessing_of_Tul.png",
+      "imgFilename": "static/currency/Blessing_of_Tul.png"
     },
     "Blessing of Esh": {
       "id": "59",
       "name": "Blessing of Esh",
-      "imgUrl": "/static/currency/Blessing_of_Esh.png"
+      "imgUrl": "/static/currency/Blessing_of_Esh.png",
+      "imgFilename": "static/currency/Blessing_of_Esh.png"
     },
     "Blessing of Uul-Netol": {
       "id": "60",
       "name": "Blessing of Uul-Netol",
-      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1"
+      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1",
+      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png?1"
     },
     "Blessing of Chayula": {
       "id": "61",
       "name": "Blessing of Chayula",
-      "imgUrl": "/static/currency/Blessing_of_Chayula.png"
+      "imgUrl": "/static/currency/Blessing_of_Chayula.png",
+      "imgFilename": "static/currency/Blessing_of_Chayula.png"
     },
     "Xoph's Breachstone": {
       "id": "62",
       "name": "Xoph's Breachstone",
-      "imgUrl": "/static/currency/Xophs_Breachstone.png"
+      "imgUrl": "/static/currency/Xophs_Breachstone.png",
+      "imgFilename": "static/currency/Xophs_Breachstone.png"
     },
     "Tul's Breachstone": {
       "id": "63",
       "name": "Tul's Breachstone",
-      "imgUrl": "/static/currency/Tuls_Breachstone.png?1"
+      "imgUrl": "/static/currency/Tuls_Breachstone.png?1",
+      "imgFilename": "static/currency/Tuls_Breachstone.png?1"
     },
     "Esh's Breachstone": {
       "id": "64",
       "name": "Esh's Breachstone",
-      "imgUrl": "/static/currency/Eshs_Breachstone.png"
+      "imgUrl": "/static/currency/Eshs_Breachstone.png",
+      "imgFilename": "static/currency/Eshs_Breachstone.png"
     },
     "Uul-Netol's Breachstone": {
       "id": "65",
       "name": "Uul-Netol's Breachstone",
-      "imgUrl": "/static/currency/Uul-Netols_Breachstone.png"
+      "imgUrl": "/static/currency/Uul-Netols_Breachstone.png",
+      "imgFilename": "static/currency/Uul-Netols_Breachstone.png"
     },
     "Chayula's Breachstone": {
       "id": "66",
       "name": "Chayula's Breachstone",
-      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1"
+      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1",
+      "imgFilename": "static/currency/Chayulas_Breachstone.png?1"
     }
   }
 }

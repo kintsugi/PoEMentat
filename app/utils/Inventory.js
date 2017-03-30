@@ -91,7 +91,15 @@ export default class Inventory {
   }
 
   countSetPieces(setCurrencyItem, setPiecesCurrencyItems) {
-    console.log(setCurrencyItem,  setPiecesCurrencyItems)
+    //the number of possessed sets is equal to the minimum of the
+    //set pieces
+    let setCount = null
+    for(let setPieceCurrencyItem of setPiecesCurrencyItems) {
+      if(setCount === null || setCount > setPieceCurrencyItem.count) {
+        setCount = setPieceCurrencyItem.count
+      }
+    }
+    setCurrencyItem.count = setCount
   }
 
 }

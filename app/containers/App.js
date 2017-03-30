@@ -1,17 +1,24 @@
 import React, {  Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Loading from 'react-loading'
 import NavigationPage from './NavigationPage'
 import CurrencyTypesParser, { currencyTypesList } from '../utils/CurrencyTypesParser'
 import Inventory from '../utils/Inventory'
+import * as ReadyActions from '../actions/ready'
 import * as SettingsActions from '../actions/settings'
 import * as CurrencyTypesActions from '../actions/currencyTypes'
-import * as ReadyActions from '../actions/ready'
+import * as InventoryActions from '../actions/inventory'
+import styles from './App.css'
 const constants = require('../constants')
+let log = require('../utils/log')
 
 class App extends Component {
   constructor() {
     super()
+    this.state = {
+      ready: false,
+    }
   }
 
   componentWillMount() {
@@ -24,6 +31,12 @@ class App extends Component {
       })
   }
 
+  componentWillReceiveProps(nextProps) {
+    let ready = nextProps.ready.currencyTypes && nextProps.ready.inventory
+    this.setState({
+      ready,
+    })
+  }
 
   initializeCurrencyTypes() {
     let {
@@ -43,9 +56,7 @@ class App extends Component {
   }
 
   initializeInventory() {
-    let {
-      readyInventory
-    } = this.props
+    let { readyInventory } = this.props
     this.inventory = new Inventory(this.props.settings)
     return this.inventoryInterval()
       .then(() => {
@@ -58,16 +69,17 @@ class App extends Component {
   }
 
   inventoryInterval() {
+    let { changeInventory } = this.props
     return (this.inventory.inventoryParser.numTabs ?
       this.inventory.update() :
       this.inventory.init(this.currencyTypesParser.getParsedCurrencyTypes()))
-      .then((data) => {
-        console.log(data)
+      .then((inventory) => {
+        changeInventory(inventory)
         return
       })
       .catch((err) => {
         if(err.message == constants.errs.stashThrottle) {
-          console.log('inventory update throttled')
+          log.warn('inventory update throttled')
         } else {
           throw err
         }
@@ -85,23 +97,33 @@ class App extends Component {
 
 
   render() {
-    return (
-      <NavigationPage history={this.props.history}/>
-    )
+    if(this.state.ready) {
+      return (
+        <NavigationPage history={this.props.history}/>
+      )
+    } else {
+      return (
+        <div className={styles.loading}>
+          <Loading type='spinningBubbles' color='#333' />
+        </div>
+      )
+    }
   }
 }
 
 function mapStateToProps(state) {
   return {
+    ready: state.ready,
     settings: state.settings,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    ...ReadyActions,
     ...SettingsActions,
     ...CurrencyTypesActions,
-    ...ReadyActions,
+    ...InventoryActions,
   }, dispatch)
 }
 
