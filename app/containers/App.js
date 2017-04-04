@@ -4,12 +4,15 @@ import { connect } from 'react-redux'
 import Loading from 'react-loading'
 import NavigationPage from './NavigationPage'
 import CurrencyTypesParser, { currencyTypesList } from '../utils/CurrencyTypesParser'
+import Market from '../utils/Market'
 import Inventory from '../utils/Inventory'
 import * as ReadyActions from '../actions/ready'
 import * as SettingsActions from '../actions/settings'
 import * as CurrencyTypesActions from '../actions/currencyTypes'
 import * as InventoryActions from '../actions/inventory'
+import * as OffersActions from '../actions/offers'
 import styles from './App.css'
+let io = require('socket.io-client')
 const constants = require('../constants')
 let log = require('../utils/log')
 
@@ -22,8 +25,12 @@ class App extends Component {
   }
 
   componentWillMount() {
+    let { changeOffers } = this.props
     this.initializeCurrencyTypes()
       .then(() => {
+        this.market = new Market(io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers) => {
+          changeOffers(offers)
+        })
         return this.initializeInventory()
       })
       .catch((err) => {
@@ -124,6 +131,7 @@ function mapDispatchToProps(dispatch) {
     ...SettingsActions,
     ...CurrencyTypesActions,
     ...InventoryActions,
+    ...OffersActions,
   }, dispatch)
 }
 

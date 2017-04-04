@@ -1,5 +1,6 @@
 {
   "urls": {
+    "marketSync": "http://localhost:8080",
     "currencyPoeTrade": "http://currency.poe.trade",
     "stashItems": "https://www.pathofexile.com/character-window/get-stash-items"
   },
@@ -14,5 +15,15 @@
   },
   "errs": {
     "stashThrottle": "You are requesting your stash too frequently. Please try again later."
+  },
+  "misc": {
+    "offersTranslate": {
+      "u": "username",
+      "i": "ign",
+      "sc": "sell_currency_id",
+      "sv": "sell_value",
+      "bc": "buy_currency_id",
+      "bv": "buy_value"
+    }
   }
 }

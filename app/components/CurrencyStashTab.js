@@ -11,11 +11,13 @@ export default class CurrencyStashTab extends Component {
 
   render() {
     return (
-      <Col smOffset={0} sm={12} mdOffset={3} >
+      <Col sm={6}>
+        <div className='text-center' style={{position:'relative'}}>
         {Object.keys(currencyPositions).map((i) => {
           return(
             <CurrencyStashTabIcon
               key={i}
+              id={i}
               position={{
                 x: currencyPositions[i].x * 1.0,
                 y: currencyPositions[i].y * 1.0,
@@ -24,6 +26,7 @@ export default class CurrencyStashTab extends Component {
             />
           )
         })}
+        </div>
       </Col>
     )
   }

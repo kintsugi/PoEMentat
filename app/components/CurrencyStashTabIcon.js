@@ -8,9 +8,10 @@ import styles from './CurrencyStashTabIcon.css'
 export default class CurrencyStashTabIcon extends Component {
 
   render() {
-    console.log(this.props.inventoryItem)
     return (
-      <Button style={{
+      <Button
+        key={this.props.id}
+        style={{
         position: 'absolute',
         left: this.props.position.x,
         top: this.props.position.y,

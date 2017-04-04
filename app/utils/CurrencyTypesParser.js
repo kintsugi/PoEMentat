@@ -69,6 +69,10 @@ export default class CurrencyTypesParser {
         imgUrl: $(imgHtml).attr('src'),
         imgFilename: $(imgHtml).attr('src').substr(1)
       }
+      if(currency.imgUrl.slice(-2) == '?1') {
+        currency.imgUrl = currency.imgUrl.substr(0, currency.imgUrl.length - 2)
+        currency.imgFilename = currency.imgFilename.substr(0, currency.imgFilename.length - 2)
+      }
       if(!currency.id) {
         console.log(currency)
       }

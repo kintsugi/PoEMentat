@@ -177,6 +177,7 @@
   "dependencies": {
     "ajv": "^5.0.1-beta.3",
     "async": "^2.1.5",
+    "bufferutil": "^3.0.0",
     "cheerio": "^0.22.0",
     "directory-tree": "^1.2.1",
     "electron-debug": "^1.1.0",
@@ -197,7 +198,10 @@
     "redux-thunk": "^2.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3",
     "source-map-support": "^0.4.10",
+    "utf-8-validate": "^3.0.1",
     "winston": "^2.3.1",
     "winston-electron": "0.0.3"
   },

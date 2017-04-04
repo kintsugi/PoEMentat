@@ -5,12 +5,14 @@ import ready from './ready'
 import settings from './settings'
 import currencyTypes from './currencyTypes'
 import inventory from './inventory'
+import offers from './offers'
 
 const rootReducer = combineReducers({
   ready,
   settings,
   currencyTypes,
   inventory,
+  offers,
   routing
 })
 

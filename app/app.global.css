@@ -7,3 +7,7 @@
   border-radius: 0px;
 }
 
+.currency-dropdown-menu {
+  overflow: scroll !important;
+  height: 330px !important;
+}

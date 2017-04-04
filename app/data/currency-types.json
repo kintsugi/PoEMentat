@@ -315,14 +315,14 @@
     {
       "id": "53",
       "name": "Splinter of Tul",
-      "imgUrl": "/static/currency/Splinter_of_Tul.png?1",
-      "imgFilename": "static/currency/Splinter_of_Tul.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Tul.png",
+      "imgFilename": "static/currency/Splinter_of_Tul.png"
     },
     {
       "id": "54",
       "name": "Splinter of Esh",
-      "imgUrl": "/static/currency/Splinter_of_Esh.png?1",
-      "imgFilename": "static/currency/Splinter_of_Esh.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Esh.png",
+      "imgFilename": "static/currency/Splinter_of_Esh.png"
     },
     {
       "id": "55",
@@ -333,8 +333,8 @@
     {
       "id": "56",
       "name": "Splinter of Chayula",
-      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1",
-      "imgFilename": "static/currency/Splinter_of_Chayula.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Chayula.png",
+      "imgFilename": "static/currency/Splinter_of_Chayula.png"
     },
     {
       "id": "57",
@@ -357,8 +357,8 @@
     {
       "id": "60",
       "name": "Blessing of Uul-Netol",
-      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1",
-      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png?1"
+      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png",
+      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png"
     },
     {
       "id": "61",
@@ -375,8 +375,8 @@
     {
       "id": "63",
       "name": "Tul's Breachstone",
-      "imgUrl": "/static/currency/Tuls_Breachstone.png?1",
-      "imgFilename": "static/currency/Tuls_Breachstone.png?1"
+      "imgUrl": "/static/currency/Tuls_Breachstone.png",
+      "imgFilename": "static/currency/Tuls_Breachstone.png"
     },
     {
       "id": "64",
@@ -393,8 +393,8 @@
     {
       "id": "66",
       "name": "Chayula's Breachstone",
-      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1",
-      "imgFilename": "static/currency/Chayulas_Breachstone.png?1"
+      "imgUrl": "/static/currency/Chayulas_Breachstone.png",
+      "imgFilename": "static/currency/Chayulas_Breachstone.png"
     }
   ],
   "idDict": {
@@ -713,14 +713,14 @@
     "53": {
       "id": "53",
       "name": "Splinter of Tul",
-      "imgUrl": "/static/currency/Splinter_of_Tul.png?1",
-      "imgFilename": "static/currency/Splinter_of_Tul.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Tul.png",
+      "imgFilename": "static/currency/Splinter_of_Tul.png"
     },
     "54": {
       "id": "54",
       "name": "Splinter of Esh",
-      "imgUrl": "/static/currency/Splinter_of_Esh.png?1",
-      "imgFilename": "static/currency/Splinter_of_Esh.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Esh.png",
+      "imgFilename": "static/currency/Splinter_of_Esh.png"
     },
     "55": {
       "id": "55",
@@ -731,8 +731,8 @@
     "56": {
       "id": "56",
       "name": "Splinter of Chayula",
-      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1",
-      "imgFilename": "static/currency/Splinter_of_Chayula.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Chayula.png",
+      "imgFilename": "static/currency/Splinter_of_Chayula.png"
     },
     "57": {
       "id": "57",
@@ -755,8 +755,8 @@
     "60": {
       "id": "60",
       "name": "Blessing of Uul-Netol",
-      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1",
-      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png?1"
+      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png",
+      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png"
     },
     "61": {
       "id": "61",
@@ -773,8 +773,8 @@
     "63": {
       "id": "63",
       "name": "Tul's Breachstone",
-      "imgUrl": "/static/currency/Tuls_Breachstone.png?1",
-      "imgFilename": "static/currency/Tuls_Breachstone.png?1"
+      "imgUrl": "/static/currency/Tuls_Breachstone.png",
+      "imgFilename": "static/currency/Tuls_Breachstone.png"
     },
     "64": {
       "id": "64",
@@ -791,8 +791,8 @@
     "66": {
       "id": "66",
       "name": "Chayula's Breachstone",
-      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1",
-      "imgFilename": "static/currency/Chayulas_Breachstone.png?1"
+      "imgUrl": "/static/currency/Chayulas_Breachstone.png",
+      "imgFilename": "static/currency/Chayulas_Breachstone.png"
     }
   },
   "nameDict": {
@@ -1111,14 +1111,14 @@
     "Splinter of Tul": {
       "id": "53",
       "name": "Splinter of Tul",
-      "imgUrl": "/static/currency/Splinter_of_Tul.png?1",
-      "imgFilename": "static/currency/Splinter_of_Tul.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Tul.png",
+      "imgFilename": "static/currency/Splinter_of_Tul.png"
     },
     "Splinter of Esh": {
       "id": "54",
       "name": "Splinter of Esh",
-      "imgUrl": "/static/currency/Splinter_of_Esh.png?1",
-      "imgFilename": "static/currency/Splinter_of_Esh.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Esh.png",
+      "imgFilename": "static/currency/Splinter_of_Esh.png"
     },
     "Splinter of Uul-Netol": {
       "id": "55",
@@ -1129,8 +1129,8 @@
     "Splinter of Chayula": {
       "id": "56",
       "name": "Splinter of Chayula",
-      "imgUrl": "/static/currency/Splinter_of_Chayula.png?1",
-      "imgFilename": "static/currency/Splinter_of_Chayula.png?1"
+      "imgUrl": "/static/currency/Splinter_of_Chayula.png",
+      "imgFilename": "static/currency/Splinter_of_Chayula.png"
     },
     "Blessing of Xoph": {
       "id": "57",
@@ -1153,8 +1153,8 @@
     "Blessing of Uul-Netol": {
       "id": "60",
       "name": "Blessing of Uul-Netol",
-      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png?1",
-      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png?1"
+      "imgUrl": "/static/currency/Blessing_of_Uul-Netol.png",
+      "imgFilename": "static/currency/Blessing_of_Uul-Netol.png"
     },
     "Blessing of Chayula": {
       "id": "61",
@@ -1171,8 +1171,8 @@
     "Tul's Breachstone": {
       "id": "63",
       "name": "Tul's Breachstone",
-      "imgUrl": "/static/currency/Tuls_Breachstone.png?1",
-      "imgFilename": "static/currency/Tuls_Breachstone.png?1"
+      "imgUrl": "/static/currency/Tuls_Breachstone.png",
+      "imgFilename": "static/currency/Tuls_Breachstone.png"
     },
     "Esh's Breachstone": {
       "id": "64",
@@ -1189,8 +1189,8 @@
     "Chayula's Breachstone": {
       "id": "66",
       "name": "Chayula's Breachstone",
-      "imgUrl": "/static/currency/Chayulas_Breachstone.png?1",
-      "imgFilename": "static/currency/Chayulas_Breachstone.png?1"
+      "imgUrl": "/static/currency/Chayulas_Breachstone.png",
+      "imgFilename": "static/currency/Chayulas_Breachstone.png"
     }
   }
 }

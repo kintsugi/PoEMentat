@@ -15,6 +15,7 @@
       "stashUpdateMode": "parallel"
     },
     "currencyTypes": {},
-    "inventory": []
+    "inventory": [],
+    "offers": {}
   }
 }
