@@ -8,6 +8,7 @@ import {
   Button,
   MenuItem,
 } from 'react-bootstrap'
+import CurrencyImg from './CurrencyImg'
 import styles from './MainCurrencySelectable.css'
 
 export default class MainCurrencySelectable extends Component {
@@ -22,8 +23,10 @@ export default class MainCurrencySelectable extends Component {
   render() {
     return (
       <MenuItem href="" onSelect={this.onSelect.bind(this)} eventKey={this.props.currencyType.id}>
-        <img className={styles.currencyImg} src={this.props.currencyType.imgFilename} />
-        {this.props.currencyType.name}
+        <div className={styles.currencyImgContainer}>
+          <CurrencyImg id={this.props.currencyType.id} />
+        </div>
+        {' ' + this.props.currencyType.name}
       </MenuItem>
     )
   }

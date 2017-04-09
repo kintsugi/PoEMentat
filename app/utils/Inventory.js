@@ -1,5 +1,9 @@
 import InventoryParser from './InventoryParser'
-import { getStackSize } from './functions'
+import {
+  getStackSize,
+  getAbbreviatedCurrencyName,
+  matchInventoryItemToCurrency,
+} from './functions'
 const constants = require('../constants')
 const sets = require('../data/sets')
 
@@ -36,7 +40,7 @@ export default class Inventory {
 
   stashUpdate() {
     if(this.settings.stashUpdateMode == 'parallel') {
-      return this.inventoryParser.getAllStashTabsParallel(5)
+      return this.inventoryParser.getAllStashTabsParallel(10)
     } else if(this.settings.stashUpdateMode == 'series') {
       return this.inventoryParser.getAllStashTabsSeries()
     }
@@ -61,10 +65,8 @@ export default class Inventory {
     let currencyNames = Object.keys(this.currencyTypes.nameDict)
     for(let tab of receivedTabs) {
       for(let item of tab.items) {
-        let currencyNameIndex = currencyNames.indexOf(item.typeLine)
-        if(currencyNameIndex != -1) {
-          let currencyName = currencyNames[currencyNameIndex]
-          let currencyType = this.currencyTypes.nameDict[currencyName]
+        let currencyType = matchInventoryItemToCurrency(this.currencyTypes, item)
+        if(currencyType) {
           this.currencyInventory[currencyType.id].count += getStackSize(item)
         }
       }

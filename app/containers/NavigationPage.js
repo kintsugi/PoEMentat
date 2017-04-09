@@ -17,15 +17,15 @@ const routes = [
     component: HomePage,
   },
   {
+    path: '/market',
+    title: 'Market',
+    component: MarketPage,
+  },
+  {
     path: '/settings',
     title: 'Settings',
     component: SettingsPage,
   },
-  {
-    path: '/market',
-    title: 'Market',
-    component: MarketPage,
-  }
 ]
 
 
@@ -33,6 +33,7 @@ export default class NavigationPage extends Component {
 
   handleSelect(event) {
     let route = routes[event].path
+    console.log('meme')
     window.location.hash = `#${route}`
   }
 

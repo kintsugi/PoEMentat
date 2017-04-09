@@ -5,6 +5,8 @@ let dirTree = require('directory-tree')
 import {
   download,
   serializeJSON,
+  readJSON,
+  getItemCategory,
 } from './functions'
 const constants = require('../constants')
 
@@ -28,13 +30,13 @@ export default class CurrencyTypesParser {
         throw err
       })
       .then(() => {
-        return this.downloadImages()
+        return serializeJSON(constants.paths.data.currencyTypes, this.getParsedCurrencyTypes(), {spaces: 2})
       })
       .catch((err) => {
         throw err
       })
       .then(() => {
-        return serializeJSON(constants.paths.data.currencyTypes, this.getParsedCurrencyTypes(), {spaces: 2})
+        return this.serializeCurrrencyAbbreviations()
       })
       .catch((err) => {
         throw err
@@ -62,19 +64,15 @@ export default class CurrencyTypesParser {
   parsePage(html) {
     let $ = cheerio.load(html)
     let currenciesHtml = $('#currency-want').find('.currency-selectable').each((i, elem) => {
-      let imgHtml = $(elem).children('img')[0]
       let currency = {
         id: $(elem).attr('data-id'),
-        name: $(elem).attr('title'),
-        imgUrl: $(imgHtml).attr('src'),
-        imgFilename: $(imgHtml).attr('src').substr(1)
+        name: $(elem).attr('data-title'),
+        className: $(elem).attr('class').split(' '),
+        text: $(elem).text().trim()
       }
-      if(currency.imgUrl.slice(-2) == '?1') {
-        currency.imgUrl = currency.imgUrl.substr(0, currency.imgUrl.length - 2)
-        currency.imgFilename = currency.imgFilename.substr(0, currency.imgFilename.length - 2)
-      }
-      if(!currency.id) {
-        console.log(currency)
+      currency.category = getItemCategory(currency.id)
+      if(currency.category == 'divination card' || currency.category == 'map') {
+        currency.name = currency.text
       }
       this.currencyTypesList.push(currency)
       this.currencyTypesIdDict[currency.id] = currency
@@ -99,26 +97,43 @@ export default class CurrencyTypesParser {
     return missingCurrencyTypes
   }
 
-  downloadImages() {
-    return new Promise((resolve, reject) => {
-      let missingCurrencyTypes = this.findMissingCurrencyTypes()
-      async.each(missingCurrencyTypes, (currencyType, next) => {
-        let uri = `${constants.urls.currencyPoeTrade}${currencyType.imgUrl}`
-        let filename = `${constants.paths.app}${currencyType.imgUrl}`
-        console.log(`Downloading ${uri} to ${filename}`)
-        download(uri, filename)
-          .then(() => {
-            return next()
-          })
-          .catch((err) => {
-            return next(err)
-          })
-      }, (err) => {
-        if(err) {
-          return reject(err)
+  serializeCurrrencyAbbreviations() {
+    return readJSON(constants.paths.data.currencyAbbreviations)
+      .then((currencyAbbreviations) => {
+        let abbreviatedCategories = ['currency', 'fragment']
+        for(let currencyType of this.currencyTypesList) {
+          if(abbreviatedCategories.indexOf(currencyType.category) != -1 && !currencyAbbreviations[currencyType.name]) {
+            currencyAbbreviations[currencyType.name] = ""
+          }
         }
-        resolve()
+        return serializeJSON(constants.paths.data.currencyAbbreviations, currencyAbbreviations, {spaces: 2})
       })
+      .catch((err) => {
+        throw err
+      })
+
+  }
+
+  downloadImages() {
+    let uri32 = constants.urls.currency32Img
+    let filename32 = constants.paths.currency32Img
+    let uri20 = constants.urls.currency20Img
+    let filename20 = constants.paths.currency20Img
+    return Promise.all([download(uri32, filename32), download(uri20, filename20)])
+  }
+
+  downloadCSS() {
+    return new Promise((resolve, reject) => {
+      let uri = constants.urls.currency32Css
+      let filename = constants.paths.currency32Css
+      download(uri, filename)
+        .then(() => {
+          resolve()
+          return
+        })
+        .catch((err) => {
+          reject(err)
+        })
     })
   }
 }

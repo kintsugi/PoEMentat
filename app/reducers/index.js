@@ -6,6 +6,8 @@ import settings from './settings'
 import currencyTypes from './currencyTypes'
 import inventory from './inventory'
 import offers from './offers'
+import currencyFilter from './currencyFilter'
+import selectedCurrencies from './selectedCurrencies'
 
 const rootReducer = combineReducers({
   ready,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   currencyTypes,
   inventory,
   offers,
+  currencyFilter,
+  selectedCurrencies,
   routing
 })
 

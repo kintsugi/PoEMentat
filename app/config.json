@@ -16,6 +16,11 @@
     },
     "currencyTypes": {},
     "inventory": [],
-    "offers": {}
+    "offers": {},
+    "currencyFilter": ["currency"],
+    "selectedCurrencies": {
+      "main": 4,
+      "alternate": null
+    }
   }
 }

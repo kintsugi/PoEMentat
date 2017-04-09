@@ -16,9 +16,9 @@ export default class Navigation extends Component {
       <div>
         <Header/>
         <div className="container">
-          <Nav bsStyle="tabs" activeKey="0" onSelect={this.props.handleSelect}>
+          <Nav activeKey="0" bsStyle="tabs" activeKey="0" >
             {this.props.routes.map((route, index) => (
-              <NavItem key={index} eventKey={index} title={route.title}>{route.title}</NavItem>
+              <NavItem key={index} href={`#${route.path}`} title={route.title}>{route.title}</NavItem>
             ))}
           </Nav>
           <Router history={this.props.history}>
@@ -27,6 +27,7 @@ export default class Navigation extends Component {
                 key={index}
                 path={route.path}
                 component={route.component}
+                //children={({match, ...rest}) => {return <div>match.path</div>}}
               />
             ))}
           </Router>

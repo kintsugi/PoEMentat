@@ -9,6 +9,8 @@ import {
   MenuItem,
 } from 'react-bootstrap'
 import MainCurrencyDropdown from './MainCurrencyDropdown'
+import CurrencyFilter from './CurrencyFilter'
+import styles from './MarketButtonToolbar.css'
 
 const quickSelections = [4, 6]
 
@@ -20,14 +22,20 @@ export default class MarketButtonToolbar extends Component {
 
   render() {
     return (
-      <ButtonToolbar>
-        <MainCurrencyDropdown
-          selectedMainCurrencyId={this.props.selectedMainCurrencyId}
-          onSelectMainCurrency={this.props.onSelectMainCurrency}
-          quickSelections={quickSelections}
-          currencyTypes={this.props.currencyTypes}
+      <div>
+        <ButtonToolbar className={styles.container}>
+          <MainCurrencyDropdown
+            selectedCurrencies={this.props.selectedCurrencies}
+            onSelectMainCurrency={this.props.onSelectMainCurrency}
+            quickSelections={quickSelections}
+            currencyTypes={this.props.currencyTypes}
+          />
+        </ButtonToolbar>
+        <CurrencyFilter
+          currencyFilter={this.props.currencyFilter}
+          onCurrencyFilterChange={this.props.onCurrencyFilterChange}
         />
-      </ButtonToolbar>
+      </div>
     )
   }
 }

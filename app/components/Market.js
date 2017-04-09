@@ -10,6 +10,7 @@ import {
 } from 'react-bootstrap'
 import MarketButtonToolbar from './MarketButtonToolbar'
 import AlternateCurrencyButtonList from './AlternateCurrencyButtonList'
+import OffersList from './OffersList'
 
 export default class Market extends Component {
 
@@ -24,19 +25,28 @@ export default class Market extends Component {
           <Col xs={12} >
             <br />
             <MarketButtonToolbar
-              selectedMainCurrencyId={this.props.selectedMainCurrencyId}
+              selectedCurrencies={this.props.selectedCurrencies}
               onSelectMainCurrency={this.props.onSelectMainCurrency}
+              currencyFilter={this.props.currencyFilter}
               currencyTypes={this.props.currencyTypes}
+              onCurrencyFilterChange={this.props.onCurrencyFilterChange}
             />
           </Col>
           <Col xs={12}>
             <br />
             <AlternateCurrencyButtonList
-              selectedAlternateCurrencyId={this.props.selectedAlternateCurrencyId}
+              currencyFilter={this.props.currencyFilter}
+              selectedCurrencies={this.props.selectedCurrencies}
               onSelectAlternateCurrency={this.props.onSelectAlternateCurrency}
               currencyTypes={this.props.currencyTypes}
             />
           </Col>
+          <OffersList
+            currencyTypes={this.props.currencyTypes}
+            offers={this.props.offers}
+            selectedCurrencies={this.props.selectedCurrencies}
+            selectedAlternateCurrencyId={this.props.selectedAlternateCurrencyId}
+          />
         </Row>
       </Grid>
     )

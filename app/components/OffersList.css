@@ -1,0 +1,31 @@
+.currencyImg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.offerBorder {
+  border: 1px solid rgb(204, 204, 204);
+}
+
+
+.offerContainer {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.leftOfferContainer {
+  font-size: 12px;
+  margin-left: -2px;
+  margin-right: 2px;
+}
+
+.rightOfferContainer {
+  font-size: 12px;
+  margin-left: 2px;
+  margin-right: -2px;
+}
+
+.offerOwnerContainer {
+  font-size: 11px;
+  border-top: 1px solid rgb(204, 204, 204);
+}

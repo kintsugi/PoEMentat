@@ -3,6 +3,7 @@ const currencyPositions = require('../data/currency-positions')
 import {
   Button
 } from 'react-bootstrap'
+import CurrencyImg from './CurrencyImg'
 import styles from './CurrencyStashTabIcon.css'
 
 export default class CurrencyStashTabIcon extends Component {
@@ -17,7 +18,7 @@ export default class CurrencyStashTabIcon extends Component {
         top: this.props.position.y,
       }}>
         <div className={styles.currencyCountText}>{this.props.inventoryItem.count}</div>
-        <img className={styles.currencyStashImg} src={this.props.inventoryItem.imgFilename} />
+        <CurrencyImg id={this.props.id} />
       </Button>
     )
   }

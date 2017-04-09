@@ -42,14 +42,14 @@ export default class MainCurrencyDropdown extends Component {
 
   render() {
     return (
-      <Dropdown  id="main-currency-dropdown">
+      <Dropdown id="main-currency-dropdown">
         <Dropdown.Toggle >
           <MainCurrencySelectable
             key={0}
-            currencyType={this.props.currencyTypes.idDict[this.props.selectedMainCurrencyId]}
+            currencyType={this.props.currencyTypes.idDict[this.props.selectedCurrencies.main]}
           />
         </Dropdown.Toggle>
-        <Dropdown.Menu bsStyle="currency-dropdown-menu">
+        <Dropdown.Menu bsStyle=" currency-dropdown-menu">
           {this.renderSelections(this.state.quickSelections)}
           <MenuItem divider />
           {this.renderSelections(this.state.selections)}
