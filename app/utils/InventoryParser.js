@@ -122,6 +122,9 @@ export default class InventoryParser {
   }
 
   getAllStashTabsParallel(settings, limit) {
+    if(!settings.poeUsername || !settings.league || !settings.poeSessionId) {
+      return Promise.resolve([])
+    }
     this.settings = settings
     this.setRequestOptions()
     if(!this.numTabs) {
@@ -159,6 +162,9 @@ export default class InventoryParser {
   }
 
   getAllStashTabsSeries(settings, limit) {
+    if(!settings.poeUsername || !settings.league || !settings.poeSessionId) {
+      return Promise.resolve([])
+    }
     this.settings = settings
     this.setRequestOptions()
     if(!this.numTabs) {

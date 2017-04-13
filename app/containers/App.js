@@ -17,7 +17,6 @@ import * as ShopActions from '../actions/shop'
 import styles from './App.css'
 let io = require('socket.io-client')
 const constants = require('../constants')
-let log = require('../utils/log')
 
 class App extends Component {
   constructor() {

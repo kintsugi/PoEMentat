@@ -4,10 +4,19 @@
 }
 
 .navbar {
-  border-radius: 0px;
+  border-radius: 0px !important;
 }
 
 .currency-dropdown-menu {
   overflow: scroll !important;
   height: 330px !important;
+}
+
+#main-currency-dropdown>li>a {
+  color: inherit !important;
+}
+
+#main-currency-dropdown>li>a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
 }

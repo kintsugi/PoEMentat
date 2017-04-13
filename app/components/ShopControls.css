@@ -3,7 +3,7 @@
 }
 
 .bulkInput {
-  height: 46px;
+  height: 46px !important;
 }
 
 .bulkInputContainer {

@@ -42,7 +42,6 @@ const installExtensions = async () => {
 }
 
 app.on('ready', async () => {
-  console.log('ready')
   await installExtensions()
 
   mainWindow = new BrowserWindow({
@@ -52,6 +51,7 @@ app.on('ready', async () => {
   })
 
   mainWindow.loadURL(`file://${__dirname}/app.html`)
+
 
   mainWindow.webContents.on('did-finish-load', () => {
     if (!mainWindow) {

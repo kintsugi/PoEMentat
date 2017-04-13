@@ -9,6 +9,8 @@ import {
   getItemCategory,
 } from './functions'
 const constants = require('../constants')
+let currencyTypeData = require('../data/currency-types')
+let currencyAbbreviationData = require('../data/currency-abbreviations')
 
 export default class CurrencyTypesParser {
 
@@ -30,13 +32,19 @@ export default class CurrencyTypesParser {
         throw err
       })
       .then(() => {
-        return serializeJSON(constants.paths.data.currencyTypes, this.getParsedCurrencyTypes(), {spaces: 2})
+        if (process.env.NODE_ENV === 'development') {
+          return serializeJSON(constants.paths.data.currencyTypes, this.getParsedCurrencyTypes(), {spaces: 2})
+        }
+        return Promise.resolve()
       })
       .catch((err) => {
         throw err
       })
       .then(() => {
-        return this.serializeCurrrencyAbbreviations()
+        if(process.env.NODE_ENV === 'development') {
+          return this.serializeCurrrencyAbbreviations()
+        }
+        return Promise.resolve()
       })
       .catch((err) => {
         throw err
@@ -73,6 +81,9 @@ export default class CurrencyTypesParser {
       currency.category = getItemCategory(currency.id)
       if(currency.category == 'divination card' || currency.category == 'map') {
         currency.name = currency.text
+      }
+      if(process.env.NODE_ENV === 'production') {
+        currency.fullName = currencyAbbreviationData[currency.name]
       }
       this.currencyTypesList.push(currency)
       this.currencyTypesIdDict[currency.id] = currency

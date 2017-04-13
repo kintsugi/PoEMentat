@@ -9,13 +9,14 @@
 }
 
 .orderInput {
-  height: 46px;
+  height: 46px !important;
 }
 
 .orderInputLeft {
-  border-right: 0px;
+  border-right: 0px !important;
 }
 
 .orderInputRight {
-  border-left: 0px;
+  border-left: 0px !important;
 }
+

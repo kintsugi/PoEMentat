@@ -3,11 +3,11 @@
   "defaultState": {
     "settings": {
       "clientTxtPath": "",
-      "poeUsername": "",
+      "poeUsername": "PotatoOfTime",
       "leagueName": "Hardcore Legacy",
-      "poeTradeAPIKey": "",
-      "poeSessionId": "",
-      "usernameWhitelist": [],
+      "poeTradeAPIKey": "roohaaroyaukoo",
+      "poeSessionId": "bd9410aa6a0500dbd42ce5695e08f92e",
+      "usernameWhitelist": ["Shoo_Layce"],
       "updateIntervals": {
         "stash": 30000,
         "currencyPoeTrade": 10000,
