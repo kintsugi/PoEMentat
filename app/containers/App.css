@@ -1,5 +1,9 @@
 .loading {
-  float: none;
-  margin: 0 auto;
+  position: absolute;
+  left: calc(50% - 32px);
+  top: calc(50% - 64px);
+  height: 100%;
+  width: 100%;
   vertical-align:middle;
 }
+

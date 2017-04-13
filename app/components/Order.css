@@ -1,0 +1,21 @@
+.orderBorder {
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.orderContainer {
+  padding: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.orderInput {
+  height: 46px;
+}
+
+.orderInputLeft {
+  border-right: 0px;
+}
+
+.orderInputRight {
+  border-left: 0px;
+}

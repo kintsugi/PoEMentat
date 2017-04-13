@@ -67,6 +67,10 @@ export function checkItemCategoryName(id, categoryName) {
 }
 
 export function getItemCategory(id) {
+  //silver is currency but isnt in the currency range
+  if(id == 35) {
+    return 'currency'
+  }
   for(let category in currencyCategories) {
     let categoryObj = currencyCategories[category]
     if(checkItemCategory(id, categoryObj)) {

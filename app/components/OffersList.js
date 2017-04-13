@@ -14,6 +14,8 @@ import AlternateCurrencyButtonList from './AlternateCurrencyButtonList'
 import CurrencyImg from './CurrencyImg'
 import styles from './OffersList.css'
 
+const offersToShow = 3
+
 export default class OffersList extends Component {
 
   constructor(props) {
@@ -22,9 +24,7 @@ export default class OffersList extends Component {
 
   renderCurrencyImg(currencyType) {
     return (
-      <div className={styles.currencyImg}>
-        <CurrencyImg currencyType={currencyType} />
-      </div>
+      <CurrencyImg currencyType={currencyType} inline={true}/>
     )
   }
 
@@ -97,10 +97,10 @@ export default class OffersList extends Component {
     if(!this.props.selectedCurrencies.main || !this.props.selectedCurrencies.alternate) {
       return (<div />)
     }
-    let buyOffers = this.props.offers[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate].list
-    let sellOffers = this.props.offers[this.props.selectedCurrencies.alternate][this.props.selectedCurrencies.main].list
+    let buyOffers = this.props.offers[this.props.selectedCurrencies.alternate][this.props.selectedCurrencies.main].list
+    let sellOffers = this.props.offers[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate].list
     let offerPairs = []
-    for(let i = 0; i < buyOffers.length ||  i < sellOffers.length; ++i) {
+    for(let i = 0; i < Math.min(buyOffers.length, offersToShow) ||  i < Math.min(sellOffers.length, offersToShow); ++i) {
       offerPairs.push([buyOffers[i], sellOffers[i]])
     }
 

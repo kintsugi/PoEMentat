@@ -5,21 +5,35 @@ const constants = require('../constants')
 export default class InventoryParser {
   constructor(settings) {
     this.settings = settings
+    this.requestOptions = {}
+    this.setRequestOptions()
+    this.stashTabs = []
+    this.numTabs = 0
+  }
+
+  setRequestOptions() {
+    let tabIndex = 0, tabs = 0
+    let qs = this.requestOptions.qs || null
+    if(qs && qs.tabIndex) {
+      tabIndex = qs.tabIndex
+    }
+    if(qs && qs.tabs) {
+      tabs = qs.tabs
+    }
     this.requestOptions = {
       method: 'GET',
       uri: constants.urls.stashItems,
       qs: {
         accountName: this.settings.poeUsername,
-        tabIndex: 0,
+        tabIndex: tabIndex,
         league: this.settings.leagueName,
-        tabs: 0
+        tabs: tabs
       },
       headers: {
         cookie: 'POESESSID=' + this.settings.poeSessionId + ';',
       }
     }
-    this.stashTabs = []
-    this.numTabs = 0
+    return this.requestOptions
   }
 
   init() {
@@ -107,7 +121,9 @@ export default class InventoryParser {
     return this.getCurrentStashTab()
   }
 
-  getAllStashTabsParallel(limit) {
+  getAllStashTabsParallel(settings, limit) {
+    this.settings = settings
+    this.setRequestOptions()
     if(!this.numTabs) {
       return Promise.reject(new Error('InventoryParser not initialized, cannot getAllStashTabsParallel'))
     }
@@ -142,7 +158,9 @@ export default class InventoryParser {
 
   }
 
-  getAllStashTabsSeries(limit) {
+  getAllStashTabsSeries(settings, limit) {
+    this.settings = settings
+    this.setRequestOptions()
     if(!this.numTabs) {
       return Promise.reject(new Error('InventoryParser not initialized, cannot getAllStashTabSeries'))
     }

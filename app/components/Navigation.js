@@ -21,16 +21,7 @@ export default class Navigation extends Component {
               <NavItem key={index} href={`#${route.path}`} title={route.title}>{route.title}</NavItem>
             ))}
           </Nav>
-          <Router history={this.props.history}>
-            {this.props.routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                component={route.component}
-                //children={({match, ...rest}) => {return <div>match.path</div>}}
-              />
-            ))}
-          </Router>
+          <Router history={this.props.history} routes={this.props.routes}/>
         </div>
       </div>
     )

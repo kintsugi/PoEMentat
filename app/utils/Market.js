@@ -33,8 +33,8 @@ export default class Market {
         this.markets[mainCurrencyType.id][alternateCurrencyType.id] = {
           mainCurrencyType: mainCurrencyType,
           alternateCurrencyType: alternateCurrencyType,
-          buyOffers: this.offers[mainCurrencyType.id][alternateCurrencyType.id],
-          sellOffers: this.offers[alternateCurrencyType.id][mainCurrencyType.id],
+          buyOffers: this.offers[alternateCurrencyType.id][mainCurrencyType.id],
+          sellOffers: this.offers[mainCurrencyType.id][alternateCurrencyType.id],
         }
       }
     }
@@ -48,7 +48,7 @@ export default class Market {
     this.calcOffers()
     this.sortOffers()
     this.calcMarkets()
-    this.cb(this.offers)
+    this.cb(this.offers, this.markets)
   }
 
   formatOffers() {
@@ -104,8 +104,67 @@ export default class Market {
   }
 
   calcMarket(market) {
-    market.topBuyOffer = market.buyOffers[0]
-    market.topSellOffer = market.sellOffers[0]
+    market.topOfferDetails = {
+      buyOffer: market.buyOffers.list[0],
+      sellOffer: market.sellOffers.list[0],
+    }
+    market.topOfferDetails.profit = this.calcProfit(market.topOfferDetails.buyOffer, market.topOfferDetails.sellOffer)
+    market.topOfferDetails.ROI = this.calcROI(market.topOfferDetails.buyOffer, market.topOfferDetails.sellOffer)
+    market.bestOfferDetails = this.findBestOfferPair(market.buyOffers, market.sellOffers)
+    market.bestOfferDetails.ROI = this.calcROI(market.bestOfferDetails.buyOffer, market.bestOfferDetails.sellOffer)
+  }
+
+  calcROI(buyOffer, sellOffer) {
+    /*
+     * Example: buy chromes 1c:20, sell 1c:15
+     * profit = 5 chromes
+     * 15 chromes = 1c, 15/5 = 3 trades needed to make 1c
+     * ROI = chaos invested / chaos profited
+     * 3 trades at 1c each = 3c invested, 1c profit ROI = 3/1 = 3
+     */
+    if(!buyOffer || !sellOffer) {
+      return
+    }
+    let alternateBuyValue = buyOffer.ratios.buyPerSell
+    let alternateSellValue = sellOffer.ratios.sellPerBuy
+    let alternateProfitPerMain = alternateBuyValue - alternateSellValue
+    let ROI = alternateSellValue / alternateProfitPerMain
+    return ROI
+  }
+
+  calcProfit(buyOffer, sellOffer) {
+    let sellPerBuy = buyOffer ? buyOffer.ratios.sellPerBuy : 0
+    let buyPerSell = sellOffer ? sellOffer.ratios.buyPerSell : 0
+    return buyPerSell - sellPerBuy
+  }
+
+  findBestOfferPair(buyOffers, sellOffers) {
+    let buyOffer = null, sellOffer = null, profit = null
+    if(!buyOffers || !sellOffers || !buyOffers.list || !sellOffers.list) {
+      return {
+        buyOffer,
+        sellOffer,
+        profit,
+      }
+    }
+    for(let buyIndex = 0, sellIndex = 0; buyIndex < buyOffers.list.length || sellIndex < sellOffers.list.length;) {
+      buyOffer = buyOffers.list[buyIndex], sellOffer = sellOffers.list[sellIndex]
+      profit = this.calcProfit(buyOffer, sellOffer)
+      if(profit > 0) {
+        break
+      }
+      if(buyIndex < buyOffers.list.length) {
+        buyIndex++
+      }
+      if(sellIndex < sellOffers.list.length) {
+        sellIndex++
+      }
+    }
+    return {
+      buyOffer,
+      sellOffer,
+      profit,
+    }
   }
 
   compareOffers(a, b) {

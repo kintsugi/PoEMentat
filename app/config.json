@@ -1,5 +1,5 @@
 {
-  "persistStore": false,
+  "persistStore": true,
   "defaultState": {
     "settings": {
       "clientTxtPath": "",
@@ -10,15 +10,23 @@
       "usernameWhiteList": ["Shoo_Layce"],
       "updateIntervals": {
         "stash": 30000,
-        "currencyPoeTrade": 10000
+        "currencyPoeTrade": 10000,
+        "shop": 10000
       },
       "stashUpdateMode": "parallel"
     },
     "currencyTypes": {},
     "inventory": [],
-    "offers": {},
-    "currencyFilter": ["currency"],
-    "selectedCurrencies": {
+    "offers": [],
+    "markets": [],
+    "shop": [],
+    "marketCurrencyFilter": ["currency"],
+    "shopCurrencyFilter": ["currency"],
+    "selectedMarketCurrencies": {
+      "main": 4,
+      "alternate": null
+    },
+    "selectedShopCurrencies": {
       "main": 4,
       "alternate": null
     }

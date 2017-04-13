@@ -9,12 +9,12 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install()
 }
 
-if (process.env.NODE_ENV === 'development') {
+//if (process.env.NODE_ENV === 'development') {
   require('electron-debug')() // eslint-disable-line global-require
   const path = require('path') // eslint-disable-line
   const p = path.join(__dirname, '..', 'app', 'node_modules') // eslint-disable-line
   require('module').globalPaths.push(p) // eslint-disable-line
-}
+//}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
@@ -42,6 +42,7 @@ const installExtensions = async () => {
 }
 
 app.on('ready', async () => {
+  console.log('ready')
   await installExtensions()
 
   mainWindow = new BrowserWindow({

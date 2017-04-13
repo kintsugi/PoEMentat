@@ -25,6 +25,11 @@ export default class AlternateCurrencyButtonList extends Component {
 
   renderCurrencyButtons(currencyTypes) {
     let currencyButtons = currencyTypes.map((currencyType) => {
+      let market = this.props.markets[this.props.selectedCurrencies.main][currencyType.id]
+      let ROI = market.bestOfferDetails.ROI || ''
+      if(ROI) {
+        ROI = parseFloat(ROI.toFixed(2))
+      }
       let show = this.checkFilter(currencyType)
       return  (
         <Button
@@ -34,6 +39,7 @@ export default class AlternateCurrencyButtonList extends Component {
           }}
           className={styles.currencyBtn}
           key={currencyType.id}>
+          <div className={styles.currencyCountText}>{ROI}</div>
           <CurrencyImg currencyType={currencyType} />
         </Button>
       )
@@ -43,13 +49,33 @@ export default class AlternateCurrencyButtonList extends Component {
     )
   }
 
+  compareCurrencyByROI(typeA, typeB) {
+    let marketA = this.props.markets[this.props.selectedCurrencies.main][typeA.id]
+    let marketB = this.props.markets[this.props.selectedCurrencies.main][typeB.id]
+    let aROI = marketA.bestOfferDetails.ROI
+    let bROI = marketB.bestOfferDetails.ROI
+    if(!aROI && bROI) {
+      return 1
+    } else if(aROI && !bROI) {
+      return -1
+    } else if(!aROI && !bROI) {
+      return 0
+    } else if(aROI < bROI) {
+      return -1
+    } else if(aROI > bROI) {
+      return 1
+    } else {
+      return 0
+    }
+  }
+
   render() {
     let textCurrencyTypes = this.props.currencyTypes.list.filter((currencyType) => {
       return textCurrencies.indexOf(currencyType.category) != -1
-    })
+    }).sort((a, b) => this.compareCurrencyByROI(a, b))
     let imageCurrencyTypes = this.props.currencyTypes.list.filter((currencyType) => {
       return textCurrencies.indexOf(currencyType.category) == -1
-    })
+    }).sort((a, b) => this.compareCurrencyByROI(a, b))
 
     return (
       <div>

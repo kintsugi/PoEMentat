@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Market from '../components/Market'
-import * as CurrencyFilterActions from '../actions/currencyFilter'
-import * as SelectedCurrenciesActions from '../actions/selectedCurrencies'
+import * as ShopActions from '../actions/shop'
+import * as MarketCurrencyFilterActions from '../actions/marketCurrencyFilter'
+import * as SelectedMarketCurrenciesActions from '../actions/selectedMarketCurrencies'
 
 class MarketPage extends Component {
   constructor(props) {
@@ -15,30 +16,54 @@ class MarketPage extends Component {
   }
 
   onSelectMainCurrency(selectedMainCurrencyId) {
-    let { changeSelectedMainCurrency } = this.props
-    changeSelectedMainCurrency(selectedMainCurrencyId)
+    let { changeSelectedMainMarketCurrency } = this.props
+    changeSelectedMainMarketCurrency(selectedMainCurrencyId)
   }
 
   onSelectAlternateCurrency(selectedAlternateCurrencyId) {
-    let { changeSelectedAlternateCurrency } = this.props
-    changeSelectedAlternateCurrency(selectedAlternateCurrencyId)
+    let { changeSelectedAlternateMarketCurrency } = this.props
+    changeSelectedAlternateMarketCurrency(selectedAlternateCurrencyId)
   }
 
   onCurrencyFilterChange(category) {
-    let { changeFilter } = this.props
-    changeFilter(category)
+    let { changeMarketFilter } = this.props
+    changeMarketFilter(category)
+  }
+
+  onShopChange(mainCurrencyId, alternateCurrencyId, order) {
+    let { changeShopOrder } = this.props
+    order.mainCurrencyType = this.props.currencyTypes.idDict[mainCurrencyId]
+    order.alternateCurrencyType = this.props.currencyTypes.idDict[alternateCurrencyId],
+    changeShopOrder(mainCurrencyId, alternateCurrencyId, order)
   }
 
   render() {
+    let selectedCurrencies = this.props.selectedMarketCurrencies
+    let selectedMarket = {}, selectedShop = {
+      overridden: false,
+      autotradeEnabled: false,
+      type: 'both'
+    }
+    if(this.props.markets[selectedCurrencies.main] && this.props.markets[selectedCurrencies.main][selectedCurrencies.alternate]) {
+      selectedMarket = this.props.markets[selectedCurrencies.main][selectedCurrencies.alternate]
+    }
+    if(this.props.shop[selectedCurrencies.main] && this.props.shop[selectedCurrencies.main][selectedCurrencies.alternate]) {
+      selectedShop = this.props.shop[selectedCurrencies.main][selectedCurrencies.alternate]
+    }
     return (
       <Market
         currencyTypes={this.props.currencyTypes}
         offers={this.props.offers}
-        currencyFilter={this.props.currencyFilter}
-        selectedCurrencies={this.props.selectedCurrencies}
+        shop={this.props.shop}
+        markets={this.props.markets}
+        selectedMarket={selectedMarket}
+        selectedShop={selectedShop}
+        currencyFilter={this.props.marketCurrencyFilter}
+        selectedCurrencies={this.props.selectedMarketCurrencies}
         onSelectMainCurrency={this.onSelectMainCurrency.bind(this)}
         onSelectAlternateCurrency={this.onSelectAlternateCurrency.bind(this)}
         onCurrencyFilterChange={this.onCurrencyFilterChange.bind(this)}
+        onShopChange={this.onShopChange.bind(this)}
       />
     )
   }
@@ -49,15 +74,18 @@ function mapStateToProps(state) {
     settings: state.settings,
     currencyTypes: state.currencyTypes,
     offers: state.offers,
-    currencyFilter: state.currencyFilter,
-    selectedCurrencies: state.selectedCurrencies,
+    markets: state.markets,
+    shop: state.shop,
+    marketCurrencyFilter: state.marketCurrencyFilter,
+    selectedMarketCurrencies: state.selectedMarketCurrencies,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    ...CurrencyFilterActions,
-    ...SelectedCurrenciesActions,
+    ...ShopActions,
+    ...MarketCurrencyFilterActions,
+    ...SelectedMarketCurrenciesActions,
   }, dispatch)
 }
 

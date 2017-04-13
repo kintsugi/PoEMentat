@@ -13,12 +13,13 @@ export default class Inventory {
     this.inventoryParser = new InventoryParser(this.settings)
   }
 
-  init(currencyTypes) {
+  init(settings, currencyTypes) {
+    this.settings = settings
     this.currencyTypes = currencyTypes
     this.resetInventory()
-    return this.inventoryParser.init()
+    return this.inventoryParser.init(settings)
       .then(() => {
-        return this.update()
+        return this.update(this.settings)
       })
       .catch((err) => {
         throw err
@@ -40,14 +41,15 @@ export default class Inventory {
 
   stashUpdate() {
     if(this.settings.stashUpdateMode == 'parallel') {
-      return this.inventoryParser.getAllStashTabsParallel(10)
+      return this.inventoryParser.getAllStashTabsParallel(this.settings, 10)
     } else if(this.settings.stashUpdateMode == 'series') {
-      return this.inventoryParser.getAllStashTabsSeries()
+      return this.inventoryParser.getAllStashTabsSeries(this.settings)
     }
   }
 
 
-  update() {
+  update(settings) {
+    this.settings = settings
     return this.stashUpdate()
       .then((receivedTabs) => {
         return this.countCurrency(receivedTabs)

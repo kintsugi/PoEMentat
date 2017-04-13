@@ -6,11 +6,14 @@ import NavigationPage from './NavigationPage'
 import CurrencyTypesParser, { currencyTypesList } from '../utils/CurrencyTypesParser'
 import Market from '../utils/Market'
 import Inventory from '../utils/Inventory'
+import Shop from '../utils/Shop'
 import * as ReadyActions from '../actions/ready'
 import * as SettingsActions from '../actions/settings'
 import * as CurrencyTypesActions from '../actions/currencyTypes'
 import * as InventoryActions from '../actions/inventory'
 import * as OffersActions from '../actions/offers'
+import * as MarketsActions from '../actions/markets'
+import * as ShopActions from '../actions/shop'
 import styles from './App.css'
 let io = require('socket.io-client')
 const constants = require('../constants')
@@ -25,11 +28,19 @@ class App extends Component {
   }
 
   componentWillMount() {
-    let { changeOffers } = this.props
+    let { changeOffers, changeMarkets, readyMarket, changeShop } = this.props
     this.initializeCurrencyTypes()
       .then(() => {
-        this.market = new Market(io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers) => {
+        this.shop = new Shop(this.props.settings, this.currencyTypesParser.getParsedCurrencyTypes())
+        if(!this.props.shop.length) {
+          changeShop(this.shop.init())
+        }
+        this.market = new Market(io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers, markets) => {
           changeOffers(offers)
+          changeMarkets(markets)
+          if(!this.props.ready.market) {
+            readyMarket()
+          }
         })
         return this.initializeInventory()
       })
@@ -39,7 +50,7 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    let ready = nextProps.ready.currencyTypes && nextProps.ready.inventory
+    let ready = nextProps.ready.currencyTypes && nextProps.ready.inventory && nextProps.ready.market
     this.setState({
       ready,
     })
@@ -68,18 +79,19 @@ class App extends Component {
     return this.inventoryInterval()
       .then(() => {
         readyInventory()
-        return
+        return this.shopInterval()
       })
       .catch((err) => {
         throw err
       })
   }
 
+
   inventoryInterval() {
     let { changeInventory } = this.props
     return (this.inventory.inventoryParser.numTabs ?
-      this.inventory.update() :
-      this.inventory.init(this.currencyTypesParser.getParsedCurrencyTypes()))
+      this.inventory.update(this.props.settings) :
+      this.inventory.init(this.props.settings, this.currencyTypesParser.getParsedCurrencyTypes()))
       .then((inventory) => {
         changeInventory(inventory)
         return
@@ -95,6 +107,26 @@ class App extends Component {
         this.inventoryIntervalId = setTimeout(() => {
           this.inventoryInterval()
         }, this.props.settings.updateIntervals.stash)
+        return
+      })
+      .catch((err) => {
+        throw err
+      })
+  }
+
+  shopInterval() {
+    let { changeShop } = this.props
+    return this.shop.postShop(this.props.settings, this.props.shop, this.props.markets)
+      .then((postedShop) => {
+        return changeShop(postedShop)
+      })
+      .catch((err) => {
+        throw err
+      })
+      .then(() => {
+        this.shopIntervalID = setTimeout(() => {
+          this.shopInterval()
+        }, this.props.settings.updateIntervals.shop)
         return
       })
       .catch((err) => {
@@ -122,6 +154,8 @@ function mapStateToProps(state) {
   return {
     ready: state.ready,
     settings: state.settings,
+    markets: state.markets,
+    shop: state.shop,
   }
 }
 
@@ -132,6 +166,8 @@ function mapDispatchToProps(dispatch) {
     ...CurrencyTypesActions,
     ...InventoryActions,
     ...OffersActions,
+    ...MarketsActions,
+    ...ShopActions,
   }, dispatch)
 }
 

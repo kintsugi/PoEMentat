@@ -100,10 +100,16 @@ export default class CurrencyTypesParser {
   serializeCurrrencyAbbreviations() {
     return readJSON(constants.paths.data.currencyAbbreviations)
       .then((currencyAbbreviations) => {
-        let abbreviatedCategories = ['currency', 'fragment']
+        let abbreviatedCategories = ['currency', 'fragment', 'essence']
         for(let currencyType of this.currencyTypesList) {
           if(abbreviatedCategories.indexOf(currencyType.category) != -1 && !currencyAbbreviations[currencyType.name]) {
-            currencyAbbreviations[currencyType.name] = ""
+            if(currencyType.category == 'fragment' || currencyType.category == 'essence') {
+              currencyAbbreviations[currencyType.name] = this.formatCurrencyAbbreviation(currencyType.name)
+            } else {
+              currencyAbbreviations[currencyType.name] = ""
+            }
+          } else {
+            currencyType.fullName = currencyAbbreviations[currencyType.name]
           }
         }
         return serializeJSON(constants.paths.data.currencyAbbreviations, currencyAbbreviations, {spaces: 2})
@@ -112,6 +118,17 @@ export default class CurrencyTypesParser {
         throw err
       })
 
+  }
+
+  formatCurrencyAbbreviation(abbreviation) {
+    return abbreviation
+      .split(/ /g).map((word) => {
+        if(word == 'of') {
+          return word
+        }
+        return `${word.substring(0,1).toUpperCase()}${word.substring(1)}`
+      })
+      .join(" ")
   }
 
   downloadImages() {

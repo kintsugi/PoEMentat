@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation'
 import HomePage from './HomePage'
 import SettingsPage from './SettingsPage'
 import MarketPage from './MarketPage'
+import ShopPage from './ShopPage'
 import Header from '../components/Header'
 import {
   Nav,
@@ -22,6 +23,11 @@ const routes = [
     component: MarketPage,
   },
   {
+    path: '/shop',
+    title: 'Shop',
+    component: ShopPage,
+  },
+  {
     path: '/settings',
     title: 'Settings',
     component: SettingsPage,
@@ -30,12 +36,6 @@ const routes = [
 
 
 export default class NavigationPage extends Component {
-
-  handleSelect(event) {
-    let route = routes[event].path
-    console.log('meme')
-    window.location.hash = `#${route}`
-  }
 
   render() {
     return (

@@ -10,6 +10,12 @@ export default class CurrencyImg extends Component {
     let id = this.props.id || this.props.currencyType.id
     if(this.props.currencyType && constants.misc.textCurrencyTypes.indexOf(this.props.currencyType.category) != -1) {
       return <span>{this.props.currencyType.name}</span>
+    } else if(this.props.inline) {
+      return (
+        <div className={styles.currencyImg}>
+          <div className={`cur32-${id}`}/>
+        </div>
+      )
     } else {
       return <div className={`cur32-${id}`}/>
     }

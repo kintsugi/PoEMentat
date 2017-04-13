@@ -2,6 +2,7 @@
   "urls": {
     "marketSync": "http://localhost:8080",
     "currencyPoeTrade": "http://currency.poe.trade",
+    "currencyPoeTradeShop": "http://currency.poe.trade/shop?league=",
     "currency32Img": "http://currency.poe.trade/static/currency_32.png",
     "currency20Img": "http://currency.poe.trade/static/currency_20.png",
     "currencyCss": "http://currency.poe.trade/static/gen/packed_dark.css?f498e4c3",
@@ -17,7 +18,8 @@
     "data": {
       "currencyTypes": "app/data/currency-types.json",
       "sets": "app/data/sets.json",
-      "currencyAbbreviations": "app/data/currency-abbreviations.json"
+      "currencyAbbreviations": "app/data/currency-abbreviations.json",
+      "state":"app/data/state/"
     }
   },
   "errs": {

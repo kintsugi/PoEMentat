@@ -1,20 +1,32 @@
 import React, { Component, PropTypes } from 'react'
+import { AsyncNodeStorage } from 'redux-persist-node-storage'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
-//import {persistStore} from 'redux-persist'
+import { persistStore } from 'redux-persist'
+import { LocalStorage } from 'node-localstorage'
 import App from './App'
+const config = require('../config')
+const constants = require('../constants')
 
 export default class Root extends Component {
 
   constructor() {
     super()
-    this.state = { rehydrated: true }
+    this.state = { rehydrated: false }
   }
 
   componentWillMount(){
-    //persistStore(this.props.store, {blacklist: ['routes']}, () => {
-      //this.setState({ rehydrated: true })
-    //})
+    if(config.persistStore) {
+      let storage = new AsyncNodeStorage(constants.paths.data.state)
+      persistStore(this.props.store, {
+        storage: storage,
+        whitelist: ['settings', 'shop']
+      }, () => {
+        this.setState({ rehydrated: true })
+      })
+    } else {
+      this.setState({ rehydrated: true })
+    }
   }
 
   render() {
