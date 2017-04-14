@@ -26,7 +26,10 @@ export default class AlternateCurrencyButtonList extends Component {
   renderCurrencyButtons(currencyTypes) {
     let currencyButtons = currencyTypes.map((currencyType) => {
       let market = this.props.markets[this.props.selectedCurrencies.main][currencyType.id]
-      let ROI = market.bestOfferDetails.ROI || ''
+      let ROI
+      if(market) {
+        ROI = market.bestOfferDetails.ROI || ''
+      }
       if(ROI) {
         ROI = parseFloat(ROI.toFixed(2))
       }
@@ -52,6 +55,13 @@ export default class AlternateCurrencyButtonList extends Component {
   compareCurrencyByROI(typeA, typeB) {
     let marketA = this.props.markets[this.props.selectedCurrencies.main][typeA.id]
     let marketB = this.props.markets[this.props.selectedCurrencies.main][typeB.id]
+    if(!marketA && marketB) {
+      return 1
+    } else if(marketA && !marketB) {
+      return -1
+    } else if(!marketA && !marketB) {
+      return 0
+    }
     let aROI = marketA.bestOfferDetails.ROI
     let bROI = marketB.bestOfferDetails.ROI
     if(!aROI && bROI) {

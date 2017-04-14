@@ -26,7 +26,7 @@ export default class Root extends Component {
       let storage = new AsyncNodeStorage(statePath)
       persistStore(this.props.store, {
         storage: storage,
-        whitelist: []
+        whitelist: ['settings', 'shop']
       }, () => {
         this.setState({ rehydrated: true })
       })

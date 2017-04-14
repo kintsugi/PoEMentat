@@ -21,24 +21,7 @@ export default class Market {
     this.markets = []
     //offers[buy_currency_id][sell_currency_id]
     //markets[main_currency_id][alternate_currency_id]
-    for(let buyCurrencyType of this.currencyTypes.list) {
-      this.offers[buyCurrencyType.id] = []
-      for(let sellCurrencyType of this.currencyTypes.list) {
-        this.offers[buyCurrencyType.id][sellCurrencyType.id] = {details: {}, list: []}
-      }
-    }
 
-    for(let mainCurrencyType of this.currencyTypes.list) {
-      this.markets[mainCurrencyType.id] = []
-      for(let alternateCurrencyType of this.currencyTypes.list) {
-        this.markets[mainCurrencyType.id][alternateCurrencyType.id] = {
-          mainCurrencyType: mainCurrencyType,
-          alternateCurrencyType: alternateCurrencyType,
-          buyOffers: this.offers[alternateCurrencyType.id][mainCurrencyType.id],
-          sellOffers: this.offers[mainCurrencyType.id][alternateCurrencyType.id],
-        }
-      }
-    }
   }
 
   update(rawOffers) {
@@ -63,6 +46,12 @@ export default class Market {
   indexOffers() {
     for(let id in this.rawOffers) {
       let rawOffer = this.rawOffers[id]
+      if(!this.offers[rawOffer.buy_currency_id]) {
+        this.offers[rawOffer.buy_currency_id] = []
+      }
+      if(!this.offers[rawOffer.buy_currency_id][rawOffer.sell_currency_id]) {
+        this.offers[rawOffer.buy_currency_id][rawOffer.sell_currency_id] = {list: [], details: {}}
+      }
       this.offers[rawOffer.buy_currency_id][rawOffer.sell_currency_id].list.push(rawOffer)
     }
   }
@@ -98,16 +87,34 @@ export default class Market {
   calcMarkets() {
     for(let mainCurrencyType of this.currencyTypes.list) {
       for(let alternateCurrencyType of this.currencyTypes.list) {
-        let market = this.markets[mainCurrencyType.id][alternateCurrencyType.id]
-        this.calcMarket(market)
+        let buyOffers, sellOffers
+        if(this.offers[alternateCurrencyType.id] && this.offers[alternateCurrencyType.id][mainCurrencyType.id]) {
+          buyOffers = this.offers[alternateCurrencyType.id][mainCurrencyType.id]
+        }
+        if(this.offers[mainCurrencyType.id] && this.offers[mainCurrencyType.id][alternateCurrencyType.id]) {
+          sellOffers = this.offers[mainCurrencyType.id][alternateCurrencyType.id]
+        }
+        if(buyOffers && sellOffers) {
+          let market = {
+            mainCurrencyType: mainCurrencyType,
+            alternateCurrencyType: alternateCurrencyType,
+            buyOffers,
+            sellOffers,
+          }
+          if(!this.markets[mainCurrencyType.id]) {
+            this.markets[mainCurrencyType.id] = []
+          }
+          this.markets[mainCurrencyType.id][alternateCurrencyType.id] = market
+          this.calcMarket(market)
+        }
       }
     }
   }
 
   calcMarket(market) {
     market.topOfferDetails = {
-      buyOffer: market.buyOffers.list[0],
-      sellOffer: market.sellOffers.list[0],
+      buyOffer: market.buyOffers.list[0] || {},
+      sellOffer: market.sellOffers.list[0] || {},
     }
     market.topOfferDetails.profit = this.calcProfit(market.topOfferDetails.buyOffer, market.topOfferDetails.sellOffer)
     market.topOfferDetails.ROI = this.calcROI(market.topOfferDetails.buyOffer, market.topOfferDetails.sellOffer)

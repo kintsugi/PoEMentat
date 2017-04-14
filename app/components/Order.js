@@ -61,9 +61,12 @@ export default class Order extends Component {
       let overriddenOrder = this.props.order.overriddenOrder || {}
       buyOffer = overriddenOrder.buyOffer || {}
       sellOffer = overriddenOrder.sellOffer || {}
-    } else {
+    } else if(this.props.market) {
       buyOffer = this.props.market.bestOfferDetails.buyOffer || {}
       sellOffer = this.props.market.bestOfferDetails.sellOffer || {}
+    } else {
+      buyOffer = {}
+      sellOffer = {}
     }
 
     if(this.props.order.autotradeEnabled || this.props.order.overridden) {
