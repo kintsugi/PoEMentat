@@ -14,7 +14,7 @@ import AlternateCurrencyButtonList from './AlternateCurrencyButtonList'
 import CurrencyImg from './CurrencyImg'
 import styles from './OffersList.css'
 
-const offersToShow = 0
+const offersToShow = 5
 
 export default class OffersList extends Component {
 

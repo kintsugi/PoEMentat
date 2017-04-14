@@ -18,16 +18,28 @@ export default class ShopControls extends Component {
     let market = this.props.selectedMarket
     this.state = {
       shop,
-      market
+      market,
+      minBulk: shop.minBulk || ''
     }
   }
 
   componentWillReceiveProps(nextProps) {
     let shop = nextProps.selectedShop
     let market = nextProps.selectedMarket
+    let minBulk = this.state.minBulk
+
+    let curMainCurrency = this.props.selectedCurrencies.main
+    let curAlternateCurrency = this.props.selectedCurrencies.alternate
+    let nextMainCurrency = nextProps.selectedCurrencies.main
+    let nextAlternateCurrency = nextProps.selectedCurrencies.alternate
+    if(curMainCurrency != nextMainCurrency || curAlternateCurrency != nextAlternateCurrency) {
+      minBulk = shop.minBulk || ''
+    }
+
     this.setState({
       shop,
-      market
+      market,
+      minBulk,
     })
   }
 
@@ -45,6 +57,12 @@ export default class ShopControls extends Component {
   }
 
   onMinBulkChange(event) {
+    this.setState({
+      minBulk: parseInt(event.target.value)
+    })
+  }
+
+  onMinBulkBlur(event) {
     this.props.onShopChange(this.props.selectedCurrencies.main, this.props.selectedCurrencies.alternate, {
       minBulk: parseInt(event.target.value)
     })
@@ -93,9 +111,10 @@ export default class ShopControls extends Component {
                 Min Bulk <CurrencyImg inline={true} id={this.props.selectedCurrencies.main} />
               </InputGroup.Addon>
               <FormControl
-                defaultValue={this.state.shop.minBulk}
+                value={this.state.minBulk}
                 className={[styles.bulkInput]}
-                onBlur={this.onMinBulkChange.bind(this)}
+                onChange={this.onMinBulkChange.bind(this)}
+                onBlur={this.onMinBulkBlur.bind(this)}
                 type="text"
               />
             </InputGroup>
