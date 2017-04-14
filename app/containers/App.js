@@ -34,7 +34,7 @@ class App extends Component {
         if(!this.props.shop.length) {
           changeShop(this.shop.init())
         }
-        this.market = new Market(io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers, markets) => {
+        this.market = new Market(this.props.settings, io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers, markets) => {
           changeOffers(offers)
           changeMarkets(markets)
           if(!this.props.ready.market) {
@@ -49,6 +49,9 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if(nextProps.settings && this.market) {
+      this.market.settings = nextProps.settings
+    }
     let ready = nextProps.ready.currencyTypes && nextProps.ready.inventory && nextProps.ready.market
     this.setState({
       ready,
@@ -115,7 +118,7 @@ class App extends Component {
 
   shopInterval() {
     let { changeShop } = this.props
-    return this.shop.postShop(this.props.settings, this.props.shop, this.props.markets)
+    return this.shop.postShop(this.props.settings, this.props.shop, this.props.markets, this.props.inventory)
       .then((postedShop) => {
         return changeShop(postedShop)
       })
@@ -155,6 +158,7 @@ function mapStateToProps(state) {
     settings: state.settings,
     markets: state.markets,
     shop: state.shop,
+    inventory: state.inventory,
   }
 }
 

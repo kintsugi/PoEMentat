@@ -62,6 +62,7 @@ export default class Market extends Component {
             selectedCurrencies={this.props.selectedCurrencies}
           />
           <OffersList
+            settings={this.props.settings}
             currencyTypes={this.props.currencyTypes}
             offers={this.props.offers}
             markets={this.props.markets}

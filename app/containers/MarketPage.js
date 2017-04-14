@@ -52,6 +52,7 @@ class MarketPage extends Component {
     }
     return (
       <Market
+        settings={this.props.settings}
         currencyTypes={this.props.currencyTypes}
         offers={this.props.offers}
         shop={this.props.shop}

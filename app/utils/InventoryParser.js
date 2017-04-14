@@ -122,7 +122,7 @@ export default class InventoryParser {
   }
 
   getAllStashTabsParallel(settings, limit) {
-    if(!settings.poeUsername || !settings.league || !settings.poeSessionId) {
+    if(!settings.poeUsername || !settings.leagueName || !settings.poeSessionId) {
       return Promise.resolve([])
     }
     this.settings = settings

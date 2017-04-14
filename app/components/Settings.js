@@ -72,12 +72,12 @@ export default class Settings extends Component {
           <FieldGroup
             id="usernameWhiteList"
             type="text"
-            label="Username Whitelist"
-            onBlur={event => this.onSettingsChange({usernameWhitelist: event.target.value})}
+            label="Username Whitelist (CSV)"
+            onBlur={event => this.onSettingsChange({usernameWhitelist: event.target.value.split(',')})}
             defaultValue={this.props.settings.usernameWhitelist.join(',')}
           />
-          <Button type="submit" onClick={this.onSubmit.bind(this)}>
-            Submit
+          <Button onClick={this.onSubmit.bind(this)}>
+            Save
           </Button>
         </form>
       </div>

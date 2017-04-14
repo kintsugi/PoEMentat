@@ -1,6 +1,7 @@
 {
   "urls": {
-    "marketSync": "http://localhost:8080",
+    "marketSync": "http://seedbox.kylesalter.com:8080",
+    "devMarketSync": "http://localhost:8080",
     "currencyPoeTrade": "http://currency.poe.trade",
     "currencyPoeTradeShop": "http://currency.poe.trade/shop?league=",
     "currency32Img": "http://currency.poe.trade/static/currency_32.png",

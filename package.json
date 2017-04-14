@@ -29,8 +29,8 @@
   },
   "browserslist": "electron 1.4",
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "PoEMentat",
+    "appId": "org.develar.PoEMentat",
     "category": "public.app-category.tools",
     "dmg": {
       "contents": [

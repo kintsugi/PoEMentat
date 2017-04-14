@@ -6,7 +6,8 @@ import MarketSync from './MarketSync'
  */
 
 export default class Market {
-  constructor(io, currencyTypes, cb) {
+  constructor(settings, io, currencyTypes, cb) {
+    this.settings = settings
     this.cb = cb
     this.currencyTypes = currencyTypes
     this.marketSync = new MarketSync(io, (offers) => {
@@ -139,6 +140,7 @@ export default class Market {
   }
 
   findBestOfferPair(buyOffers, sellOffers) {
+    let usernamesToIgnore = this.settings.usernameWhitelist.concat([this.settings.poeUsername])
     let buyOffer = null, sellOffer = null, profit = null
     if(!buyOffers || !sellOffers || !buyOffers.list || !sellOffers.list) {
       return {
@@ -149,6 +151,14 @@ export default class Market {
     }
     for(let buyIndex = 0, sellIndex = 0; buyIndex < buyOffers.list.length || sellIndex < sellOffers.list.length;) {
       buyOffer = buyOffers.list[buyIndex], sellOffer = sellOffers.list[sellIndex]
+      if(buyOffer && usernamesToIgnore.indexOf(buyOffer.username) > -1) {
+        buyIndex++
+        continue
+      }
+      if(sellOffer && usernamesToIgnore.indexOf(sellOffer.username) > -1) {
+        sellIndex++
+        continue
+      }
       profit = this.calcProfit(buyOffer, sellOffer)
       if(profit > 0) {
         break

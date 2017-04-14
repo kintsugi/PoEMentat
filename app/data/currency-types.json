@@ -793,6 +793,17 @@
       "category": "breach"
     },
     {
+      "id": "494",
+      "name": "Ancient Reliquary Key",
+      "className": [
+        "has-tip",
+        "currency-selectable",
+        "currency-square",
+        ""
+      ],
+      "text": ""
+    },
+    {
       "id": "76",
       "name": "essence of delirium",
       "className": [
@@ -11109,6 +11120,17 @@
       ],
       "text": "Wharf",
       "category": "map"
+    },
+    "494": {
+      "id": "494",
+      "name": "Ancient Reliquary Key",
+      "className": [
+        "has-tip",
+        "currency-selectable",
+        "currency-square",
+        ""
+      ],
+      "text": ""
     }
   },
   "nameDict": {
@@ -11903,6 +11925,17 @@
       ],
       "text": "",
       "category": "breach"
+    },
+    "Ancient Reliquary Key": {
+      "id": "494",
+      "name": "Ancient Reliquary Key",
+      "className": [
+        "has-tip",
+        "currency-selectable",
+        "currency-square",
+        ""
+      ],
+      "text": ""
     },
     "essence of delirium": {
       "id": "76",

@@ -14,7 +14,7 @@ import AlternateCurrencyButtonList from './AlternateCurrencyButtonList'
 import CurrencyImg from './CurrencyImg'
 import styles from './OffersList.css'
 
-const offersToShow = 3
+const offersToShow = 0
 
 export default class OffersList extends Component {
 
@@ -61,6 +61,10 @@ export default class OffersList extends Component {
       rightValue = parseFloat(offer.buy_value)
       rightImg = this.renderCurrencyImg(offer.buyCurrencyType)
     }
+    let highlightedUsernames = this.props.settings.usernameWhitelist.concat([this.props.settings.poeUsername])
+    if(highlightedUsernames.indexOf(offer.username) > -1) {
+      offerContainerStyle.push(styles.highlightedOffer)
+    }
 
     return (
       <Col className={offerContainerStyle} xs={6}>
@@ -100,7 +104,9 @@ export default class OffersList extends Component {
     let buyOffers = this.props.offers[this.props.selectedCurrencies.alternate][this.props.selectedCurrencies.main].list
     let sellOffers = this.props.offers[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate].list
     let offerPairs = []
-    for(let i = 0; i < Math.min(buyOffers.length, offersToShow) ||  i < Math.min(sellOffers.length, offersToShow); ++i) {
+    let buyLimit = offersToShow == 0 ? buyOffers.length : Math.min(buyOffers.length, offersToShow)
+    let sellLimit = offersToShow == 0 ? sellOffers.length : Math.min(sellOffers.length, offersToShow)
+    for(let i = 0; i < buyLimit  ||  i < sellLimit; ++i) {
       offerPairs.push([buyOffers[i], sellOffers[i]])
     }
 
