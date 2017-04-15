@@ -100,7 +100,7 @@ class App extends Component {
       })
       .catch((err) => {
         if(err.message == constants.errs.stashThrottle) {
-          log.warn('inventory update throttled')
+          console.log('inventory update throttled')
         } else {
           throw err
         }
@@ -123,7 +123,8 @@ class App extends Component {
         return changeShop(postedShop)
       })
       .catch((err) => {
-        throw err
+        console.log('Error updating shop')
+        console.log(err)
       })
       .then(() => {
         this.shopIntervalID = setTimeout(() => {

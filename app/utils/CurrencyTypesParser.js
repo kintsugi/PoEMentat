@@ -111,10 +111,10 @@ export default class CurrencyTypesParser {
   serializeCurrrencyAbbreviations() {
     return readJSON(constants.paths.data.currencyAbbreviations)
       .then((currencyAbbreviations) => {
-        let abbreviatedCategories = ['currency', 'fragment', 'essence']
+        let abbreviatedCategories = ['currency', 'fragment', 'essence', 'breach']
         for(let currencyType of this.currencyTypesList) {
           if(abbreviatedCategories.indexOf(currencyType.category) != -1 && !currencyAbbreviations[currencyType.name]) {
-            if(currencyType.category == 'fragment' || currencyType.category == 'essence') {
+            if(currencyType.category == 'fragment' || currencyType.category == 'essence' || currencyType.category == 'breach') {
               currencyAbbreviations[currencyType.name] = this.formatCurrencyAbbreviation(currencyType.name)
             } else {
               currencyAbbreviations[currencyType.name] = ""

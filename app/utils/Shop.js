@@ -37,18 +37,23 @@ export default class Shop {
     }
     for(let order of orders) {
       let offerDetails, buyEnabled = true, sellEnabled = true
-      let market = markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]
+      let market
+      console.log(order)
+      if(markets[order.mainCurrencyType.id] && markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]) {
+        market = markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]
+      } else {
+        continue
+      }
       if(order.overridden) {
         offerDetails = order.overriddenOrder
       } else if(order.autotradeEnabled) {
         offerDetails = market.bestOfferDetails
       }
-      let sellCurrency = market.bestOfferDetails.sellCurrencyType
-      let buyCurrency = market.bestOfferDetails.buyCurrencyType
-      let sellOfferSellValue = parseFloat(offerDetails.sellOffer.sell_value)
-      let sellOfferBuyValue = parseFloat(offerDetails.sellOffer.buy_value)
-      let buyOfferSellValue = parseFloat(offerDetails.buyOffer.sell_value)
-      let buyOfferBuyValue = parseFloat(offerDetails.buyOffer.buy_value)
+
+      let sellOfferSellValue = parseFloat(offerDetails.sellOffer.sell_value) || 0
+      let sellOfferBuyValue = parseFloat(offerDetails.sellOffer.buy_value) || 0
+      let buyOfferSellValue = parseFloat(offerDetails.buyOffer.sell_value) || 0
+      let buyOfferBuyValue = parseFloat(offerDetails.buyOffer.buy_value) || 0
       if(order.minBulk) {
         let origSellOfferSellValue = sellOfferSellValue, origSellOfferBuyValue = sellOfferBuyValue, origBuyOfferSellValue = buyOfferSellValue, origBuyOfferBuyValue = buyOfferBuyValue
         while(buyOfferSellValue < order.minBulk) {
@@ -61,9 +66,9 @@ export default class Shop {
         }
       }
 
+
       let sellOfferSellInventoryItem = inventory.idDict[market.bestOfferDetails.sellOffer.sellCurrencyType.id]
       let buyOfferSellInventoryItem = inventory.idDict[market.bestOfferDetails.buyOffer.sellCurrencyType.id]
-
 
       if(sellOfferSellInventoryItem.count < sellOfferSellValue) {
         sellEnabled = false
@@ -84,7 +89,6 @@ export default class Shop {
           buy_value: sellOfferBuyValue,
           sell_value: sellOfferSellValue,
         }
-        console.log(order.postedOrder.sellOffer)
         formString += '&sell_currency=' + market.bestOfferDetails.sellOffer.sellCurrencyType.fullName
         formString += '&sell_value=' + sellOfferSellValue
         formString += '&buy_currency=' + market.bestOfferDetails.sellOffer.buyCurrencyType.fullName
@@ -96,16 +100,16 @@ export default class Shop {
           buy_value: buyOfferBuyValue,
           sell_value: buyOfferSellValue,
         }
-        console.log(order.postedOrder.buyOffer)
         formString += '&sell_currency=' + market.bestOfferDetails.buyOffer.sellCurrencyType.fullName
-        formString += '&sell_value=' + buyOfferBuyValue
+        formString += '&sell_value=' + buyOfferSellValue
         formString += '&buy_currency=' + market.bestOfferDetails.buyOffer.buyCurrencyType.fullName
-        formString += '&buy_value=' + buyOfferSellValue
+        formString += '&buy_value=' + buyOfferBuyValue
       }
     }
 
     let uri = constants.urls.currencyPoeTradeShop + league
 
+    console.log(formString)
     return rp({
       uri: uri,
       method: 'POST',

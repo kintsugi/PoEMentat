@@ -31,7 +31,7 @@ export default class OffersList extends Component {
   renderOffer(offer, type) {
     if(!offer) {
       return (
-        <Col xs={12} >
+        <Col xs={6} >
         </Col>
       )
     }
@@ -106,8 +106,8 @@ export default class OffersList extends Component {
     let offerPairs = []
     let buyLimit = offersToShow == 0 ? buyOffers.length : Math.min(buyOffers.length, offersToShow)
     let sellLimit = offersToShow == 0 ? sellOffers.length : Math.min(sellOffers.length, offersToShow)
-    for(let i = 0; i < buyLimit  ||  i < sellLimit; ++i) {
-      offerPairs.push([buyOffers[i], sellOffers[i]])
+    for(let i = 0, j = 0; i < buyLimit  ||  j < sellLimit; ++i, ++j) {
+      offerPairs.push([buyOffers[i], sellOffers[j]])
     }
 
     return (

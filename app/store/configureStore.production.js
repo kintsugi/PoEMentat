@@ -9,9 +9,9 @@ import config from '../config'
 
 const router = routerMiddleware(hashHistory)
 
-const enhancer = applyMiddleware(thunk, router)
+const enhancer = compose(applyMiddleware(thunk, router))
 
-const persistEnhancer =  (applyMiddleware(thunk, router), autoRehydrate())
+const persistEnhancer = compose(applyMiddleware(thunk, router), autoRehydrate())
 
 export default function configureStore() {
   const store = config.persistStore ? createStore(rootReducer, undefined, persistEnhancer) : createStore(rootReducer, undefined, enhancer)
