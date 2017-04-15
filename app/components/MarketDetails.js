@@ -27,6 +27,9 @@ export default class MarketDetails extends Component {
       return <div />
     }
     let market = this.props.markets[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate]
+    if(!market) {
+      return <div />
+    }
     let mainCurrencyImg = <CurrencyImg currencyType={market.mainCurrencyType} inline={true} />
     let bestROI = market.bestOfferDetails.ROI || 0
     let bestProfit = market.bestOfferDetails.profit || 0

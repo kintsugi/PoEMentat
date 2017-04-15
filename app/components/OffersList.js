@@ -90,10 +90,10 @@ export default class OffersList extends Component {
   renderOfferPair(buyOffer, sellOffer) {
     let key = (buyOffer ? buyOffer.username : 'none1') + '-' + (sellOffer ? sellOffer.username : 'none2') + Date.now()
     return (
-      <div key={key}>
+      <Col xs={12} key={key}>
         {this.renderOffer(buyOffer, 'buy')}
         {this.renderOffer(sellOffer, 'sell')}
-      </div>
+      </Col>
     )
   }
 
@@ -101,11 +101,15 @@ export default class OffersList extends Component {
     if(!this.props.selectedCurrencies.main || !this.props.selectedCurrencies.alternate) {
       return (<div />)
     }
-    let buyOffers = this.props.offers[this.props.selectedCurrencies.alternate][this.props.selectedCurrencies.main].list
-    let sellOffers = this.props.offers[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate].list
+
+    let buyOffers = this.props.offers[this.props.selectedCurrencies.alternate][this.props.selectedCurrencies.main] || {}
+    let sellOffers = this.props.offers[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate] || {}
+    buyOffers = buyOffers.list || []
+    sellOffers = sellOffers.list || []
     let offerPairs = []
     let buyLimit = offersToShow == 0 ? buyOffers.length : Math.min(buyOffers.length, offersToShow)
     let sellLimit = offersToShow == 0 ? sellOffers.length : Math.min(sellOffers.length, offersToShow)
+
     for(let i = 0, j = 0; i < buyLimit  ||  j < sellLimit; ++i, ++j) {
       offerPairs.push([buyOffers[i], sellOffers[j]])
     }
