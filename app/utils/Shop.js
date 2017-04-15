@@ -38,7 +38,6 @@ export default class Shop {
     for(let order of orders) {
       let offerDetails, buyEnabled = true, sellEnabled = true
       let market
-      console.log(order)
       if(markets[order.mainCurrencyType.id] && markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]) {
         market = markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]
       } else {
@@ -48,6 +47,10 @@ export default class Shop {
         offerDetails = order.overriddenOrder
       } else if(order.autotradeEnabled) {
         offerDetails = market.bestOfferDetails
+      }
+      if(!offerDetails || !offerDetails.sellOffer || !offerDetails.buyOffer) {
+        console.log('Warning: Offer details is null, offerDetails, skipping')
+        continue
       }
 
       let sellOfferSellValue = parseFloat(offerDetails.sellOffer.sell_value) || 0

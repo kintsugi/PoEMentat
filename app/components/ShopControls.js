@@ -58,7 +58,7 @@ export default class ShopControls extends Component {
 
   onMinBulkChange(event) {
     this.setState({
-      minBulk: parseInt(event.target.value)
+      minBulk: parseInt(event.target.value) || ''
     })
   }
 
