@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {
   Grid,
   Row,
-  Col
+  Col,
+  PageHeader
 } from 'react-bootstrap'
 import CurrencyStashTabIcon from './CurrencyStashTabIcon'
 const currencyPositions = require('../data/currency-positions')
@@ -11,7 +12,8 @@ export default class CurrencyStashTab extends Component {
 
   render() {
     return (
-      <Col sm={6}>
+      <Col xs={12}>
+      <Col xs={6}>
         <div className='text-center' style={{position:'relative'}}>
         {Object.keys(currencyPositions).map((i) => {
           return(
@@ -27,6 +29,7 @@ export default class CurrencyStashTab extends Component {
           )
         })}
         </div>
+      </Col>
       </Col>
     )
   }

@@ -79,7 +79,7 @@ export default class CurrencyTypesParser {
         text: $(elem).text().trim()
       }
       currency.category = getItemCategory(currency.id)
-      if(currency.category == 'divination card' || currency.category == 'map') {
+      if(constants.misc.textCurrencyTypes.indexOf(currency.category) != -1) {
         currency.name = currency.text
       }
       if(process.env.NODE_ENV === 'production') {

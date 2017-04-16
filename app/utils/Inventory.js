@@ -3,6 +3,7 @@ import {
   getStackSize,
   getAbbreviatedCurrencyName,
   matchInventoryItemToCurrency,
+  calculateTotalWorth,
 } from './functions'
 const constants = require('../constants')
 const sets = require('../data/sets')
@@ -13,13 +14,13 @@ export default class Inventory {
     this.inventoryParser = new InventoryParser(this.settings)
   }
 
-  init(settings, currencyTypes) {
+  init(settings, markets, currencyTypes) {
     this.settings = settings
     this.currencyTypes = currencyTypes
     this.resetInventory()
     return this.inventoryParser.init(settings)
       .then(() => {
-        return this.update(this.settings)
+        return this.update(this.settings, markets)
       })
       .catch((err) => {
         throw err
@@ -48,18 +49,18 @@ export default class Inventory {
   }
 
 
-  update(settings) {
+  update(settings, markets) {
     this.settings = settings
     return this.stashUpdate()
       .then((receivedTabs) => {
-        return this.countCurrency(receivedTabs)
+        return this.countCurrency(receivedTabs, markets)
       })
       .catch((err) => {
         throw err
       })
   }
 
-  countCurrency(receivedTabs) {
+  countCurrency(receivedTabs, markets) {
     //create a list of currency names, then iterate through all items in all
     //tabs for matches
     //then for all matches, look for sets
@@ -88,9 +89,20 @@ export default class Inventory {
         this.countSetPieces(setCurrencyItem, setPiecesCurrencyItems)
       }
     }
+
+    let totalWorth = calculateTotalWorth(this.currencyTypes.nameDict['chaos'], markets, {idDict: this.currencyInventory}) || {}
+    let worthList = totalWorth.alternateWorthList || []
+    for(let worth of worthList) {
+      if(worth) {
+        this.currencyInventory[worth.id].buyWorth = worth.buyWorth
+        this.currencyInventory[worth.id].sellWorth = worth.sellWorth
+      }
+    }
+
     return {
       idDict: this.currencyInventory,
-      nameDict: this.currencyInventoryNameDict
+      nameDict: this.currencyInventoryNameDict,
+      totalWorth,
     }
   }
 

@@ -14,6 +14,9 @@ import * as InventoryActions from '../actions/inventory'
 import * as OffersActions from '../actions/offers'
 import * as MarketsActions from '../actions/markets'
 import * as ShopActions from '../actions/shop'
+import {
+  calculateTotalWorth
+} from '../utils/functions'
 import styles from './App.css'
 let io = require('socket.io-client')
 const constants = require('../constants')
@@ -30,18 +33,19 @@ class App extends Component {
     let { changeOffers, changeMarkets, readyMarket, changeShop } = this.props
     this.initializeCurrencyTypes()
       .then(() => {
-        this.shop = new Shop(this.props.settings, this.currencyTypesParser.getParsedCurrencyTypes())
-        if(!this.props.shop.length) {
-          changeShop(this.shop.init())
-        }
-        this.market = new Market(this.props.settings, io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers, markets) => {
-          changeOffers(offers)
-          changeMarkets(markets)
-          if(!this.props.ready.market) {
-            readyMarket()
-          }
-        })
+        return this.initializeMarket()
+      })
+      .catch((err) => {
+        throw err
+      })
+      .then(() => {
         return this.initializeInventory()
+      })
+      .catch((err) => {
+        throw err
+      })
+      .then(() => {
+        return this.initializeShop()
       })
       .catch((err) => {
         throw err
@@ -68,7 +72,7 @@ class App extends Component {
       .then((currencyTypes) => {
         changeCurrencyTypes(currencyTypes)
         readyCurrencyTypes()
-        return
+        return Promise.resolve()
       })
       .catch((err) => {
         throw err
@@ -81,7 +85,7 @@ class App extends Component {
     return this.inventoryInterval()
       .then(() => {
         readyInventory()
-        return this.shopInterval()
+        return Promise.resolve()
       })
       .catch((err) => {
         throw err
@@ -92,8 +96,8 @@ class App extends Component {
   inventoryInterval() {
     let { changeInventory } = this.props
     return (this.inventory.inventoryParser.numTabs ?
-      this.inventory.update(this.props.settings) :
-      this.inventory.init(this.props.settings, this.currencyTypesParser.getParsedCurrencyTypes()))
+      this.inventory.update(this.props.settings, this.props.markets) :
+      this.inventory.init(this.props.settings, this.props.markets, this.currencyTypesParser.getParsedCurrencyTypes()))
       .then((inventory) => {
         changeInventory(inventory)
         return
@@ -116,11 +120,36 @@ class App extends Component {
       })
   }
 
+  initializeMarket() {
+    let { changeOffers, changeMarkets, readyMarket } = this.props
+    return new Promise((resolve, reject) => {
+      this.market = new Market(this.props.settings, io, this.currencyTypesParser.getParsedCurrencyTypes(), (offers, markets) => {
+        changeOffers(offers)
+        changeMarkets(markets)
+        if(!this.props.ready.market) {
+          readyMarket()
+        }
+        resolve()
+      })
+    })
+
+  }
+
+  initializeShop() {
+    let { changeShop } = this.props
+    this.shop = new Shop(this.props.settings, this.currencyTypesParser.getParsedCurrencyTypes())
+    if(!this.props.shop.length) {
+      changeShop(this.shop.init())
+    }
+    return this.shopInterval()
+  }
+
   shopInterval() {
     let { changeShop } = this.props
     return this.shop.postShop(this.props.settings, this.props.shop, this.props.markets, this.props.inventory)
       .then((postedShop) => {
-        return changeShop(postedShop)
+        changeShop(postedShop)
+        return Promise.resolve()
       })
       .catch((err) => {
         console.log('Error updating shop')
@@ -130,7 +159,7 @@ class App extends Component {
         this.shopIntervalID = setTimeout(() => {
           this.shopInterval()
         }, this.props.settings.updateIntervals.shop)
-        return
+        return Promise.resolve()
       })
       .catch((err) => {
         throw err

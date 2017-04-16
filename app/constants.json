@@ -33,9 +33,10 @@
       "breach": [52, 66],
       "essence": [67, 131],
       "divination card": [132, 314],
-      "map": [315, 493]
+      "map": [315, 493],
+      "leaguestone": [495, 511]
     },
-    "textCurrencyTypes": ["divination card", "map"],
+    "textCurrencyTypes": ["divination card", "map", "leaguestone"],
     "offersTranslate": {
       "u": "username",
       "i": "ign",

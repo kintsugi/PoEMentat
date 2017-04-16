@@ -67,8 +67,8 @@ export function checkItemCategoryName(id, categoryName) {
 }
 
 export function getItemCategory(id) {
-  //silver is currency but isnt in the currency range
-  if(id == 35) {
+  //silver and relic key is currency but isnt in the currency range
+  if(id == 35 || id == 494) {
     return 'currency'
   }
   for(let category in currencyCategories) {
@@ -95,4 +95,49 @@ export function matchInventoryItemToCurrency(currencyTypes, item) {
       return currencyType
     }
   }
+}
+
+export function calculateWorth(mainCurrencyType, market, inventoryItem) {
+  let alternateCurrencyCount = inventoryItem.count
+  let buyOffer = market.bestOfferDetails.buyOffer
+  let sellOffer = market.bestOfferDetails.sellOffer
+  let buyWorth = 0, sellWorth = 0
+  if(buyOffer) {
+    buyWorth = alternateCurrencyCount / buyOffer.ratios.buyPerSell
+  }
+  if(sellOffer) {
+    sellWorth = alternateCurrencyCount / sellOffer.ratios.sellPerBuy
+  }
+  return {
+    ...inventoryItem,
+    buyWorth,
+    sellWorth,
+  }
+}
+
+export function calculateTotalWorth(mainCurrencyType, markets, inventory) {
+  let mainCurrencyCount = inventory.idDict[mainCurrencyType.id].count
+  let buyWorth = mainCurrencyCount, sellWorth = mainCurrencyCount
+  let alternateWorthList = []
+  if(!markets.length) {
+    return
+  }
+  let mainCurrencyMarkets = markets[mainCurrencyType.id]
+  for(let altKey in mainCurrencyMarkets) {
+    if(altKey == mainCurrencyType.id) {
+      continue
+    }
+    let market = mainCurrencyMarkets[altKey]
+    let inventoryItem = inventory.idDict[altKey]
+    let alternateWorth = calculateWorth(mainCurrencyType, market, inventoryItem)
+    alternateWorthList[inventoryItem.id] = alternateWorth
+  }
+  buyWorth = alternateWorthList.reduce((acc, val) => acc+ val.buyWorth, buyWorth)
+  sellWorth = alternateWorthList.reduce((acc, val) => acc+ val.sellWorth, sellWorth)
+  return {
+    buyWorth,
+    sellWorth,
+    alternateWorthList
+  }
+
 }

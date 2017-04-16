@@ -10,7 +10,10 @@ class HomePage extends Component {
 
   render() {
     return (
-      <Home inventory={this.props.inventory}/>
+      <Home
+        inventory={this.props.inventory}
+        currencyTypes={this.props.currencyTypes}
+      />
     )
   }
 }
@@ -19,6 +22,7 @@ function mapStateToProps(state) {
   return {
     settings: state.settings,
     inventory: state.inventory,
+    currencyTypes: state.currencyTypes
   }
 }
 

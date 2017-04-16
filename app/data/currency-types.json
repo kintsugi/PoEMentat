@@ -801,7 +801,8 @@
         "currency-square",
         ""
       ],
-      "text": ""
+      "text": "",
+      "category": "currency"
     },
     {
       "id": "76",
@@ -5573,7 +5574,8 @@
         "currency-text",
         ""
       ],
-      "text": "Ambush"
+      "text": "Ambush",
+      "category": "leaguestone"
     },
     {
       "id": "496",
@@ -5583,7 +5585,8 @@
         "currency-text",
         ""
       ],
-      "text": "Anarchy"
+      "text": "Anarchy",
+      "category": "leaguestone"
     },
     {
       "id": "497",
@@ -5593,7 +5596,8 @@
         "currency-text",
         ""
       ],
-      "text": "Beyond"
+      "text": "Beyond",
+      "category": "leaguestone"
     },
     {
       "id": "498",
@@ -5603,7 +5607,8 @@
         "currency-text",
         ""
       ],
-      "text": "Bloodlines"
+      "text": "Bloodlines",
+      "category": "leaguestone"
     },
     {
       "id": "499",
@@ -5613,7 +5618,8 @@
         "currency-text",
         ""
       ],
-      "text": "Breach"
+      "text": "Breach",
+      "category": "leaguestone"
     },
     {
       "id": "500",
@@ -5623,7 +5629,8 @@
         "currency-text",
         ""
       ],
-      "text": "Domination"
+      "text": "Domination",
+      "category": "leaguestone"
     },
     {
       "id": "501",
@@ -5633,7 +5640,8 @@
         "currency-text",
         ""
       ],
-      "text": "Essence"
+      "text": "Essence",
+      "category": "leaguestone"
     },
     {
       "id": "502",
@@ -5643,7 +5651,8 @@
         "currency-text",
         ""
       ],
-      "text": "Invasion"
+      "text": "Invasion",
+      "category": "leaguestone"
     },
     {
       "id": "503",
@@ -5653,7 +5662,8 @@
         "currency-text",
         ""
       ],
-      "text": "Nemesis"
+      "text": "Nemesis",
+      "category": "leaguestone"
     },
     {
       "id": "504",
@@ -5663,7 +5673,8 @@
         "currency-text",
         ""
       ],
-      "text": "Onslaught"
+      "text": "Onslaught",
+      "category": "leaguestone"
     },
     {
       "id": "505",
@@ -5673,7 +5684,8 @@
         "currency-text",
         ""
       ],
-      "text": "Perandus"
+      "text": "Perandus",
+      "category": "leaguestone"
     },
     {
       "id": "506",
@@ -5683,7 +5695,8 @@
         "currency-text",
         ""
       ],
-      "text": "Prophecy"
+      "text": "Prophecy",
+      "category": "leaguestone"
     },
     {
       "id": "507",
@@ -5693,7 +5706,8 @@
         "currency-text",
         ""
       ],
-      "text": "Rampage"
+      "text": "Rampage",
+      "category": "leaguestone"
     },
     {
       "id": "508",
@@ -5703,7 +5717,8 @@
         "currency-text",
         ""
       ],
-      "text": "Talisman"
+      "text": "Talisman",
+      "category": "leaguestone"
     },
     {
       "id": "509",
@@ -5713,7 +5728,8 @@
         "currency-text",
         ""
       ],
-      "text": "Tempest"
+      "text": "Tempest",
+      "category": "leaguestone"
     },
     {
       "id": "510",
@@ -5723,7 +5739,8 @@
         "currency-text",
         ""
       ],
-      "text": "Torment"
+      "text": "Torment",
+      "category": "leaguestone"
     },
     {
       "id": "511",
@@ -5733,7 +5750,8 @@
         "currency-text",
         ""
       ],
-      "text": "Warbands"
+      "text": "Warbands",
+      "category": "leaguestone"
     }
   ],
   "idDict": {
@@ -11300,7 +11318,8 @@
         "currency-square",
         ""
       ],
-      "text": ""
+      "text": "",
+      "category": "currency"
     },
     "495": {
       "id": "495",
@@ -11310,7 +11329,8 @@
         "currency-text",
         ""
       ],
-      "text": "Ambush"
+      "text": "Ambush",
+      "category": "leaguestone"
     },
     "496": {
       "id": "496",
@@ -11320,7 +11340,8 @@
         "currency-text",
         ""
       ],
-      "text": "Anarchy"
+      "text": "Anarchy",
+      "category": "leaguestone"
     },
     "497": {
       "id": "497",
@@ -11330,7 +11351,8 @@
         "currency-text",
         ""
       ],
-      "text": "Beyond"
+      "text": "Beyond",
+      "category": "leaguestone"
     },
     "498": {
       "id": "498",
@@ -11340,7 +11362,8 @@
         "currency-text",
         ""
       ],
-      "text": "Bloodlines"
+      "text": "Bloodlines",
+      "category": "leaguestone"
     },
     "499": {
       "id": "499",
@@ -11350,7 +11373,8 @@
         "currency-text",
         ""
       ],
-      "text": "Breach"
+      "text": "Breach",
+      "category": "leaguestone"
     },
     "500": {
       "id": "500",
@@ -11360,7 +11384,8 @@
         "currency-text",
         ""
       ],
-      "text": "Domination"
+      "text": "Domination",
+      "category": "leaguestone"
     },
     "501": {
       "id": "501",
@@ -11370,7 +11395,8 @@
         "currency-text",
         ""
       ],
-      "text": "Essence"
+      "text": "Essence",
+      "category": "leaguestone"
     },
     "502": {
       "id": "502",
@@ -11380,7 +11406,8 @@
         "currency-text",
         ""
       ],
-      "text": "Invasion"
+      "text": "Invasion",
+      "category": "leaguestone"
     },
     "503": {
       "id": "503",
@@ -11390,7 +11417,8 @@
         "currency-text",
         ""
       ],
-      "text": "Nemesis"
+      "text": "Nemesis",
+      "category": "leaguestone"
     },
     "504": {
       "id": "504",
@@ -11400,7 +11428,8 @@
         "currency-text",
         ""
       ],
-      "text": "Onslaught"
+      "text": "Onslaught",
+      "category": "leaguestone"
     },
     "505": {
       "id": "505",
@@ -11410,7 +11439,8 @@
         "currency-text",
         ""
       ],
-      "text": "Perandus"
+      "text": "Perandus",
+      "category": "leaguestone"
     },
     "506": {
       "id": "506",
@@ -11420,7 +11450,8 @@
         "currency-text",
         ""
       ],
-      "text": "Prophecy"
+      "text": "Prophecy",
+      "category": "leaguestone"
     },
     "507": {
       "id": "507",
@@ -11430,7 +11461,8 @@
         "currency-text",
         ""
       ],
-      "text": "Rampage"
+      "text": "Rampage",
+      "category": "leaguestone"
     },
     "508": {
       "id": "508",
@@ -11440,7 +11472,8 @@
         "currency-text",
         ""
       ],
-      "text": "Talisman"
+      "text": "Talisman",
+      "category": "leaguestone"
     },
     "509": {
       "id": "509",
@@ -11450,7 +11483,8 @@
         "currency-text",
         ""
       ],
-      "text": "Tempest"
+      "text": "Tempest",
+      "category": "leaguestone"
     },
     "510": {
       "id": "510",
@@ -11460,7 +11494,8 @@
         "currency-text",
         ""
       ],
-      "text": "Torment"
+      "text": "Torment",
+      "category": "leaguestone"
     },
     "511": {
       "id": "511",
@@ -11470,7 +11505,8 @@
         "currency-text",
         ""
       ],
-      "text": "Warbands"
+      "text": "Warbands",
+      "category": "leaguestone"
     }
   },
   "nameDict": {
@@ -12275,7 +12311,8 @@
         "currency-square",
         ""
       ],
-      "text": ""
+      "text": "",
+      "category": "currency"
     },
     "essence of delirium": {
       "id": "76",
@@ -17047,7 +17084,8 @@
         "currency-text",
         ""
       ],
-      "text": "Ambush"
+      "text": "Ambush",
+      "category": "leaguestone"
     },
     "Anarchy": {
       "id": "496",
@@ -17057,7 +17095,8 @@
         "currency-text",
         ""
       ],
-      "text": "Anarchy"
+      "text": "Anarchy",
+      "category": "leaguestone"
     },
     "Beyond": {
       "id": "497",
@@ -17067,7 +17106,8 @@
         "currency-text",
         ""
       ],
-      "text": "Beyond"
+      "text": "Beyond",
+      "category": "leaguestone"
     },
     "Bloodlines": {
       "id": "498",
@@ -17077,7 +17117,8 @@
         "currency-text",
         ""
       ],
-      "text": "Bloodlines"
+      "text": "Bloodlines",
+      "category": "leaguestone"
     },
     "Breach": {
       "id": "499",
@@ -17087,7 +17128,8 @@
         "currency-text",
         ""
       ],
-      "text": "Breach"
+      "text": "Breach",
+      "category": "leaguestone"
     },
     "Domination": {
       "id": "500",
@@ -17097,7 +17139,8 @@
         "currency-text",
         ""
       ],
-      "text": "Domination"
+      "text": "Domination",
+      "category": "leaguestone"
     },
     "Essence": {
       "id": "501",
@@ -17107,7 +17150,8 @@
         "currency-text",
         ""
       ],
-      "text": "Essence"
+      "text": "Essence",
+      "category": "leaguestone"
     },
     "Invasion": {
       "id": "502",
@@ -17117,7 +17161,8 @@
         "currency-text",
         ""
       ],
-      "text": "Invasion"
+      "text": "Invasion",
+      "category": "leaguestone"
     },
     "Nemesis": {
       "id": "503",
@@ -17127,7 +17172,8 @@
         "currency-text",
         ""
       ],
-      "text": "Nemesis"
+      "text": "Nemesis",
+      "category": "leaguestone"
     },
     "Onslaught": {
       "id": "504",
@@ -17137,7 +17183,8 @@
         "currency-text",
         ""
       ],
-      "text": "Onslaught"
+      "text": "Onslaught",
+      "category": "leaguestone"
     },
     "Perandus": {
       "id": "505",
@@ -17147,7 +17194,8 @@
         "currency-text",
         ""
       ],
-      "text": "Perandus"
+      "text": "Perandus",
+      "category": "leaguestone"
     },
     "Prophecy": {
       "id": "506",
@@ -17157,7 +17205,8 @@
         "currency-text",
         ""
       ],
-      "text": "Prophecy"
+      "text": "Prophecy",
+      "category": "leaguestone"
     },
     "Rampage": {
       "id": "507",
@@ -17167,7 +17216,8 @@
         "currency-text",
         ""
       ],
-      "text": "Rampage"
+      "text": "Rampage",
+      "category": "leaguestone"
     },
     "Talisman": {
       "id": "508",
@@ -17177,7 +17227,8 @@
         "currency-text",
         ""
       ],
-      "text": "Talisman"
+      "text": "Talisman",
+      "category": "leaguestone"
     },
     "Tempest": {
       "id": "509",
@@ -17187,7 +17238,8 @@
         "currency-text",
         ""
       ],
-      "text": "Tempest"
+      "text": "Tempest",
+      "category": "leaguestone"
     },
     "Torment": {
       "id": "510",
@@ -17197,7 +17249,8 @@
         "currency-text",
         ""
       ],
-      "text": "Torment"
+      "text": "Torment",
+      "category": "leaguestone"
     },
     "Warbands": {
       "id": "511",
@@ -17207,7 +17260,8 @@
         "currency-text",
         ""
       ],
-      "text": "Warbands"
+      "text": "Warbands",
+      "category": "leaguestone"
     }
   }
 }
