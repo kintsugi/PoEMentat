@@ -11,7 +11,7 @@
       "updateIntervals": {
         "stash": 30000,
         "currencyPoeTrade": 10000,
-        "shop": 10000
+        "shop": 20000
       },
       "stashUpdateMode": "parallel"
     },

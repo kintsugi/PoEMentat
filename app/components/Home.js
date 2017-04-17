@@ -11,7 +11,6 @@ import CurrencyImg from './CurrencyImg'
 export default class Home extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <Grid>
         <Row className="show-grid">

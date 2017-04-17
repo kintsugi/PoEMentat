@@ -47,7 +47,7 @@ export default class Market extends Component {
             />
           </Col>
           <MarketHeader
-            markets={this.props.markets}
+            currencyTypes={this.props.currencyTypes}
             selectedCurrencies={this.props.selectedCurrencies}
           />
           <ShopControls
