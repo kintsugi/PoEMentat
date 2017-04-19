@@ -50,6 +50,7 @@ export default class Shop {
       }
       if(!offerDetails || !offerDetails.sellOffer || !offerDetails.buyOffer) {
         console.log('Warning: Offer details is null, offerDetails, skipping')
+        console.log(order, offerDetails)
         continue
       }
 
@@ -87,6 +88,16 @@ export default class Shop {
       } else if(order.type == 'buy') {
         sellEnabled = false
       }
+      
+      if(!sellOfferSellValue || !sellOfferBuyValue) {
+        console.log(`Sell offer values are undefined/0, sell: ${sellOfferSellValue}, buy: ${sellOfferBuyValue}, disabling sell order`)
+        sellEnabled = false
+      }
+      if(!buyOfferSellValue || !buyOfferBuyValue) {
+        console.log(`buy offer values are undefined/0, sell: ${sellOfferSellValue}, buy: ${sellOfferBuyValue}, disabling sell order`)
+        buyEnabled = false
+      }
+      
       if(sellEnabled) {
         order.postedOrder.sellOffer = {
           buy_value: sellOfferBuyValue,

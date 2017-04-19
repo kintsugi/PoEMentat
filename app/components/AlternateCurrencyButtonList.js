@@ -26,6 +26,11 @@ export default class AlternateCurrencyButtonList extends Component {
   renderCurrencyButtons(currencyTypes) {
     let currencyButtons = currencyTypes.map((currencyType) => {
       let market = this.props.markets[this.props.selectedCurrencies.main][currencyType.id]
+      let shop = this.props.shop[this.props.selectedCurrencies.main][currencyType.id]
+      let enabledButtonStyle = {}
+      if(shop && (shop.overridden || shop.autotradeEnabled)) {
+        enabledButtonStyle = styles.enabledOrder
+      }
       let ROI
       if(market) {
         ROI = market.bestOfferDetails.ROI || ''
@@ -40,7 +45,7 @@ export default class AlternateCurrencyButtonList extends Component {
           onClick={() => {
             this.props.onSelectAlternateCurrency(currencyType.id)
           }}
-          className={styles.currencyBtn}
+          className={[styles.currencyBtn, enabledButtonStyle]}
           key={currencyType.id}>
           <div className={styles.currencyCountText}>{ROI}</div>
           <CurrencyImg currencyType={currencyType} />

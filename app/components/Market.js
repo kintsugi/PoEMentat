@@ -40,6 +40,7 @@ export default class Market extends Component {
             <br />
             <AlternateCurrencyButtonList
               markets={this.props.markets}
+              shop={this.props.shop}
               currencyFilter={this.props.currencyFilter}
               selectedCurrencies={this.props.selectedCurrencies}
               onSelectAlternateCurrency={this.props.onSelectAlternateCurrency}
@@ -47,7 +48,7 @@ export default class Market extends Component {
             />
           </Col>
           <MarketHeader
-            markets={this.props.markets}
+            currencyTypes={this.props.currencyTypes}
             selectedCurrencies={this.props.selectedCurrencies}
           />
           <ShopControls
