@@ -91,7 +91,7 @@ export function getAbbreviatedCurrencyName(name) {
 export function matchInventoryItemToCurrency(currencyTypes, item) {
   let abbreviatedName = getAbbreviatedCurrencyName(item.typeLine) || item.typeLine.toLowerCase()
   for(let currencyType of currencyTypes.list) {
-    if(abbreviatedName == currencyType.name.toLowerCase()) {
+    if(abbreviatedName == currencyType.name.toLowerCase() || abbreviatedName == currencyType.fullName) {
       return currencyType
     }
   }

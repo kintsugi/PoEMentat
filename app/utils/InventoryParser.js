@@ -75,6 +75,7 @@ export default class InventoryParser {
     return rp(tabRequestOptions)
       .then((data) => {
         let stashTab = JSON.parse(data)
+        
         if(stashTab.error) {
           throw new Error(stashTab.error.message)
         }
