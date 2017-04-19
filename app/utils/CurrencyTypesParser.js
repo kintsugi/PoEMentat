@@ -81,6 +81,7 @@ export default class CurrencyTypesParser {
       currency.category = getItemCategory(currency.id)
       if(constants.misc.textCurrencyTypes.indexOf(currency.category) != -1) {
         currency.name = currency.text
+        currency.fullName = currency.text
       }
       if(process.env.NODE_ENV === 'production') {
         currency.fullName = currencyAbbreviationData[currency.name]
@@ -119,7 +120,7 @@ export default class CurrencyTypesParser {
             } else {
               currencyAbbreviations[currencyType.name] = ""
             }
-          } else {
+          } else if(!currencyType.fullName) {
             currencyType.fullName = currencyAbbreviations[currencyType.name]
           }
         }

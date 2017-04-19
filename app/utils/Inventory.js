@@ -1,5 +1,9 @@
 import InventoryParser from './InventoryParser'
+import path from 'path'
+import { remote } from 'electron'
 import {
+  readJSON,
+  serializeJSON,
   getStackSize,
   getAbbreviatedCurrencyName,
   matchInventoryItemToCurrency,
@@ -58,6 +62,22 @@ export default class Inventory {
       .catch((err) => {
         throw err
       })
+      .then((inventory) => {
+        return this.writeWorth(inventory.totalWorth)
+      })
+      .catch((err) => {
+        throw err
+      })
+      .then((inventory) => {
+        return {
+          idDict: this.currencyInventory,
+          nameDict: this.currencyInventoryNameDict,
+          totalWorth: this.totalWorth,
+        }
+      })
+      .catch((err) => {
+        throw err
+      })
   }
 
   countCurrency(receivedTabs, markets) {
@@ -90,8 +110,8 @@ export default class Inventory {
       }
     }
 
-    let totalWorth = calculateTotalWorth(this.currencyTypes.nameDict['chaos'], markets, {idDict: this.currencyInventory}) || {}
-    let worthList = totalWorth.alternateWorthList || []
+    this.totalWorth = calculateTotalWorth(this.currencyTypes.nameDict['chaos'], markets, {idDict: this.currencyInventory}) || {}
+    let worthList = this.totalWorth.alternateWorthList || []
     for(let worth of worthList) {
       if(worth) {
         this.currencyInventory[worth.id].buyWorth = worth.buyWorth
@@ -99,10 +119,11 @@ export default class Inventory {
       }
     }
 
+
     return {
       idDict: this.currencyInventory,
       nameDict: this.currencyInventoryNameDict,
-      totalWorth,
+      totalWorth: this.totalWorth,
     }
   }
 
@@ -118,4 +139,50 @@ export default class Inventory {
     setCurrencyItem.count = setCount
   }
 
+  writeWorth(totalWorth) {
+    let time = Date.now()
+    let worthEntry = {
+      time,
+      totalWorth,
+    }
+    this.readWorth()
+      .then((worth) => {
+        if(!worth) {
+          worth = [worthEntry]
+        } else {
+          worth.push(worthEntry)
+        }
+        return serializeJSON(this.getWorthHistoryFilename(), worth, {spaces: 2})
+      })
+      .catch((err) => {
+        throw err
+      })
+
+  }
+
+  readWorth() {
+    return readJSON(this.getWorthHistoryFilename())
+      .then((obj, err) => {
+        return obj
+      })
+      .catch((err) => {
+        if(err == "Error: ENOENT: no such file or directory, open 'app/data/worth-history.json'") {
+          return null
+        } else {
+          throw err
+        }
+      })
+      .then((obj) => {
+        return obj
+      })
+      .catch((err) => {
+        throw err
+      })
+  }
+
+  getWorthHistoryFilename() {
+    return process.env.NODE_ENV === 'production' ?
+      path.join(remote.app.getPath('appData'), '/PoEMentat/worth-history.json') :
+      constants.paths.data.worthHistory
+  }
 }

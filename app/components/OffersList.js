@@ -102,8 +102,11 @@ export default class OffersList extends Component {
       return (<div />)
     }
 
-    let buyOffers = this.props.offers[this.props.selectedCurrencies.alternate][this.props.selectedCurrencies.main] || {}
-    let sellOffers = this.props.offers[this.props.selectedCurrencies.main][this.props.selectedCurrencies.alternate] || {}
+    let buyOffers, sellOffers
+    let alternateOffers = this.props.offers[this.props.selectedCurrencies.alternate] || []
+    let mainOffers = this.props.offers[this.props.selectedCurrencies.main] || []
+    buyOffers = alternateOffers[this.props.selectedCurrencies.main] || {}
+    sellOffers = mainOffers[this.props.selectedCurrencies.alternate] || {}
     buyOffers = buyOffers.list || []
     sellOffers = sellOffers.list || []
     let offerPairs = []

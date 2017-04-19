@@ -48,4 +48,5 @@ npm-debug.log.*
 
 app/static/currency
 app/data/state/*
+app/data/worth-history.json
 dll/

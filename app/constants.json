@@ -20,7 +20,8 @@
       "currencyTypes": "app/data/currency-types.json",
       "sets": "app/data/sets.json",
       "currencyAbbreviations": "app/data/currency-abbreviations.json",
-      "state":"app/data/state/"
+      "state": "app/data/state/",
+      "worthHistory": "app/data/worth-history.json"
     }
   },
   "errs": {
