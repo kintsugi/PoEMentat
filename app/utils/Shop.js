@@ -15,29 +15,58 @@ export default class Shop {
     return shop
   }
 
+
   postShop(settings, shop, markets, inventory) {
     let league = settings.leagueName.replace(' ', '+')
     let cookie = `league=${league}; apikey=${settings.poeTradeAPIKey}`
     let formString = `league=${league}&apikey=${settings.poeTradeAPIKey}`
+    let orders = this.getOrdersToPost(settings, shop)
+
+    formString += this.getShopFormString(settings, markets, inventory, orders)
+
+    let uri = constants.urls.currencyPoeTradeShop + league
+
+    console.log(formString)
+    return rp({
+      uri: uri,
+      method: 'POST',
+      followAllRedirects: true,
+      headers: {
+        'Chookie': cookie,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      form: formString
+    })
+      .then((data) => {
+        return Promise.resolve(shop.slice())
+      })
+      .catch((err) => {
+        throw err
+      })
+  }
+
+  getOrdersToPost(settings, shop) {
     let orders = []
     for(let mainKey in shop) {
       let mainCurrencyShop = shop[mainKey]
       for(let altKey in mainCurrencyShop) {
         let shopOrder = shop[mainKey][altKey] || {}
-        if(shopOrder.autotradeEnabled || shopOrder.overridden) {
+        if(settings.shopEnabled && (shopOrder.autotradeEnabled || shopOrder.overridden)) {
           orders.push(shopOrder)
         } else {
           shopOrder.postedOrder = {}
         }
       }
     }
+    return orders
+  }
 
-    if(!orders.length) {
-      return Promise.resolve(shop)
-    }
+  getShopFormString(settings, markets, inventory, orders) {
+    let formString = ''
     for(let order of orders) {
-      let offerDetails, buyEnabled = true, sellEnabled = true
-      let market
+      let offerDetails, buyEnabled = true, sellEnabled = true, market
+      order.postedOrder = {}
+
       if(markets[order.mainCurrencyType.id] && markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]) {
         market = markets[order.mainCurrencyType.id][order.alternateCurrencyType.id]
       } else {
@@ -70,10 +99,36 @@ export default class Shop {
         }
       }
 
-
       let sellOfferSellInventoryItem = inventory.idDict[market.bestOfferDetails.sellOffer.sellCurrencyType.id]
       let buyOfferSellInventoryItem = inventory.idDict[market.bestOfferDetails.buyOffer.sellCurrencyType.id]
 
+      //this part checks all conditions in order of precedence to determine whether to post the order
+      //Order from highest to lowest precedence is:
+      //1. There is proper market data for the order to determine the post price
+      //2. There is enough stock of the item being sold
+      //3. The order is the same type as the global order type (overrides order specific type)
+      //4. The type of the order matches the order to be posted
+
+      //4.
+      if(order.type == 'sell') {
+        buyEnabled = false
+      } else if(order.type == 'buy') {
+        sellEnabled = false
+      }
+
+      //3.
+      if(settings.globalOrderType == 'both') {
+        buyEnabled = true
+        sellEnabled = true
+      } else if(settings.globalOrderType == 'buy') {
+        buyEnabled = true
+        sellEnabled = false
+      } else if(settings.globalOrderType == 'sell') {
+        buyEnabled = false
+        sellEnabled = true
+      }
+
+      //2.
       if(sellOfferSellInventoryItem.count < sellOfferSellValue) {
         sellEnabled = false
       }
@@ -81,14 +136,7 @@ export default class Shop {
         buyEnabled = false
       }
 
-      order.postedOrder = {}
-
-      if(order.type == 'sell') {
-        buyEnabled = false
-      } else if(order.type == 'buy') {
-        sellEnabled = false
-      }
-      
+      //1.
       if(!sellOfferSellValue || !sellOfferBuyValue) {
         console.log(`Sell offer values are undefined/0, sell: ${sellOfferSellValue}, buy: ${sellOfferBuyValue}, disabling sell order`)
         sellEnabled = false
@@ -97,7 +145,7 @@ export default class Shop {
         console.log(`buy offer values are undefined/0, sell: ${sellOfferSellValue}, buy: ${sellOfferBuyValue}, disabling sell order`)
         buyEnabled = false
       }
-      
+
       if(sellEnabled) {
         order.postedOrder.sellOffer = {
           buy_value: sellOfferBuyValue,
@@ -120,28 +168,8 @@ export default class Shop {
         formString += '&buy_value=' + buyOfferBuyValue
       }
     }
-
-    let uri = constants.urls.currencyPoeTradeShop + league
-
-    console.log(formString)
-    return rp({
-      uri: uri,
-      method: 'POST',
-      followAllRedirects: true,
-      headers: {
-        'Chookie': cookie,
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      form: formString
-    })
-      .then((data) => {
-        return Promise.resolve(shop.slice())
-      })
-      .catch((err) => {
-        throw err
-      })
+    return formString
   }
-
 
 
 }

@@ -5,6 +5,7 @@ import Shop from '../components/Shop'
 import * as ShopActions from '../actions/shop'
 import * as ShopCurrencyFilterActions from '../actions/shopCurrencyFilter'
 import * as SelectedShopCurrenciesActions from '../actions/selectedShopCurrencies.js'
+import * as SettingsActions from '../actions/settings'
 
 class ShopPage extends Component {
   constructor(props) {
@@ -28,6 +29,11 @@ class ShopPage extends Component {
     changeShopOrder(mainCurrencyId, alternateCurrencyId, order)
   }
 
+  onShopSettingsChange(nextSettings) {
+    let { changeSettings } = this.props
+    changeSettings(nextSettings)
+  }
+
   render() {
     let selectedCurrencies = this.props.selectedShopCurrencies
     let selectedMarket = {}, selectedShop = {}
@@ -39,8 +45,10 @@ class ShopPage extends Component {
     }
     return (
       <Shop
+        settings={this.props.settings}
         selectedMarket={selectedMarket}
         selectedShop={selectedShop}
+        settings={this.props.settings}
         shop={this.props.shop}
         markets={this.props.markets}
         selectedCurrencies={this.props.selectedShopCurrencies}
@@ -49,6 +57,7 @@ class ShopPage extends Component {
         onShopChange={this.onShopChange.bind(this)}
         currencyFilter={this.props.shopCurrencyFilter}
         currencyTypes={this.props.currencyTypes}
+        onShopSettingsChange={this.onShopSettingsChange.bind(this)}
       />
     )
   }
@@ -56,6 +65,7 @@ class ShopPage extends Component {
 
 function mapStateToProps(state) {
   return {
+    settings: state.settings,
     currencyTypes: state.currencyTypes,
     shopCurrencyFilter: state.shopCurrencyFilter,
     selectedShopCurrencies: state.selectedShopCurrencies,
@@ -68,7 +78,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     ...ShopActions,
     ...ShopCurrencyFilterActions,
-    ...SelectedShopCurrenciesActions
+    ...SelectedShopCurrenciesActions,
+    ...SettingsActions,
   }, dispatch)
 }
 

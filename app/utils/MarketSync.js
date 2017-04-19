@@ -3,7 +3,7 @@ let constants = require('../constants')
 export default class MarketSync {
   constructor(io, cb) {
     this.io = io
-    let marketSyncUrl = process.env.NODE_ENV === 'production' ? constants.urls.marketSync : constants.urls.marketSync
+    let marketSyncUrl = process.env.NODE_ENV === 'production' ? constants.urls.marketSync : constants.urls.devMarketSync
     this.socket = this.io.connect(marketSyncUrl)
     this.offers = {}
     this.socketEvents()

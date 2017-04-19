@@ -24,12 +24,15 @@ export default class AlternateCurrencyButtonList extends Component {
   }
 
   renderCurrencyButtons(currencyTypes) {
-    let currencyButtons = currencyTypes.map((currencyType) => {
+    let filteredCurrencyTypes = currencyTypes.filter((currencyType) => {
+      return this.checkFilter(currencyType)
+    })
+    let currencyButtons = filteredCurrencyTypes.map((currencyType) => {
       let market = this.props.markets[this.props.selectedCurrencies.main][currencyType.id]
       let shop = this.props.shop[this.props.selectedCurrencies.main][currencyType.id]
-      let enabledButtonStyle = {}
+      let enabledButtonBsStyle = null
       if(shop && (shop.overridden || shop.autotradeEnabled)) {
-        enabledButtonStyle = styles.enabledOrder
+        enabledButtonBsStyle = {bsStyle: 'success'}
       }
       let ROI
       if(market) {
@@ -38,14 +41,14 @@ export default class AlternateCurrencyButtonList extends Component {
       if(ROI) {
         ROI = parseFloat(ROI.toFixed(2))
       }
-      let show = this.checkFilter(currencyType)
       return  (
         <Button
-          style={Object.assign({verticalAlign: 'middle'}, show ? {} : {display: 'none'})}
+          style={{verticalAlign: 'middle'}}
           onClick={() => {
             this.props.onSelectAlternateCurrency(currencyType.id)
           }}
-          className={[styles.currencyBtn, enabledButtonStyle]}
+          className={styles.currencyBtn}
+          {...enabledButtonBsStyle}
           key={currencyType.id}>
           <div className={styles.currencyCountText}>{ROI}</div>
           <CurrencyImg currencyType={currencyType} />
@@ -93,7 +96,7 @@ export default class AlternateCurrencyButtonList extends Component {
     }).sort((a, b) => this.compareCurrencyByROI(a, b))
 
     return (
-      <div>
+      <div style={{paddingTop: '2px'}}>
         <ButtonGroup>
           {this.renderCurrencyButtons(imageCurrencyTypes)}
         </ButtonGroup>

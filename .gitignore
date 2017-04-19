@@ -47,4 +47,5 @@ main.js.map
 npm-debug.log.*
 
 app/static/currency
-*/state
+app/data/state/*
+dll/

@@ -20,12 +20,70 @@ export default class Order extends Component {
 
   constructor(props) {
     super(props)
+
+    let defaultValues = this.getValues()
+
     this.state = {
-      alternateBuyValue: null,
-      mainBuyValue: null,
-      alternateSellValue: null,
-      mainSellValue: null,
+      overriddenAlternateBuyValue: defaultValues.alternateBuyValue,
+      overriddenMainBuyValue: defaultValues.mainBuyValue,
+      overriddenAlternateSellValue: defaultValues.alternateSellValue,
+      overriddenMainSellValue: defaultValues.mainSellValue,
+      ...defaultValues
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let defaultValues = this.getValues(nextProps), nextState = {}
+    if(!nextProps.order.overridden) {
+      nextState = {
+        overriddenAlternateBuyValue: defaultValues.alternateBuyValue,
+        overriddenMainBuyValue: defaultValues.mainBuyValue,
+        overriddenAlternateSellValue: defaultValues.alternateSellValue,
+        overriddenMainSellValue: defaultValues.mainSellValue,
+        ...defaultValues
+      }
+    } else {
+      nextState = defaultValues
+    }
+    this.setState(nextState)
+  }
+
+  getValues(nextProps = this.props) {
+    let alternateBuyValue, mainBuyValue, alternateSellValue, mainSellValue, buyOffer, sellOffer
+    if(nextProps.order.postedOrder) {
+      let postedOrder = nextProps.order.postedOrder || {}
+      buyOffer = postedOrder.buyOffer || {}
+      sellOffer = postedOrder.sellOffer || {}
+    } else if(nextProps.order.overridden) {
+      let overriddenOrder = nextProps.order.overriddenOrder || {}
+      buyOffer = overriddenOrder.buyOffer || {}
+      sellOffer = overriddenOrder.sellOffer || {}
+    } else if(nextProps.market) {
+      buyOffer = nextProps.market.bestOfferDetails.buyOffer || {}
+      sellOffer = nextProps.market.bestOfferDetails.sellOffer || {}
+    } else {
+      buyOffer = {}
+      sellOffer = {}
+    }
+
+    if(this.props.order.autotradeEnabled || this.props.order.overridden) {
+      alternateBuyValue = buyOffer.buy_value || ''
+      mainBuyValue = buyOffer.sell_value || ''
+      alternateSellValue = sellOffer.sell_value || ''
+      mainSellValue = sellOffer.buy_value || ''
+    }
+    return  {
+      alternateBuyValue,
+      mainBuyValue,
+      alternateSellValue,
+      mainSellValue
+    }
+  }
+
+  onTextChange(values) {
+    console.log(values)
+    let nextState = Object.assign({}, this.state, values)
+    this.setState(nextState)
   }
 
   onOverrideChange() {
@@ -52,28 +110,19 @@ export default class Order extends Component {
   }
 
   render() {
-    let alternateBuyValue, mainBuyValue, alternateSellValue, mainSellValue, buyOffer, sellOffer
-    if(this.props.order.postedOrder) {
-      let postedOrder = this.props.order.postedOrder || {}
-      buyOffer = postedOrder.buyOffer || {}
-      sellOffer = postedOrder.sellOffer || {}
-    } else if(this.props.order.overridden) {
-      let overriddenOrder = this.props.order.overriddenOrder || {}
-      buyOffer = overriddenOrder.buyOffer || {}
-      sellOffer = overriddenOrder.sellOffer || {}
-    } else if(this.props.market) {
-      buyOffer = this.props.market.bestOfferDetails.buyOffer || {}
-      sellOffer = this.props.market.bestOfferDetails.sellOffer || {}
-    } else {
-      buyOffer = {}
-      sellOffer = {}
+    let defaultValues = this.getValues()
+    let { alternateBuyValue, mainBuyValue, alternateSellValue, mainSellValue } = defaultValues
+    if(this.props.currencyType.fullName == 'Orb of Alteration') {
+      console.log(defaultValues, this.state)
     }
-
-    if(this.props.order.autotradeEnabled || this.props.order.overridden) {
-      alternateBuyValue = buyOffer.buy_value || ''
-      mainBuyValue = buyOffer.sell_value || ''
-      alternateSellValue = sellOffer.sell_value || ''
-      mainSellValue = sellOffer.buy_value || ''
+    if(this.props.order.overridden) {
+      alternateBuyValue = this.state.overriddenAlternateBuyValue ? this.state.overriddenAlternateBuyValue : defaultValues.alternateBuyValue
+      mainBuyValue = this.state.overriddenMainBuyValue ? this.state.overriddenMainBuyValue : defaultValues.mainBuyValue
+      alternateSellValue = this.state.overriddenAlternateSellValue ? this.state.overriddenAlternateSellValue : defaultValues.alternateSellValue
+      mainSellValue = this.state.overriddenMainSellValue ? this.state.overriddenMainSellValue : defaultValues.mainSellValue
+    }
+    if(this.props.currencyType.fullName == 'Orb of Alteration') {
+      console.log({ alternateBuyValue, mainBuyValue, alternateSellValue, mainSellValue })
     }
     return (
       <Col xs={12} className={[styles.orderBorder, styles.orderContainer]}>
@@ -91,9 +140,10 @@ export default class Order extends Component {
               buy
             </InputGroup.Addon>
             <FormControl
-              defaultValue={alternateBuyValue}
+              value={alternateBuyValue}
               disabled={!this.props.order.overridden}
               className={[styles.orderInput, styles.orderInputLeft]}
+              onChange={(event) => {this.onTextChange({overriddenAlternateBuyValue: event.target.value})}}
               onBlur={(event) => {this.onValueChange({alternateBuyValue: event.target.value})}}
               type="text"
             />
@@ -101,9 +151,10 @@ export default class Order extends Component {
               <CurrencyImg inline={true} currencyType={this.props.currencyType} /> for
             </InputGroup.Addon>
             <FormControl
-              defaultValue={mainBuyValue}
+              value={mainBuyValue}
               disabled={!this.props.order.overridden}
               className={[styles.orderInput, styles.orderInputRight]}
+              onChange={(event) => {this.onTextChange({overriddenMainBuyValue: event.target.value})}}
               onBlur={(event) => {this.onValueChange({mainBuyValue: event.target.value})}}
               type="text"
             />
@@ -118,9 +169,10 @@ export default class Order extends Component {
               sell
             </InputGroup.Addon>
             <FormControl
-              defaultValue={alternateSellValue}
+              value={alternateSellValue}
               disabled={!this.props.order.overridden}
               className={[styles.orderInput, styles.orderInputLeft]}
+              onChange={(event) => {this.onTextChange({overriddenAlternateSellValue: event.target.value})}}
               onBlur={(event) => {this.onValueChange({alternateSellValue: event.target.value})}}
               type="text"
             />
@@ -128,9 +180,10 @@ export default class Order extends Component {
               <CurrencyImg inline={true} currencyType={this.props.currencyType} /> for
             </InputGroup.Addon>
             <FormControl
-              defaultValue={mainSellValue}
+              value={mainSellValue}
               disabled={!this.props.order.overridden}
               className={[styles.orderInput, styles.orderInputRight]}
+              onChange={(event) => {this.onTextChange({overriddenMainSellValue: event.target.value})}}
               onBlur={(event) => {this.onValueChange({mainSellValue: event.target.value})}}
               type="text"
             />

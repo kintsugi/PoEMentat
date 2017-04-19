@@ -13,7 +13,9 @@
         "currencyPoeTrade": 10000,
         "shop": 20000
       },
-      "stashUpdateMode": "parallel"
+      "stashUpdateMode": "parallel",
+      "shopEnabled": false,
+      "globalOrderType": "none"
     },
     "currencyTypes": {},
     "inventory": [],

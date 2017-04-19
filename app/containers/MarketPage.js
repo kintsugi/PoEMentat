@@ -5,6 +5,7 @@ import Market from '../components/Market'
 import * as ShopActions from '../actions/shop'
 import * as MarketCurrencyFilterActions from '../actions/marketCurrencyFilter'
 import * as SelectedMarketCurrenciesActions from '../actions/selectedMarketCurrencies'
+import * as SettingsActions from '../actions/settings'
 
 class MarketPage extends Component {
   constructor(props) {
@@ -37,6 +38,11 @@ class MarketPage extends Component {
     changeShopOrder(mainCurrencyId, alternateCurrencyId, order)
   }
 
+  onShopSettingsChange(nextSettings) {
+    let { changeSettings } = this.props
+    changeSettings(nextSettings)
+  }
+
   render() {
     let selectedCurrencies = this.props.selectedMarketCurrencies
     let selectedMarket = {}, selectedShop = {
@@ -65,6 +71,7 @@ class MarketPage extends Component {
         onSelectAlternateCurrency={this.onSelectAlternateCurrency.bind(this)}
         onCurrencyFilterChange={this.onCurrencyFilterChange.bind(this)}
         onShopChange={this.onShopChange.bind(this)}
+        onShopSettingsChange={this.onShopSettingsChange.bind(this)}
       />
     )
   }
@@ -87,6 +94,7 @@ function mapDispatchToProps(dispatch) {
     ...ShopActions,
     ...MarketCurrencyFilterActions,
     ...SelectedMarketCurrenciesActions,
+    ...SettingsActions,
   }, dispatch)
 }
 

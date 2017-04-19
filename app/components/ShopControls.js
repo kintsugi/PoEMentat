@@ -102,7 +102,6 @@ export default class ShopControls extends Component {
             </ButtonGroup>
 
           </ButtonToolbar>
-          <br />
         </Col>
         <Col xs={3}>
           <div className={styles.bulkInputContainer}>
@@ -119,9 +118,7 @@ export default class ShopControls extends Component {
               />
             </InputGroup>
           </div>
-          <br />
           <Col xs={6}>
-            <br />
           </Col>
         </Col>
       </Col>

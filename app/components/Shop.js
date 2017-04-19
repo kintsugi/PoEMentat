@@ -24,11 +24,13 @@ export default class Shop extends Component {
           <Col xs={12}>
           <br />
           <MarketButtonToolbar
+            settings={this.props.settings}
             selectedCurrencies={this.props.selectedCurrencies}
             onSelectMainCurrency={this.props.onSelectMainCurrency}
             currencyFilter={this.props.currencyFilter}
             currencyTypes={this.props.currencyTypes}
             onCurrencyFilterChange={this.props.onCurrencyFilterChange}
+            onShopSettingsChange={this.props.onShopSettingsChange}
           />
           <br />
           </Col>

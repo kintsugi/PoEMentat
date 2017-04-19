@@ -29,15 +29,16 @@ export default class Market extends Component {
           <Col xs={12} >
             <br />
             <MarketButtonToolbar
+              settings={this.props.settings}
               selectedCurrencies={this.props.selectedCurrencies}
               onSelectMainCurrency={this.props.onSelectMainCurrency}
               currencyFilter={this.props.currencyFilter}
               currencyTypes={this.props.currencyTypes}
               onCurrencyFilterChange={this.props.onCurrencyFilterChange}
+              onShopSettingsChange={this.props.onShopSettingsChange}
             />
           </Col>
           <Col xs={12}>
-            <br />
             <AlternateCurrencyButtonList
               markets={this.props.markets}
               shop={this.props.shop}
@@ -58,10 +59,10 @@ export default class Market extends Component {
             selectedCurrencies={this.props.selectedCurrencies}
             onShopChange={this.props.onShopChange}
           />
-          <MarketDetails
-            markets={this.props.markets}
-            selectedCurrencies={this.props.selectedCurrencies}
-          />
+          {/*<MarketDetails*/
+            //markets={this.props.markets}
+            //selectedCurrencies={this.props.selectedCurrencies}
+          /*/>*/}
           <OffersList
             settings={this.props.settings}
             currencyTypes={this.props.currencyTypes}

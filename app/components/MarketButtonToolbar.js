@@ -10,6 +10,7 @@ import {
 } from 'react-bootstrap'
 import MainCurrencyDropdown from './MainCurrencyDropdown'
 import CurrencyFilter from './CurrencyFilter'
+import ShopSettingsToolbar from './ShopSettingsToolbar'
 import styles from './MarketButtonToolbar.css'
 
 const quickSelections = [4, 6]
@@ -34,6 +35,10 @@ export default class MarketButtonToolbar extends Component {
         <CurrencyFilter
           currencyFilter={this.props.currencyFilter}
           onCurrencyFilterChange={this.props.onCurrencyFilterChange}
+        />
+        <ShopSettingsToolbar
+          settings={this.props.settings}
+          onShopSettingsChange={this.props.onShopSettingsChange}
         />
       </div>
     )
